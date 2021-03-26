@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "production": "atcoder-anytime-asia",
+    "default": "atcoder-anytime-dev",
+    "develop": "atcoder-anytime-dev"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "functions",
+  "scripts": {
+    "lint": "tslint --project tsconfig.json",
+    "build": "tsc",
+    "serve": "npm run build && firebase serve --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "firebase-admin": "^8.12.1",
+    "firebase-functions": "^3.13.0"
+  },
+  "devDependencies": {
+    "@types/node-fetch": "^2.5.7",
+    "tslint": "^6.1.2",
+    "typescript": "^3.9.5"
+  },
+  "private": true,
+  "engines": {
+    "node": "10"
+  }
+}
