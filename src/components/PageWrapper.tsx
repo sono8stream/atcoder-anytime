@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
+import ReactGA from 'react-ga';
 import { useDispatch } from 'react-redux';
+import { useHistory, useLocation } from 'react-router';
 import { Button, Container, Divider, Menu, Segment } from 'semantic-ui-react';
 import { changeAccountInfo, logout } from '../actions';
 import firebase from '../firebase';
 import { useAccountInfo } from '../hooks';
-import { useHistory, useLocation } from 'react-router';
-import ReactGA from 'react-ga';
 
 const PageWrapper: React.FC<{ children: any }> = ({ children }) => {
   const history = useHistory();
@@ -53,6 +53,7 @@ const PageWrapper: React.FC<{ children: any }> = ({ children }) => {
         >
           AtCoder Anytime
         </Menu.Item>
+        {/*
         <Menu.Item
           onClick={() => {
             history.push('/contests');
@@ -60,6 +61,7 @@ const PageWrapper: React.FC<{ children: any }> = ({ children }) => {
         >
           Contests
         </Menu.Item>
+         */}
         <Menu.Item
           onClick={() => {
             history.push('/ranking');
