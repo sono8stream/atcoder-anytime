@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import ReactGA from 'react-ga';
 import { useDispatch } from 'react-redux';
 import { useHistory, useLocation } from 'react-router';
 import { Button, Container, Divider, Menu, Segment } from 'semantic-ui-react';
+
 import { changeAccountInfo, logout } from '../actions';
 import firebase from '../firebase';
 import { useAccountInfo } from '../hooks';
@@ -13,12 +13,6 @@ const PageWrapper: React.FC<{ children: any }> = ({ children }) => {
 
   const dispatch = useDispatch();
   const account = useAccountInfo();
-
-  useEffect(() => {
-    const { pathname } = location;
-    ReactGA.set({ page: pathname });
-    ReactGA.pageview(pathname);
-  }, [location]);
 
   useEffect(() => {
     window.scrollTo(0, 0);

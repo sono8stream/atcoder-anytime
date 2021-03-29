@@ -1,4 +1,4 @@
-import { calculateNewRating } from '../utils/calculateRatingChange';
+import { calculateNewRating } from '../utils/calculateNewRating';
 
 export default test('Validate rating change', () => {
   return calculateNewRating(

@@ -1,10 +1,10 @@
 import { createBrowserHistory } from 'history';
 import React from 'react';
-import ReactGA from 'react-ga';
 import { Provider } from 'react-redux';
 import { Route, Router } from 'react-router';
 import { applyMiddleware, createStore } from 'redux';
 import thunk from 'redux-thunk';
+
 import Contact from './components/Contact';
 import ContestsPage from './components/ContestsPage';
 import PageWrapper from './components/PageWrapper';
@@ -17,12 +17,17 @@ import rootReducer from './reducers';
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
+interface Window {
+  gtag: Gtag.Gtag;
+}
+
 const App: React.FC = () => {
-  ReactGA.initialize(trackID);
   const history = createBrowserHistory();
+
   history.listen(({ pathname }) => {
-    ReactGA.set({ page: pathname });
-    ReactGA.pageview(pathname);
+    window.gtag('config', trackID, {
+      page_path: pathname,
+    });
   });
 
   return (
