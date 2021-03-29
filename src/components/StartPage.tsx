@@ -134,18 +134,18 @@ const StartPage: React.FC = () => {
         <List.Item>
           {isEnglish ? (
             <>
-              Enter a{' '}
-              <a href="https://atcoder.jp" target="blank">
-                AtCoder
+              Join an{' '}
+              <a href="https://atcoder.jp/contests" target="blank">
+                AtCoder contest
               </a>{' '}
-              virtual contest.
+              as virtual participation.
             </>
           ) : (
             <>
-              <a href="https://atcoder.jp" target="blank">
-                AtCoder
+              <a href="https://atcoder.jp/contests" target="blank">
+                AtCoder上のコンテスト
               </a>
-              上でVirtual Contestに参加
+              にバーチャル参加
             </>
           )}
         </List.Item>

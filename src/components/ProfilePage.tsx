@@ -250,7 +250,7 @@ const ProfilePage: React.FC = () => {
                     record.contestName
                   ) : (
                     <a
-                      href={`https://atcoder.jp/contests/${record.contestID}/standings/virtual`}
+                      href={`https://atcoder.jp/contests/${record.contestID}`}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -258,7 +258,19 @@ const ProfilePage: React.FC = () => {
                     </a>
                   )}
                 </Table.Cell>
-                <Table.Cell>{record.rank}</Table.Cell>
+                <Table.Cell>
+                  {record.contestID === 'registration' ? (
+                    record.rank
+                  ) : (
+                    <a
+                      href={`https://atcoder.jp/contests/${record.contestID}/standings/virtual/?watching=${userInfo.handle}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {record.rank}
+                    </a>
+                  )}
+                </Table.Cell>
                 <Table.Cell style={getRatingColorStyle(cert.performance)}>
                   {cert.performance}
                 </Table.Cell>
