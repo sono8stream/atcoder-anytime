@@ -250,6 +250,7 @@ const StartPage: React.FC = () => {
             )}
           </List.Item>
         </List>
+        {/*
         <Header as="h5">
           {isEnglish ? (
             <>
@@ -261,6 +262,7 @@ const StartPage: React.FC = () => {
             </>
           )}
         </Header>
+          */}
       </Segment>
     </>
   );
