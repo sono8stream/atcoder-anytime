@@ -10,7 +10,7 @@ import AvailableContestInfo from '../types/availableContestInfo';
 import ContestRecord from '../types/contestRecord';
 import RootState from '../types/rootState';
 import UserProfile from '../types/userProfile';
-import { calculateNewRating } from '../utils/calculateRatingChange';
+import { calculateNewRating } from '../utils/calculateNewRating';
 import { getParticipateVirtuals } from '../utils/getParticipateVirtuals';
 
 const actionCreator = actionCreatorFactory();
@@ -88,6 +88,7 @@ export const updateContestRecords = (
           participationInfo,
           getState().profile
         ).catch((e) => null);
+        console.log(contestResult);
         if (!contestResult) {
           continue;
         }
@@ -102,7 +103,7 @@ export const updateContestRecords = (
           roundedPerformance: contestResult.roundedPerformance,
         };
 
-        updateTime = Math.max(updateTime, participationInfo.elapsedTime);
+        updateTime = Math.max(updateTime, participationInfo.startTimeSeconds);
 
         const doc = await storeRef.get();
         if (updateTime > doc.data()?.lastUpdateTime) {
@@ -118,6 +119,7 @@ export const updateContestRecords = (
           oldRating = contestResult.newRating;
         }
       } catch (e) {
+        console.log(e);
         continue;
       }
     }

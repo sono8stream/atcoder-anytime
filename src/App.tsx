@@ -12,7 +12,7 @@ import ProfilePage from './components/ProfilePage';
 import RankingPage from './components/RankingPage';
 import StartPage from './components/StartPage';
 import UpdateProfilePage from './components/UpdateProfilePage';
-import { trackID } from './ga/config';
+import trackID from './ga/config';
 import rootReducer from './reducers';
 
 const store = createStore(rootReducer, applyMiddleware(thunk));

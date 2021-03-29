@@ -50,8 +50,8 @@ ${certificate.handle}さんの${
 Highestを更新しました！`
           : ''
       }
-#CodeforcesAnytime
-https://codeforces-anytime.sonoapp.page/users/${id}?cert=${idx}`;
+#AtCoderAnytime
+https://atcoder-anytime.sonoapp.page/users/${id}?cert=${idx}`;
     }
   }
 };

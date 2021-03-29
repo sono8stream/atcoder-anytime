@@ -250,7 +250,7 @@ const ProfilePage: React.FC = () => {
                     record.contestName
                   ) : (
                     <a
-                      href={`https://atcoder.jp/users/${userInfo.handle}/history/share/${record.contestID}`}
+                      href={`https://atcoder.jp/contests/${record.contestID}/standings/virtual`}
                       target="_blank"
                       rel="noopener noreferrer"
                     >

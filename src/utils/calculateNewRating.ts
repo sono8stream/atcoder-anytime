@@ -19,10 +19,6 @@ interface ContestStandings {
   ];
 }
 
-interface ContestResult {
-  Performance: number;
-}
-
 export const calculateNewRating = async (
   participationInfo: ParticipationInfo,
   profile: UserProfile
@@ -32,6 +28,7 @@ export const calculateNewRating = async (
     participationInfo,
     upperIdx
   );
+  console.log(rank, roundedPerformance);
   const newRating = await calculateRating(profile, roundedPerformance);
   return {
     handle: profile.handle,
@@ -51,17 +48,16 @@ const calculateRank = async (participationInfo: ParticipationInfo) => {
 
   const result = response.data.result as ContestStandings;
   const standingData = result.StandingsData;
+  const divisor = 1000000000;
   for (let i = 0; i < standingData.length; i++) {
-    if (
-      score === standingData[i].TotalResult.Score &&
-      elapsedTime === standingData[i].TotalResult.Elapsed
-    ) {
+    const targetScore = standingData[i].TotalResult.Score;
+    const targetElapsed = standingData[i].TotalResult.Elapsed / divisor;
+    if (score === targetScore && elapsedTime === targetElapsed) {
       return [standingData[i].Rank, i - 1];
     }
     if (
-      score > standingData[i].TotalResult.Score ||
-      (score === standingData[i].TotalResult.Score &&
-        elapsedTime < standingData[i].TotalResult.Elapsed)
+      score > targetScore ||
+      (score === targetScore && elapsedTime < targetElapsed)
     ) {
       return [standingData[i].Rank, i - 1];
     }
@@ -119,6 +115,7 @@ const calculateRoundedPerformance = async (
 const calculateRating = (profile: UserProfile, roundedPerformance: number) => {
   const { records } = profile;
   const rawRating = getRawRating(records, roundedPerformance);
+  console.log(rawRating);
   /*
   const beginnerCorrectedRating = getBeginnerCorrectedRating(
     records,
@@ -136,7 +133,10 @@ const getRawRating = (records: ContestRecord[], roundedPerformance: number) => {
   let denom = 0.9;
   let ratio = 0.9 * 0.9;
   for (const contest of records.reverse()) {
-    if (contest.contestID === 'registration') {
+    if (
+      contest.contestID === 'registration' &&
+      contest.roundedPerformance === 0
+    ) {
       break;
     }
     console.log(contest);

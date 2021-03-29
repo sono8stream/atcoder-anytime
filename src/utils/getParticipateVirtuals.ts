@@ -19,9 +19,9 @@ export const getParticipateVirtuals = async (
   const json = await response.json();
   const submissions = json as Submission[];
 
-  const participatedContests = new Set<string>();
+  const checkedContests = new Set<string>();
   for (const record of profile.records) {
-    participatedContests.add(record.contestID);
+    checkedContests.add(record.contestID);
   }
 
   const virtuals = new Array<ParticipationInfo>();
@@ -32,20 +32,24 @@ export const getParticipateVirtuals = async (
     }
 
     // virtualの結果は1つしか存在しない
-    // すでにレート変動を登録済のコンテストは無効
+    // すでにチェックしたコンテストはスキップ
     const contestID = submission.contest_id;
-    if (participatedContests.has(contestID)) {
+    if (checkedContests.has(contestID)) {
       continue;
     }
+    checkedContests.add(contestID);
 
     const participation = await checkParticipation(
       handle,
       contestID,
       submission.problem_id,
       submission.epoch_second
-    );
+    ).catch((e) => e);
+    if (participation === null) {
+      continue;
+    }
+
     if (participation.startTimeSeconds > lastUpdateTime) {
-      participatedContests.add(contestID);
       virtuals.push(participation);
     }
   }
@@ -67,12 +71,11 @@ const checkParticipation = async (
 
   const divisor = 1000000000;
   const data = standingResponse.data.result;
-  console.log(standingUrl, data);
   for (const user of data.StandingsData) {
     if (
       user.UserScreenName === handle &&
       user.IsRated &&
-      user.Additional.virtualElapsed === -1
+      user.Additional['standings.virtualElapsed'] === -1
     ) {
       const startTimeSeconds =
         submissionTime - user.TaskResults[problemID].Elapsed / divisor;
