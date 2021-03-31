@@ -38,7 +38,7 @@ const PageWrapper: React.FC<{ children: any }> = ({ children }) => {
         flexDirection: 'column',
       }}
     >
-      <Menu fixed="top" inverted={true} style={{ overflow: 'auto' }}>
+      <Menu fixed="top" style={{ overflow: 'auto' }}>
         <Menu.Item
           header={true}
           onClick={() => {
@@ -93,11 +93,10 @@ const PageWrapper: React.FC<{ children: any }> = ({ children }) => {
         {children}
       </Container>
       <div style={{ height: '5em' }} />
-      <Segment inverted={true} vertical={true} style={{ padding: '2em 0em' }}>
+      <Segment vertical={false} style={{ padding: '2em 0em' }}>
         <Container textAlign="center">
           <Button
             basic={true}
-            inverted={true}
             onClick={() => {
               history.push('/contact');
             }}
