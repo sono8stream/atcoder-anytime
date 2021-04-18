@@ -4,7 +4,11 @@ import * as admin from 'firebase-admin';
 import UserData from './config';
 
 const login = async () => {
-  const res = await axios.get('https://atcoder.jp/login');
+  const res = await axios.get('https://atcoder.jp/login', {
+    headers: {
+      Cookie: '', // 安定動作のためには必ずCookie初期化
+    },
+  });
   const cookies = res.headers['set-cookie'].map(
     (cookie: string) =>
       (/^\s*(?:Set-Cookie:\s*)?(.*)$/i.exec(cookie) as string[])[1]
@@ -30,7 +34,10 @@ const login = async () => {
       validateStatus: (status) =>
         (status >= 200 && status < 300) || status === 302,
     })
-    .catch((e) => e);
+    .catch((e) => {
+      throw e;
+    });
+
   const cookies2 = res2.headers['set-cookie'].map(
     (cookie: string) =>
       (/^\s*(?:Set-Cookie:\s*)?(.*)$/i.exec(cookie) as string[])[1]
@@ -43,6 +50,8 @@ const login = async () => {
   await doc.update({
     string: loginCookieStr,
   });
+
+  return loginCookieStr;
 };
 
 const getToken = (data: string) => {

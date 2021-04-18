@@ -12,19 +12,23 @@ export const getExternal = functions.https.onCall(async (data, context) => {
     const doc = admin.firestore().collection('loginCookie').doc('cookie');
     const snapshot = await doc.get();
     const cookie = snapshot.data() as { string: string };
+    console.log(cookie);
     let response = await axios.get(url, {
       headers: {
         Cookie: cookie.string,
       },
+      maxRedirects: 0,
+      validateStatus: (status) =>
+        (status >= 200 && status < 300) || status === 302,
     });
     if (response.status === 302) {
-      await login();
+      const loginCookieStr = await login();
+      response = await axios.get(url, {
+        headers: {
+          Cookie: loginCookieStr,
+        },
+      });
     }
-    response = await axios.get(url, {
-      headers: {
-        Cookie: cookie.string,
-      },
-    });
     const json = response.data;
     return { result: json };
   }
