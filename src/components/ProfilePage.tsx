@@ -88,7 +88,7 @@ const ProfilePage: React.FC = () => {
         fetchUsers(
           (currentUsers: { [id: string]: UserProfile }) => {
             if (!currentUsers[urlParams.id]) {
-              history.push('/');
+              history.push('/profile/update');
             }
           },
           () => {

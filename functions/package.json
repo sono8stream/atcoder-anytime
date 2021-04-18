@@ -3,8 +3,8 @@
   "scripts": {
     "lint": "tslint --project tsconfig.json",
     "build": "tsc",
-    "serve": "npm run build && firebase serve --only functions",
-    "shell": "npm run build && firebase functions:shell",
+    "serve": "tsc-watch --onFirstSuccess \"firebase serve --only functions\"",
+    "shell": "tsc-watch --onFirstSuccess \"firebase functions:shell\"",
     "start": "npm run shell",
     "deploy": "firebase deploy --only functions",
     "logs": "firebase functions:log"
@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "@types/node-fetch": "^2.5.7",
+    "tsc-watch": "^4.2.9",
     "tslint": "^6.1.2",
     "typescript": "^3.9.5"
   },
