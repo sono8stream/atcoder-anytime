@@ -2,7 +2,7 @@ import axios from 'axios';
 import * as admin from 'firebase-admin';
 import * as functions from 'firebase-functions';
 
-import login from './login';
+import login from './utils/login';
 
 export const getExternal = functions.https.onCall(async (data, context) => {
   const url = data.url;
@@ -12,7 +12,6 @@ export const getExternal = functions.https.onCall(async (data, context) => {
     const doc = admin.firestore().collection('loginCookie').doc('cookie');
     const snapshot = await doc.get();
     const cookie = snapshot.data() as { string: string };
-    console.log(cookie);
     let response = await axios.get(url, {
       headers: {
         Cookie: cookie.string,

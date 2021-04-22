@@ -1,7 +1,7 @@
 import axios from 'axios';
 import * as admin from 'firebase-admin';
 
-import UserData from './config';
+import UserData from '../config';
 
 const login = async () => {
   const res = await axios.get('https://atcoder.jp/login', {
