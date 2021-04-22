@@ -1,13 +1,25 @@
+import firebase from '../firebase';
 import ContestRecord from '../types/contestRecord';
 
 export const fetchOfficialRatingRecordsAPI = async (handle: string) => {
-  const url = `https://codeforces.com/api/user.rating?handle=${handle}`;
+  const url = `https://atcoder.jp/users/${handle}/history/json`;
   try {
-    const response = await fetch(url);
-    const json = await response.json();
+    const response = await firebase.functions().httpsCallable('getExternal')({
+      url,
+    });
+
+    const result = response.data.result;
     const records: ContestRecord[] = [];
-    for (const record of json?.result) {
-      records.push({ ...record, contestID: record.contestId });
+    for (const record of result) {
+      records.push({
+        contestID: record.ContestScreenName.split('.')[0],
+        startTime: 0,
+        contestName: record.ContestName,
+        rank: record.Place,
+        newRating: record.NewRating,
+        oldRating: record.OldRating,
+        roundedPerformance: record.Performance,
+      });
     }
     return records;
   } catch (e) {

@@ -1,4 +1,3 @@
-import firebase from '../firebase';
 import AvailableContestInfo from '../types/availableContestInfo';
 
 export const fetchAvailableContestInfoAPI = async () => {
