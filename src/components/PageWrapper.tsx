@@ -47,7 +47,6 @@ const PageWrapper: React.FC<{ children: any }> = ({ children }) => {
         >
           AtCoder Anytime
         </Menu.Item>
-        {/*
         <Menu.Item
           onClick={() => {
             history.push('/contests');
@@ -55,7 +54,6 @@ const PageWrapper: React.FC<{ children: any }> = ({ children }) => {
         >
           Contests
         </Menu.Item>
-         */}
         <Menu.Item
           onClick={() => {
             history.push('/ranking');

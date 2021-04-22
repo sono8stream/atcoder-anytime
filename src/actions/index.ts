@@ -73,6 +73,12 @@ export const updateContestRecords = (
     onStart();
   }
   const userID = getState().account.id;
+  /*
+  await firebase.functions().httpsCallable('updateContestRecords')({
+    userID,
+  });
+  */
+
   const { handle, lastUpdateTime } = getState().profile;
   const storeRef = firebase.firestore().collection('users').doc(userID);
   let oldRating = getState().profile.rating;
