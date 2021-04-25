@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Header, Table } from 'semantic-ui-react';
+import { Header, Icon, Pagination, Table } from 'semantic-ui-react';
 import {
   fetchAvailableContestInfo,
   fetchOfficialRatingRecords,
@@ -28,6 +28,13 @@ const ContestsPage: React.FC = () => {
     officialRanks[record.contestID] = record.rank;
   }
 
+  const contestsPerPage = 20;
+  let pages = availableContests.length / contestsPerPage;
+  if (availableContests.length % contestsPerPage > 0) {
+    pages++;
+  }
+  const [currentPageIdx, setCurrentPageIdx] = useState(1);
+
   useEffect(() => {
     if (availableContests.length === 0) {
       dispatch(fetchAvailableContestInfo());
@@ -51,6 +58,23 @@ const ContestsPage: React.FC = () => {
   return (
     <>
       <Header as="h2" content="Supported contests" />
+
+      <Pagination
+        defaultActivePage={1}
+        activePage={currentPageIdx}
+        ellipsisItem={{
+          content: <Icon name="ellipsis horizontal" />,
+          icon: true,
+        }}
+        firstItem={{ content: <Icon name="angle double left" />, icon: true }}
+        lastItem={{ content: <Icon name="angle double right" />, icon: true }}
+        prevItem={{ content: <Icon name="angle left" />, icon: true }}
+        nextItem={{ content: <Icon name="angle right" />, icon: true }}
+        totalPages={pages}
+        onPageChange={(e, { activePage }) =>
+          setCurrentPageIdx(activePage as number)
+        }
+      />
       <Table unstackable={true} celled={true}>
         <Table.Header>
           <Table.Row>
@@ -62,29 +86,55 @@ const ContestsPage: React.FC = () => {
         </Table.Header>
 
         <Table.Body>
-          {availableContests.map((info) => {
-            return (
-              <Table.Row
-                key={info.title}
-                warning={!!officialRanks[info.id]}
-                positive={!!virtualRanks[info.id]}
-              >
-                <Table.Cell>
-                  <a
-                    href={`https://atcoder.jp/contests/${info.id}`}
-                    target="blank"
-                  >
-                    {info.title}
-                  </a>
-                </Table.Cell>
-                <Table.Cell>{officialRanks[info.id] || '-'}</Table.Cell>
-                <Table.Cell>{virtualRanks[info.id] || '-'}</Table.Cell>
-                <Table.Cell>{info.duration_second / 60} min.</Table.Cell>
-              </Table.Row>
-            );
-          })}
+          {availableContests
+            .filter((contest, i) => {
+              const now = i - contestsPerPage * (currentPageIdx - 1);
+
+              if (now >= 0 && now < contestsPerPage) {
+                return true;
+              }
+              return false;
+            })
+            .map((info) => {
+              return (
+                <Table.Row
+                  key={info.title}
+                  warning={!!officialRanks[info.id]}
+                  positive={!!virtualRanks[info.id]}
+                >
+                  <Table.Cell>
+                    <a
+                      href={`https://atcoder.jp/contests/${info.id}`}
+                      target="blank"
+                    >
+                      {info.title}
+                    </a>
+                  </Table.Cell>
+                  <Table.Cell>{officialRanks[info.id] || '-'}</Table.Cell>
+                  <Table.Cell>{virtualRanks[info.id] || '-'}</Table.Cell>
+                  <Table.Cell>{info.duration_second / 60} min.</Table.Cell>
+                </Table.Row>
+              );
+            })}
         </Table.Body>
       </Table>
+
+      <Pagination
+        defaultActivePage={1}
+        activePage={currentPageIdx}
+        ellipsisItem={{
+          content: <Icon name="ellipsis horizontal" />,
+          icon: true,
+        }}
+        firstItem={{ content: <Icon name="angle double left" />, icon: true }}
+        lastItem={{ content: <Icon name="angle double right" />, icon: true }}
+        prevItem={{ content: <Icon name="angle left" />, icon: true }}
+        nextItem={{ content: <Icon name="angle right" />, icon: true }}
+        totalPages={pages}
+        onPageChange={(e, { activePage }) =>
+          setCurrentPageIdx(activePage as number)
+        }
+      />
     </>
   );
 };

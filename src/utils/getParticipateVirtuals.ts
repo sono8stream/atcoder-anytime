@@ -9,6 +9,8 @@ interface Submission {
   epoch_second: number;
 }
 
+// コンテスト情報だけでなく，最後にチェックした提出の時刻も一緒に返したい
+// ただし，終了していないバチャの提出があった場合はそこで処理を打ち切る
 export const getParticipateVirtuals = async (
   profile: UserProfile
 ): Promise<ParticipationInfo[]> => {
