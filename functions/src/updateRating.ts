@@ -60,10 +60,11 @@ export const updateRating = functions.https.onCall(async (data, context) => {
       roundedPerformance: contestResult.roundedPerformance,
     };
 
+    profile.records.unshift(newRecord);
     await profileRef.update({
       lastUpdateTime: submission.epoch_second,
       rating: contestResult.newRating,
-      records: [newRecord, ...profile.records],
+      records: profile.records,
     });
 
     profile.rating = contestResult.newRating;
