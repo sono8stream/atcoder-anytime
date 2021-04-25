@@ -1,0 +1,624 @@
+[debug] [2021-04-25T07:29:07.959Z] ----------------------------------------------------------------------
+[debug] [2021-04-25T07:29:07.962Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\sono8\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve --only functions
+[debug] [2021-04-25T07:29:07.962Z] CLI Version:   7.16.2
+[debug] [2021-04-25T07:29:07.962Z] Platform:      win32
+[debug] [2021-04-25T07:29:07.962Z] Node Version:  v12.17.0
+[debug] [2021-04-25T07:29:07.963Z] Time:          Sun Apr 25 2021 16:29:07 GMT+0900 (GMT+09:00)
+[debug] [2021-04-25T07:29:07.963Z] ----------------------------------------------------------------------
+[debug] [2021-04-25T07:29:07.963Z] 
+[debug] [2021-04-25T07:29:07.971Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-04-25T07:29:07.971Z] > authorizing via signed-in user
+[debug] [2021-04-25T07:29:07.971Z] [iam] checking project atcoder-anytime-dev for permissions ["firebase.projects.get"]
+[debug] [2021-04-25T07:29:07.974Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/atcoder-anytime-dev:testIamPermissions  
+
+[debug] [2021-04-25T07:29:08.828Z] <<< HTTP RESPONSE 200
+[debug] [2021-04-25T07:29:08.830Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/atcoder-anytime-dev  
+ 
+[debug] [2021-04-25T07:29:09.285Z] <<< HTTP RESPONSE 200
+[warn] !  Your requested "node" version "10" doesn't match your global version "12"
+[info] +  functions: functions emulator started at http://localhost:5000
+[info] i  functions: Watching "F:\react\atcoder-anytime\functions" for Cloud Functions...
+[debug] [2021-04-25T07:29:11.376Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2021-04-25T07:29:11.376Z] [worker-pool] Adding worker with key ~diagnostic~, total=1
+[debug] [2021-04-25T07:29:11.377Z] [worker-pool] submitWork(triggerId=)
+[debug] [2021-04-25T07:29:11.377Z] [worker-~diagnostic~-fb82d2d7-133c-4964-9fec-ef2c20b1c83e]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\1408
+[debug] [2021-04-25T07:29:11.378Z] [worker-~diagnostic~-fb82d2d7-133c-4964-9fec-ef2c20b1c83e]: BUSY
+[debug] [2021-04-25T07:29:11.701Z] [runtime-status] [1408] Functions runtime initialized. {"cwd":"F:\\react\\atcoder-anytime\\functions","node_version":"12.17.0"}
+[debug] [2021-04-25T07:29:11.701Z] [runtime-status] [1408] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2021-04-25T07:29:11.704Z] [runtime-status] [1408] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2021-04-25T07:29:11.705Z] [runtime-status] [1408] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-25T07:29:11.706Z] [runtime-status] [1408] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[info] +  functions[getExternal]: http function initialized (http://localhost:5000/atcoder-anytime-dev/us-central1/getExternal).
+[info] +  functions[updateRating]: http function initialized (http://localhost:5000/atcoder-anytime-dev/us-central1/updateRating).
+[debug] [2021-04-25T07:29:11.812Z] [worker-~diagnostic~-fb82d2d7-133c-4964-9fec-ef2c20b1c83e]: IDLE
+[debug] [2021-04-25T07:29:34.247Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2021-04-25T07:29:34.248Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2021-04-25T07:29:34.249Z] Accepted request POST /atcoder-anytime-dev/us-central1/updateRating --> updateRating
+[debug] [2021-04-25T07:29:34.268Z] [worker-pool] addWorker(updateRating)
+[debug] [2021-04-25T07:29:34.268Z] [worker-pool] Adding worker with key updateRating, total=1
+[debug] [2021-04-25T07:29:34.268Z] [worker-pool] submitWork(triggerId=updateRating)
+[debug] [2021-04-25T07:29:34.268Z] [worker-updateRating-c0e90928-5002-41cd-92ff-968e01bfd93d]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\12436
+[debug] [2021-04-25T07:29:34.268Z] [worker-updateRating-c0e90928-5002-41cd-92ff-968e01bfd93d]: BUSY
+[debug] [2021-04-25T07:29:34.583Z] [runtime-status] [12436] Functions runtime initialized. {"cwd":"F:\\react\\atcoder-anytime\\functions","node_version":"12.17.0"}
+[debug] [2021-04-25T07:29:34.584Z] [runtime-status] [12436] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2021-04-25T07:29:34.586Z] [runtime-status] [12436] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2021-04-25T07:29:34.588Z] [runtime-status] [12436] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-25T07:29:34.589Z] [runtime-status] [12436] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-25T07:29:34.697Z] [runtime-status] [12436] Trigger "updateRating" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "updateRating"
+[debug] [2021-04-25T07:29:34.698Z] [runtime-status] [12436] triggerDefinition {"httpsTrigger":{},"labels":{"deployment-callable":"true"},"name":"updateRating","entryPoint":"updateRating"}
+[debug] [2021-04-25T07:29:34.698Z] [runtime-status] [12436] Running updateRating in mode HTTPS
+[debug] [2021-04-25T07:29:34.702Z] [runtime-status] [12436] Attempting to listen to socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\12436
+[debug] [2021-04-25T07:29:34.707Z] [functions] Runtime ready! Sending request!
+[debug] [2021-04-25T07:29:34.746Z] [runtime-status] [12436] Ephemeral server handling POST request
+[debug] [2021-04-25T07:29:34.748Z] [runtime-status] [12436] No callable functions auth found
+[debug] [2021-04-25T07:29:38.361Z] [runtime-status] [12436] Ephemeral server survived.
+[info] i  functions: Finished "updateRating" in ~2s
+[debug] [2021-04-25T07:29:39.895Z] [worker-updateRating-c0e90928-5002-41cd-92ff-968e01bfd93d]: IDLE
+[debug] [2021-04-25T07:29:39.895Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2021-04-25T07:30:57.747Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2021-04-25T07:30:57.747Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2021-04-25T07:30:57.747Z] Accepted request POST /atcoder-anytime-dev/us-central1/updateRating --> updateRating
+[debug] [2021-04-25T07:30:57.748Z] [worker-pool] submitWork(triggerId=updateRating)
+[debug] [2021-04-25T07:30:57.748Z] [worker-updateRating-c0e90928-5002-41cd-92ff-968e01bfd93d]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\12436
+[debug] [2021-04-25T07:30:57.748Z] [worker-updateRating-c0e90928-5002-41cd-92ff-968e01bfd93d]: BUSY
+[debug] [2021-04-25T07:30:57.749Z] [runtime-status] [12436] Trigger "updateRating" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "updateRating"
+[debug] [2021-04-25T07:30:57.750Z] [runtime-status] [12436] triggerDefinition {"httpsTrigger":{},"labels":{"deployment-callable":"true"},"name":"updateRating","entryPoint":"updateRating"}
+[debug] [2021-04-25T07:30:57.750Z] [runtime-status] [12436] Running updateRating in mode HTTPS
+[debug] [2021-04-25T07:30:57.750Z] [runtime-status] [12436] Attempting to listen to socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\12436
+[debug] [2021-04-25T07:30:57.752Z] [functions] Runtime ready! Sending request!
+[debug] [2021-04-25T07:30:57.756Z] [runtime-status] [12436] Ephemeral server handling POST request
+[debug] [2021-04-25T07:30:57.756Z] [runtime-status] [12436] No callable functions auth found
+[debug] [2021-04-25T07:30:57.757Z] [runtime-status] [12436] Ephemeral server survived.
+[info] i  functions: Finished "updateRating" in ~17s
+[debug] [2021-04-25T07:31:15.759Z] [worker-updateRating-c0e90928-5002-41cd-92ff-968e01bfd93d]: IDLE
+[debug] [2021-04-25T07:31:15.759Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2021-04-25T07:31:53.110Z] File F:\react\atcoder-anytime\functions\src\updateContestRecords.ts changed, reloading triggers
+[debug] [2021-04-25T07:31:53.626Z] File F:\react\atcoder-anytime\functions\lib\updateContestRecords.js.map changed, reloading triggers
+[debug] [2021-04-25T07:31:53.628Z] File F:\react\atcoder-anytime\functions\lib\updateContestRecords.js changed, reloading triggers
+[debug] [2021-04-25T07:31:54.632Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2021-04-25T07:31:54.632Z] [worker-~diagnostic~-fb82d2d7-133c-4964-9fec-ef2c20b1c83e]: FINISHING
+[debug] [2021-04-25T07:31:54.633Z] [worker-pool] Shutting down IDLE worker (updateRating)
+[debug] [2021-04-25T07:31:54.634Z] [worker-updateRating-c0e90928-5002-41cd-92ff-968e01bfd93d]: FINISHING
+[debug] [2021-04-25T07:31:54.657Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2021-04-25T07:31:54.657Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2021-04-25T07:31:54.657Z] [worker-pool] submitWork(triggerId=)
+[debug] [2021-04-25T07:31:54.657Z] [worker-~diagnostic~-0aba5d19-484b-4825-a8dd-7a90d28b44cd]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\11156
+[debug] [2021-04-25T07:31:54.657Z] [worker-~diagnostic~-0aba5d19-484b-4825-a8dd-7a90d28b44cd]: BUSY
+[debug] [2021-04-25T07:31:54.659Z] [worker-~diagnostic~-fb82d2d7-133c-4964-9fec-ef2c20b1c83e]: exited
+[debug] [2021-04-25T07:31:54.659Z] [worker-~diagnostic~-fb82d2d7-133c-4964-9fec-ef2c20b1c83e]: FINISHED
+[debug] [2021-04-25T07:31:54.659Z] [worker-updateRating-c0e90928-5002-41cd-92ff-968e01bfd93d]: exited
+[debug] [2021-04-25T07:31:54.659Z] [worker-updateRating-c0e90928-5002-41cd-92ff-968e01bfd93d]: FINISHED
+[debug] [2021-04-25T07:31:55.054Z] [runtime-status] [11156] Functions runtime initialized. {"cwd":"F:\\react\\atcoder-anytime\\functions","node_version":"12.17.0"}
+[debug] [2021-04-25T07:31:55.055Z] [runtime-status] [11156] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2021-04-25T07:31:55.058Z] [runtime-status] [11156] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2021-04-25T07:31:55.060Z] [runtime-status] [11156] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-25T07:31:55.060Z] [runtime-status] [11156] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-25T07:31:55.177Z] [worker-~diagnostic~-0aba5d19-484b-4825-a8dd-7a90d28b44cd]: IDLE
+[debug] [2021-04-25T07:31:59.207Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2021-04-25T07:31:59.207Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2021-04-25T07:31:59.207Z] Accepted request POST /atcoder-anytime-dev/us-central1/updateRating --> updateRating
+[debug] [2021-04-25T07:31:59.208Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2021-04-25T07:31:59.208Z] [worker-pool] Cleaned up workers for updateRating: 1 --> 0
+[debug] [2021-04-25T07:31:59.218Z] [worker-pool] addWorker(updateRating)
+[debug] [2021-04-25T07:31:59.219Z] [worker-pool] Adding worker with key updateRating, total=1
+[debug] [2021-04-25T07:31:59.219Z] [worker-pool] submitWork(triggerId=updateRating)
+[debug] [2021-04-25T07:31:59.219Z] [worker-updateRating-3ac7dc9c-d7ea-4b0a-9ab1-da1f1f568ec6]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\10228
+[debug] [2021-04-25T07:31:59.219Z] [worker-updateRating-3ac7dc9c-d7ea-4b0a-9ab1-da1f1f568ec6]: BUSY
+[debug] [2021-04-25T07:31:59.553Z] [runtime-status] [10228] Functions runtime initialized. {"cwd":"F:\\react\\atcoder-anytime\\functions","node_version":"12.17.0"}
+[debug] [2021-04-25T07:31:59.554Z] [runtime-status] [10228] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2021-04-25T07:31:59.556Z] [runtime-status] [10228] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2021-04-25T07:31:59.558Z] [runtime-status] [10228] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-25T07:31:59.559Z] [runtime-status] [10228] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-25T07:31:59.672Z] [runtime-status] [10228] Trigger "updateRating" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "updateRating"
+[debug] [2021-04-25T07:31:59.673Z] [runtime-status] [10228] triggerDefinition {"httpsTrigger":{},"labels":{"deployment-callable":"true"},"name":"updateRating","entryPoint":"updateRating"}
+[debug] [2021-04-25T07:31:59.673Z] [runtime-status] [10228] Running updateRating in mode HTTPS
+[debug] [2021-04-25T07:31:59.677Z] [runtime-status] [10228] Attempting to listen to socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\10228
+[debug] [2021-04-25T07:31:59.680Z] [functions] Runtime ready! Sending request!
+[debug] [2021-04-25T07:31:59.703Z] [runtime-status] [10228] Ephemeral server handling POST request
+[debug] [2021-04-25T07:31:59.705Z] [runtime-status] [10228] No callable functions auth found
+[debug] [2021-04-25T07:32:00.016Z] [runtime-status] [10228] Ephemeral server survived.
+[info] >  {
+[info] >    rating: 1704,
+[info] >    registrationTime: 1619335841,
+[info] >    lastUpdateTime: 1618000000,
+[info] >    records: [
+[info] >      {
+[info] >        newRating: 1704,
+[info] >        rank: 1,
+[info] >        startTime: 1619335841,
+[info] >        contestName: 'Registration',
+[info] >        oldRating: 0,
+[info] >        contestID: 'registration',
+[info] >        roundedPerformance: 1704
+[info] >      }
+[info] >    ],
+[info] >    handle: 'tada'
+[info] >  }
+[info] i  functions: Finished "updateRating" in ~6s
+[debug] [2021-04-25T07:32:06.565Z] [worker-updateRating-3ac7dc9c-d7ea-4b0a-9ab1-da1f1f568ec6]: IDLE
+[debug] [2021-04-25T07:32:06.565Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2021-04-25T07:32:22.961Z] File F:\react\atcoder-anytime\functions\src\updateContestRecords.ts changed, reloading triggers
+[debug] [2021-04-25T07:32:23.488Z] File F:\react\atcoder-anytime\functions\lib\updateContestRecords.js.map changed, reloading triggers
+[debug] [2021-04-25T07:32:23.490Z] File F:\react\atcoder-anytime\functions\lib\updateContestRecords.js changed, reloading triggers
+[debug] [2021-04-25T07:32:24.497Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2021-04-25T07:32:24.497Z] [worker-~diagnostic~-0aba5d19-484b-4825-a8dd-7a90d28b44cd]: FINISHING
+[debug] [2021-04-25T07:32:24.497Z] [worker-pool] Shutting down IDLE worker (updateRating)
+[debug] [2021-04-25T07:32:24.497Z] [worker-updateRating-3ac7dc9c-d7ea-4b0a-9ab1-da1f1f568ec6]: FINISHING
+[debug] [2021-04-25T07:32:24.513Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2021-04-25T07:32:24.513Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2021-04-25T07:32:24.513Z] [worker-pool] submitWork(triggerId=)
+[debug] [2021-04-25T07:32:24.513Z] [worker-~diagnostic~-ae4b4ee5-f35b-4ea2-aa46-9bbfb4f92408]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\9064
+[debug] [2021-04-25T07:32:24.514Z] [worker-~diagnostic~-ae4b4ee5-f35b-4ea2-aa46-9bbfb4f92408]: BUSY
+[debug] [2021-04-25T07:32:24.515Z] [worker-~diagnostic~-0aba5d19-484b-4825-a8dd-7a90d28b44cd]: exited
+[debug] [2021-04-25T07:32:24.515Z] [worker-~diagnostic~-0aba5d19-484b-4825-a8dd-7a90d28b44cd]: FINISHED
+[debug] [2021-04-25T07:32:24.516Z] [worker-updateRating-3ac7dc9c-d7ea-4b0a-9ab1-da1f1f568ec6]: exited
+[debug] [2021-04-25T07:32:24.516Z] [worker-updateRating-3ac7dc9c-d7ea-4b0a-9ab1-da1f1f568ec6]: FINISHED
+[debug] [2021-04-25T07:32:24.923Z] [runtime-status] [9064] Functions runtime initialized. {"cwd":"F:\\react\\atcoder-anytime\\functions","node_version":"12.17.0"}
+[debug] [2021-04-25T07:32:24.924Z] [runtime-status] [9064] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2021-04-25T07:32:24.927Z] [runtime-status] [9064] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2021-04-25T07:32:24.928Z] [runtime-status] [9064] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-25T07:32:24.929Z] [runtime-status] [9064] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-25T07:32:25.045Z] [worker-~diagnostic~-ae4b4ee5-f35b-4ea2-aa46-9bbfb4f92408]: IDLE
+[debug] [2021-04-25T07:32:28.390Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2021-04-25T07:32:28.391Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2021-04-25T07:32:28.391Z] Accepted request POST /atcoder-anytime-dev/us-central1/updateRating --> updateRating
+[debug] [2021-04-25T07:32:28.391Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2021-04-25T07:32:28.391Z] [worker-pool] Cleaned up workers for updateRating: 1 --> 0
+[debug] [2021-04-25T07:32:28.409Z] [worker-pool] addWorker(updateRating)
+[debug] [2021-04-25T07:32:28.409Z] [worker-pool] Adding worker with key updateRating, total=1
+[debug] [2021-04-25T07:32:28.409Z] [worker-pool] submitWork(triggerId=updateRating)
+[debug] [2021-04-25T07:32:28.409Z] [worker-updateRating-0ea7c1d4-15ab-43c9-ba0f-c4d82b754294]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\12432
+[debug] [2021-04-25T07:32:28.409Z] [worker-updateRating-0ea7c1d4-15ab-43c9-ba0f-c4d82b754294]: BUSY
+[debug] [2021-04-25T07:32:28.734Z] [runtime-status] [12432] Functions runtime initialized. {"cwd":"F:\\react\\atcoder-anytime\\functions","node_version":"12.17.0"}
+[debug] [2021-04-25T07:32:28.735Z] [runtime-status] [12432] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2021-04-25T07:32:28.738Z] [runtime-status] [12432] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2021-04-25T07:32:28.739Z] [runtime-status] [12432] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-25T07:32:28.740Z] [runtime-status] [12432] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-25T07:32:28.856Z] [runtime-status] [12432] Trigger "updateRating" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "updateRating"
+[debug] [2021-04-25T07:32:28.857Z] [runtime-status] [12432] triggerDefinition {"httpsTrigger":{},"labels":{"deployment-callable":"true"},"name":"updateRating","entryPoint":"updateRating"}
+[debug] [2021-04-25T07:32:28.857Z] [runtime-status] [12432] Running updateRating in mode HTTPS
+[debug] [2021-04-25T07:32:28.861Z] [runtime-status] [12432] Attempting to listen to socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\12432
+[debug] [2021-04-25T07:32:28.864Z] [functions] Runtime ready! Sending request!
+[debug] [2021-04-25T07:32:28.886Z] [runtime-status] [12432] Ephemeral server handling POST request
+[debug] [2021-04-25T07:32:28.888Z] [runtime-status] [12432] No callable functions auth found
+[debug] [2021-04-25T07:32:29.184Z] [runtime-status] [12432] Ephemeral server survived.
+[info] >  [
+[info] >    {
+[info] >      id: 21829080,
+[info] >      epoch_second: 1618650437,
+[info] >      problem_id: 'abc198_b',
+[info] >      contest_id: 'abc198',
+[info] >      user_id: 'tada',
+[info] >      language: 'C++ (GCC 9.2.1)',
+[info] >      point: 200,
+[info] >      length: 2493,
+[info] >      result: 'AC',
+[info] >      execution_time: 7
+[info] >    },
+[info] >    {
+[info] >      id: 21891471,
+[info] >      epoch_second: 1618835261,
+[info] >      problem_id: 'abc196_d',
+[info] >      contest_id: 'abc196',
+[info] >      user_id: 'tada',
+[info] >      language: 'C++ (GCC 9.2.1)',
+[info] >      point: 400,
+[info] >      length: 4966,
+[info] >      result: 'AC',
+[info] >      execution_time: 12
+[info] >    }
+[info] >  ]
+[info] i  functions: Finished "updateRating" in ~6s
+[debug] [2021-04-25T07:32:35.503Z] [worker-updateRating-0ea7c1d4-15ab-43c9-ba0f-c4d82b754294]: IDLE
+[debug] [2021-04-25T07:32:35.504Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2021-04-25T07:33:10.520Z] File F:\react\atcoder-anytime\functions\src\updateContestRecords.ts changed, reloading triggers
+[debug] [2021-04-25T07:33:10.976Z] File F:\react\atcoder-anytime\functions\lib\updateContestRecords.js.map changed, reloading triggers
+[debug] [2021-04-25T07:33:10.977Z] File F:\react\atcoder-anytime\functions\lib\updateContestRecords.js changed, reloading triggers
+[debug] [2021-04-25T07:33:11.983Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2021-04-25T07:33:11.984Z] [worker-~diagnostic~-ae4b4ee5-f35b-4ea2-aa46-9bbfb4f92408]: FINISHING
+[debug] [2021-04-25T07:33:11.987Z] [worker-pool] Shutting down IDLE worker (updateRating)
+[debug] [2021-04-25T07:33:11.987Z] [worker-updateRating-0ea7c1d4-15ab-43c9-ba0f-c4d82b754294]: FINISHING
+[debug] [2021-04-25T07:33:12.004Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2021-04-25T07:33:12.004Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2021-04-25T07:33:12.004Z] [worker-pool] submitWork(triggerId=)
+[debug] [2021-04-25T07:33:12.004Z] [worker-~diagnostic~-1717977d-24fd-41ae-8d6a-a550645bc8df]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\13816
+[debug] [2021-04-25T07:33:12.004Z] [worker-~diagnostic~-1717977d-24fd-41ae-8d6a-a550645bc8df]: BUSY
+[debug] [2021-04-25T07:33:12.004Z] [worker-~diagnostic~-ae4b4ee5-f35b-4ea2-aa46-9bbfb4f92408]: exited
+[debug] [2021-04-25T07:33:12.004Z] [worker-~diagnostic~-ae4b4ee5-f35b-4ea2-aa46-9bbfb4f92408]: FINISHED
+[debug] [2021-04-25T07:33:12.005Z] [worker-updateRating-0ea7c1d4-15ab-43c9-ba0f-c4d82b754294]: exited
+[debug] [2021-04-25T07:33:12.005Z] [worker-updateRating-0ea7c1d4-15ab-43c9-ba0f-c4d82b754294]: FINISHED
+[debug] [2021-04-25T07:33:12.385Z] [runtime-status] [13816] Functions runtime initialized. {"cwd":"F:\\react\\atcoder-anytime\\functions","node_version":"12.17.0"}
+[debug] [2021-04-25T07:33:12.386Z] [runtime-status] [13816] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2021-04-25T07:33:12.389Z] [runtime-status] [13816] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2021-04-25T07:33:12.390Z] [runtime-status] [13816] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-25T07:33:12.391Z] [runtime-status] [13816] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-25T07:33:12.502Z] [worker-~diagnostic~-1717977d-24fd-41ae-8d6a-a550645bc8df]: IDLE
+[debug] [2021-04-25T07:33:53.442Z] File F:\react\atcoder-anytime\functions\src\updateContestRecords.ts changed, reloading triggers
+[debug] [2021-04-25T07:33:53.817Z] File F:\react\atcoder-anytime\functions\lib\updateContestRecords.js.map changed, reloading triggers
+[debug] [2021-04-25T07:33:53.820Z] File F:\react\atcoder-anytime\functions\lib\updateContestRecords.js changed, reloading triggers
+[debug] [2021-04-25T07:33:54.829Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2021-04-25T07:33:54.829Z] [worker-~diagnostic~-1717977d-24fd-41ae-8d6a-a550645bc8df]: FINISHING
+[debug] [2021-04-25T07:33:54.830Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2021-04-25T07:33:54.830Z] [worker-pool] Cleaned up workers for updateRating: 1 --> 0
+[debug] [2021-04-25T07:33:54.843Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2021-04-25T07:33:54.843Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2021-04-25T07:33:54.843Z] [worker-pool] submitWork(triggerId=)
+[debug] [2021-04-25T07:33:54.843Z] [worker-~diagnostic~-81919254-5090-4ab7-9d9f-9425bf0de043]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\9392
+[debug] [2021-04-25T07:33:54.843Z] [worker-~diagnostic~-81919254-5090-4ab7-9d9f-9425bf0de043]: BUSY
+[debug] [2021-04-25T07:33:54.843Z] [worker-~diagnostic~-1717977d-24fd-41ae-8d6a-a550645bc8df]: exited
+[debug] [2021-04-25T07:33:54.843Z] [worker-~diagnostic~-1717977d-24fd-41ae-8d6a-a550645bc8df]: FINISHED
+[debug] [2021-04-25T07:33:55.306Z] [runtime-status] [9392] Functions runtime initialized. {"cwd":"F:\\react\\atcoder-anytime\\functions","node_version":"12.17.0"}
+[debug] [2021-04-25T07:33:55.307Z] [runtime-status] [9392] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2021-04-25T07:33:55.310Z] [runtime-status] [9392] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2021-04-25T07:33:55.311Z] [runtime-status] [9392] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-25T07:33:55.312Z] [runtime-status] [9392] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-25T07:33:55.455Z] [worker-~diagnostic~-81919254-5090-4ab7-9d9f-9425bf0de043]: IDLE
+[debug] [2021-04-25T07:33:57.676Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2021-04-25T07:33:57.677Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2021-04-25T07:33:57.677Z] Accepted request POST /atcoder-anytime-dev/us-central1/updateRating --> updateRating
+[debug] [2021-04-25T07:33:57.677Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2021-04-25T07:33:57.691Z] [worker-pool] addWorker(updateRating)
+[debug] [2021-04-25T07:33:57.691Z] [worker-pool] Adding worker with key updateRating, total=1
+[debug] [2021-04-25T07:33:57.691Z] [worker-pool] submitWork(triggerId=updateRating)
+[debug] [2021-04-25T07:33:57.691Z] [worker-updateRating-5db67adb-12a2-4c44-996f-56b9bdb35b97]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\9428
+[debug] [2021-04-25T07:33:57.691Z] [worker-updateRating-5db67adb-12a2-4c44-996f-56b9bdb35b97]: BUSY
+[debug] [2021-04-25T07:33:58.028Z] [runtime-status] [9428] Functions runtime initialized. {"cwd":"F:\\react\\atcoder-anytime\\functions","node_version":"12.17.0"}
+[debug] [2021-04-25T07:33:58.029Z] [runtime-status] [9428] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2021-04-25T07:33:58.032Z] [runtime-status] [9428] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2021-04-25T07:33:58.033Z] [runtime-status] [9428] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-25T07:33:58.034Z] [runtime-status] [9428] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-25T07:33:58.147Z] [runtime-status] [9428] Trigger "updateRating" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "updateRating"
+[debug] [2021-04-25T07:33:58.148Z] [runtime-status] [9428] triggerDefinition {"httpsTrigger":{},"labels":{"deployment-callable":"true"},"name":"updateRating","entryPoint":"updateRating"}
+[debug] [2021-04-25T07:33:58.148Z] [runtime-status] [9428] Running updateRating in mode HTTPS
+[debug] [2021-04-25T07:33:58.152Z] [runtime-status] [9428] Attempting to listen to socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\9428
+[debug] [2021-04-25T07:33:58.155Z] [functions] Runtime ready! Sending request!
+[debug] [2021-04-25T07:33:58.179Z] [runtime-status] [9428] Ephemeral server handling POST request
+[debug] [2021-04-25T07:33:58.181Z] [runtime-status] [9428] No callable functions auth found
+[debug] [2021-04-25T07:33:58.489Z] [runtime-status] [9428] Ephemeral server survived.
+[info] >  {
+[info] >    contestID: 'abc198',
+[info] >    handle: 'tada',
+[info] >    startTimeSeconds: 1618649160,
+[info] >    score: 60000,
+[info] >    elapsedTime: 1577
+[info] >  }
+[info] i  functions: Finished "updateRating" in ~6s
+[debug] [2021-04-25T07:34:04.717Z] [worker-updateRating-5db67adb-12a2-4c44-996f-56b9bdb35b97]: IDLE
+[debug] [2021-04-25T07:34:04.717Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2021-04-25T07:34:41.531Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2021-04-25T07:34:41.532Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2021-04-25T07:34:41.532Z] Accepted request POST /atcoder-anytime-dev/us-central1/updateRating --> updateRating
+[debug] [2021-04-25T07:34:41.532Z] [worker-pool] submitWork(triggerId=updateRating)
+[debug] [2021-04-25T07:34:41.532Z] [worker-updateRating-5db67adb-12a2-4c44-996f-56b9bdb35b97]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\9428
+[debug] [2021-04-25T07:34:41.533Z] [worker-updateRating-5db67adb-12a2-4c44-996f-56b9bdb35b97]: BUSY
+[debug] [2021-04-25T07:34:41.536Z] [runtime-status] [9428] Trigger "updateRating" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "updateRating"
+[debug] [2021-04-25T07:34:41.537Z] [runtime-status] [9428] triggerDefinition {"httpsTrigger":{},"labels":{"deployment-callable":"true"},"name":"updateRating","entryPoint":"updateRating"}
+[debug] [2021-04-25T07:34:41.537Z] [runtime-status] [9428] Running updateRating in mode HTTPS
+[debug] [2021-04-25T07:34:41.541Z] [runtime-status] [9428] Attempting to listen to socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\9428
+[debug] [2021-04-25T07:34:41.544Z] [functions] Runtime ready! Sending request!
+[debug] [2021-04-25T07:34:41.548Z] [runtime-status] [9428] Ephemeral server handling POST request
+[debug] [2021-04-25T07:34:41.548Z] [runtime-status] [9428] No callable functions auth found
+[debug] [2021-04-25T07:34:41.548Z] [runtime-status] [9428] Ephemeral server survived.
+[info] >  {
+[info] >    contestID: 'abc198',
+[info] >    handle: 'tada',
+[info] >    startTimeSeconds: 1618649160,
+[info] >    score: 60000,
+[info] >    elapsedTime: 1577
+[info] >  }
+[info] i  functions: Finished "updateRating" in ~5s
+[debug] [2021-04-25T07:34:46.727Z] [worker-updateRating-5db67adb-12a2-4c44-996f-56b9bdb35b97]: IDLE
+[debug] [2021-04-25T07:34:46.727Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2021-04-25T07:35:05.719Z] File F:\react\atcoder-anytime\functions\src\updateContestRecords.ts changed, reloading triggers
+[debug] [2021-04-25T07:35:06.293Z] File F:\react\atcoder-anytime\functions\lib\updateContestRecords.js.map changed, reloading triggers
+[debug] [2021-04-25T07:35:06.294Z] File F:\react\atcoder-anytime\functions\lib\updateContestRecords.js changed, reloading triggers
+[debug] [2021-04-25T07:35:07.306Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2021-04-25T07:35:07.306Z] [worker-~diagnostic~-81919254-5090-4ab7-9d9f-9425bf0de043]: FINISHING
+[debug] [2021-04-25T07:35:07.306Z] [worker-pool] Shutting down IDLE worker (updateRating)
+[debug] [2021-04-25T07:35:07.306Z] [worker-updateRating-5db67adb-12a2-4c44-996f-56b9bdb35b97]: FINISHING
+[debug] [2021-04-25T07:35:07.318Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2021-04-25T07:35:07.318Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2021-04-25T07:35:07.318Z] [worker-pool] submitWork(triggerId=)
+[debug] [2021-04-25T07:35:07.318Z] [worker-~diagnostic~-b335ed79-dc2e-4d46-adad-53948543efef]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\13980
+[debug] [2021-04-25T07:35:07.318Z] [worker-~diagnostic~-b335ed79-dc2e-4d46-adad-53948543efef]: BUSY
+[debug] [2021-04-25T07:35:07.318Z] [worker-~diagnostic~-81919254-5090-4ab7-9d9f-9425bf0de043]: exited
+[debug] [2021-04-25T07:35:07.319Z] [worker-~diagnostic~-81919254-5090-4ab7-9d9f-9425bf0de043]: FINISHED
+[debug] [2021-04-25T07:35:07.319Z] [worker-updateRating-5db67adb-12a2-4c44-996f-56b9bdb35b97]: exited
+[debug] [2021-04-25T07:35:07.319Z] [worker-updateRating-5db67adb-12a2-4c44-996f-56b9bdb35b97]: FINISHED
+[debug] [2021-04-25T07:35:07.694Z] [runtime-status] [13980] Functions runtime initialized. {"cwd":"F:\\react\\atcoder-anytime\\functions","node_version":"12.17.0"}
+[debug] [2021-04-25T07:35:07.695Z] [runtime-status] [13980] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2021-04-25T07:35:07.698Z] [runtime-status] [13980] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2021-04-25T07:35:07.699Z] [runtime-status] [13980] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-25T07:35:07.700Z] [runtime-status] [13980] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-25T07:35:07.814Z] [worker-~diagnostic~-b335ed79-dc2e-4d46-adad-53948543efef]: IDLE
+[debug] [2021-04-25T07:35:15.535Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2021-04-25T07:35:15.535Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2021-04-25T07:35:15.535Z] Accepted request POST /atcoder-anytime-dev/us-central1/updateRating --> updateRating
+[debug] [2021-04-25T07:35:15.535Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2021-04-25T07:35:15.535Z] [worker-pool] Cleaned up workers for updateRating: 1 --> 0
+[debug] [2021-04-25T07:35:15.551Z] [worker-pool] addWorker(updateRating)
+[debug] [2021-04-25T07:35:15.551Z] [worker-pool] Adding worker with key updateRating, total=1
+[debug] [2021-04-25T07:35:15.551Z] [worker-pool] submitWork(triggerId=updateRating)
+[debug] [2021-04-25T07:35:15.551Z] [worker-updateRating-eb026893-b0b1-465b-9c9c-c7304cb00ac1]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\1560
+[debug] [2021-04-25T07:35:15.551Z] [worker-updateRating-eb026893-b0b1-465b-9c9c-c7304cb00ac1]: BUSY
+[debug] [2021-04-25T07:35:15.880Z] [runtime-status] [1560] Functions runtime initialized. {"cwd":"F:\\react\\atcoder-anytime\\functions","node_version":"12.17.0"}
+[debug] [2021-04-25T07:35:15.881Z] [runtime-status] [1560] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2021-04-25T07:35:15.884Z] [runtime-status] [1560] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2021-04-25T07:35:15.885Z] [runtime-status] [1560] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-25T07:35:15.886Z] [runtime-status] [1560] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-25T07:35:15.999Z] [runtime-status] [1560] Trigger "updateRating" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "updateRating"
+[debug] [2021-04-25T07:35:15.999Z] [runtime-status] [1560] triggerDefinition {"httpsTrigger":{},"labels":{"deployment-callable":"true"},"name":"updateRating","entryPoint":"updateRating"}
+[debug] [2021-04-25T07:35:15.999Z] [runtime-status] [1560] Running updateRating in mode HTTPS
+[debug] [2021-04-25T07:35:16.003Z] [runtime-status] [1560] Attempting to listen to socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\1560
+[debug] [2021-04-25T07:35:16.006Z] [functions] Runtime ready! Sending request!
+[debug] [2021-04-25T07:35:16.029Z] [runtime-status] [1560] Ephemeral server handling POST request
+[debug] [2021-04-25T07:35:16.031Z] [runtime-status] [1560] No callable functions auth found
+[debug] [2021-04-25T07:35:16.324Z] [runtime-status] [1560] Ephemeral server survived.
+[info] >  TypeError: Cannot read property '0' of undefined
+[info] >      at calculateRoundedPerformance (F:\react\atcoder-anytime\functions\lib\utils\calculateNewRating.js:52:35)
+[info] >      at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[info] >      at async Object.calculateNewRating [as default] (F:\react\atcoder-anytime\functions\lib\utils\calculateNewRating.js:7:47)
+[info] >      at async F:\react\atcoder-anytime\functions\lib\updateContestRecords.js:35:31
+[info] >      at async func (F:\react\atcoder-anytime\functions\node_modules\firebase-functions\lib\providers\https.js:273:26)
+[info] i  functions: Finished "updateRating" in ~5s
+[debug] [2021-04-25T07:35:21.979Z] [worker-updateRating-eb026893-b0b1-465b-9c9c-c7304cb00ac1]: IDLE
+[debug] [2021-04-25T07:35:21.979Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2021-04-25T07:35:58.830Z] File F:\react\atcoder-anytime\functions\src\utils\calculateNewRating.ts changed, reloading triggers
+[debug] [2021-04-25T07:35:59.196Z] File F:\react\atcoder-anytime\functions\lib\utils\calculateNewRating.js.map changed, reloading triggers
+[debug] [2021-04-25T07:35:59.197Z] File F:\react\atcoder-anytime\functions\lib\utils\calculateNewRating.js changed, reloading triggers
+[debug] [2021-04-25T07:36:00.198Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2021-04-25T07:36:00.198Z] [worker-~diagnostic~-b335ed79-dc2e-4d46-adad-53948543efef]: FINISHING
+[debug] [2021-04-25T07:36:00.199Z] [worker-pool] Shutting down IDLE worker (updateRating)
+[debug] [2021-04-25T07:36:00.199Z] [worker-updateRating-eb026893-b0b1-465b-9c9c-c7304cb00ac1]: FINISHING
+[debug] [2021-04-25T07:36:00.236Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2021-04-25T07:36:00.236Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2021-04-25T07:36:00.236Z] [worker-pool] submitWork(triggerId=)
+[debug] [2021-04-25T07:36:00.237Z] [worker-~diagnostic~-bb6855b8-7a81-423a-a281-b41f002b1d59]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\4176
+[debug] [2021-04-25T07:36:00.237Z] [worker-~diagnostic~-bb6855b8-7a81-423a-a281-b41f002b1d59]: BUSY
+[debug] [2021-04-25T07:36:00.238Z] [worker-~diagnostic~-b335ed79-dc2e-4d46-adad-53948543efef]: exited
+[debug] [2021-04-25T07:36:00.238Z] [worker-~diagnostic~-b335ed79-dc2e-4d46-adad-53948543efef]: FINISHED
+[debug] [2021-04-25T07:36:00.238Z] [worker-updateRating-eb026893-b0b1-465b-9c9c-c7304cb00ac1]: exited
+[debug] [2021-04-25T07:36:00.239Z] [worker-updateRating-eb026893-b0b1-465b-9c9c-c7304cb00ac1]: FINISHED
+[debug] [2021-04-25T07:36:00.623Z] [runtime-status] [4176] Functions runtime initialized. {"cwd":"F:\\react\\atcoder-anytime\\functions","node_version":"12.17.0"}
+[debug] [2021-04-25T07:36:00.624Z] [runtime-status] [4176] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2021-04-25T07:36:00.628Z] [runtime-status] [4176] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2021-04-25T07:36:00.629Z] [runtime-status] [4176] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-25T07:36:00.630Z] [runtime-status] [4176] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-25T07:36:00.750Z] [worker-~diagnostic~-bb6855b8-7a81-423a-a281-b41f002b1d59]: IDLE
+[debug] [2021-04-25T07:36:00.879Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2021-04-25T07:36:00.879Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2021-04-25T07:36:00.879Z] Accepted request POST /atcoder-anytime-dev/us-central1/updateRating --> updateRating
+[debug] [2021-04-25T07:36:00.880Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2021-04-25T07:36:00.880Z] [worker-pool] Cleaned up workers for updateRating: 1 --> 0
+[debug] [2021-04-25T07:36:00.890Z] [worker-pool] addWorker(updateRating)
+[debug] [2021-04-25T07:36:00.890Z] [worker-pool] Adding worker with key updateRating, total=1
+[debug] [2021-04-25T07:36:00.890Z] [worker-pool] submitWork(triggerId=updateRating)
+[debug] [2021-04-25T07:36:00.890Z] [worker-updateRating-bfe4bb8a-e03c-48e4-a30d-8e07cae3a7d6]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\15184
+[debug] [2021-04-25T07:36:00.890Z] [worker-updateRating-bfe4bb8a-e03c-48e4-a30d-8e07cae3a7d6]: BUSY
+[debug] [2021-04-25T07:36:01.213Z] [runtime-status] [15184] Functions runtime initialized. {"cwd":"F:\\react\\atcoder-anytime\\functions","node_version":"12.17.0"}
+[debug] [2021-04-25T07:36:01.214Z] [runtime-status] [15184] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2021-04-25T07:36:01.217Z] [runtime-status] [15184] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2021-04-25T07:36:01.218Z] [runtime-status] [15184] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-25T07:36:01.219Z] [runtime-status] [15184] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-25T07:36:01.329Z] [runtime-status] [15184] Trigger "updateRating" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "updateRating"
+[debug] [2021-04-25T07:36:01.329Z] [runtime-status] [15184] triggerDefinition {"httpsTrigger":{},"labels":{"deployment-callable":"true"},"name":"updateRating","entryPoint":"updateRating"}
+[debug] [2021-04-25T07:36:01.330Z] [runtime-status] [15184] Running updateRating in mode HTTPS
+[debug] [2021-04-25T07:36:01.334Z] [runtime-status] [15184] Attempting to listen to socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\15184
+[debug] [2021-04-25T07:36:01.337Z] [functions] Runtime ready! Sending request!
+[debug] [2021-04-25T07:36:01.358Z] [runtime-status] [15184] Ephemeral server handling POST request
+[debug] [2021-04-25T07:36:01.360Z] [runtime-status] [15184] No callable functions auth found
+[debug] [2021-04-25T07:36:01.658Z] [runtime-status] [15184] Ephemeral server survived.
+[info] >  {
+[info] >    result: {
+[info] >      Fixed: true,
+[info] >      AdditionalColumns: null,
+[info] >      TaskInfo: [ [Object], [Object], [Object], [Object], [Object], [Object] ],
+[info] >      StandingsData: [
+[info] >        [Object], [Object], [Object], [Object], [Object], [Object],
+[info] >        [Object], [Object], [Object], [Object], [Object], [Object],
+[info] >        [Object], [Object], [Object], [Object], [Object], [Object],
+[info] >        [Object], [Object], [Object], [Object], [Object], [Object],
+[info] >        [Object], [Object], [Object], [Object], [Object], [Object],
+[info] >        [Object], [Object], [Object], [Object], [Object], [Object],
+[info] >        [Object], [Object], [Object], [Object], [Object], [Object],
+[info] >        [Object], [Object], [Object], [Object], [Object], [Object],
+[info] >        [Object], [Object], [Object], [Object], [Object], [Object],
+[info] >        [Object], [Object], [Object], [Object], [Object], [Object],
+[info] >        [Object], [Object], [Object], [Object], [Object], [Object],
+[info] >        [Object], [Object], [Object], [Object], [Object], [Object],
+[info] >        [Object], [Object], [Object], [Object], [Object], [Object],
+[info] >        [Object], [Object], [Object], [Object], [Object], [Object],
+[info] >        [Object], [Object], [Object], [Object], [Object], [Object],
+[info] >        [Object], [Object], [Object], [Object], [Object], [Object],
+[info] >        [Object], [Object], [Object], [Object],
+[info] >        ... 9669 more items
+[info] >      ],
+[info] >      Translation: {}
+[info] >    }
+[info] >  }
+[info] >  TypeError: Cannot read property '0' of undefined
+[info] >      at calculateRoundedPerformance (F:\react\atcoder-anytime\functions\lib\utils\calculateNewRating.js:53:35)
+[info] >      at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[info] >      at async Object.calculateNewRating [as default] (F:\react\atcoder-anytime\functions\lib\utils\calculateNewRating.js:7:47)
+[info] >      at async F:\react\atcoder-anytime\functions\lib\updateContestRecords.js:35:31
+[info] >      at async func (F:\react\atcoder-anytime\functions\node_modules\firebase-functions\lib\providers\https.js:273:26)
+[info] i  functions: Finished "updateRating" in ~6s
+[debug] [2021-04-25T07:36:07.603Z] [worker-updateRating-bfe4bb8a-e03c-48e4-a30d-8e07cae3a7d6]: IDLE
+[debug] [2021-04-25T07:36:07.604Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2021-04-25T07:37:43.617Z] File F:\react\atcoder-anytime\functions\src\utils\calculateNewRating.ts changed, reloading triggers
+[debug] [2021-04-25T07:37:44.204Z] File F:\react\atcoder-anytime\functions\lib\utils\calculateNewRating.js.map changed, reloading triggers
+[debug] [2021-04-25T07:37:44.206Z] File F:\react\atcoder-anytime\functions\lib\utils\calculateNewRating.js changed, reloading triggers
+[debug] [2021-04-25T07:37:45.214Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2021-04-25T07:37:45.216Z] [worker-~diagnostic~-bb6855b8-7a81-423a-a281-b41f002b1d59]: FINISHING
+[debug] [2021-04-25T07:37:45.217Z] [worker-pool] Shutting down IDLE worker (updateRating)
+[debug] [2021-04-25T07:37:45.217Z] [worker-updateRating-bfe4bb8a-e03c-48e4-a30d-8e07cae3a7d6]: FINISHING
+[debug] [2021-04-25T07:37:45.248Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2021-04-25T07:37:45.248Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2021-04-25T07:37:45.248Z] [worker-pool] submitWork(triggerId=)
+[debug] [2021-04-25T07:37:45.249Z] [worker-~diagnostic~-3be11431-6878-46fb-bf4e-9e91585fbd9a]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\15816
+[debug] [2021-04-25T07:37:45.249Z] [worker-~diagnostic~-3be11431-6878-46fb-bf4e-9e91585fbd9a]: BUSY
+[debug] [2021-04-25T07:37:45.251Z] [worker-~diagnostic~-bb6855b8-7a81-423a-a281-b41f002b1d59]: exited
+[debug] [2021-04-25T07:37:45.251Z] [worker-~diagnostic~-bb6855b8-7a81-423a-a281-b41f002b1d59]: FINISHED
+[debug] [2021-04-25T07:37:45.252Z] [worker-updateRating-bfe4bb8a-e03c-48e4-a30d-8e07cae3a7d6]: exited
+[debug] [2021-04-25T07:37:45.252Z] [worker-updateRating-bfe4bb8a-e03c-48e4-a30d-8e07cae3a7d6]: FINISHED
+[debug] [2021-04-25T07:37:45.652Z] [runtime-status] [15816] Functions runtime initialized. {"cwd":"F:\\react\\atcoder-anytime\\functions","node_version":"12.17.0"}
+[debug] [2021-04-25T07:37:45.654Z] [runtime-status] [15816] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2021-04-25T07:37:45.658Z] [runtime-status] [15816] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2021-04-25T07:37:45.659Z] [runtime-status] [15816] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-25T07:37:45.660Z] [runtime-status] [15816] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-25T07:37:45.786Z] [worker-~diagnostic~-3be11431-6878-46fb-bf4e-9e91585fbd9a]: IDLE
+[debug] [2021-04-25T07:38:03.584Z] File F:\react\atcoder-anytime\functions\src\utils\calculateNewRating.ts changed, reloading triggers
+[debug] [2021-04-25T07:38:04.146Z] File F:\react\atcoder-anytime\functions\lib\utils\calculateNewRating.js.map changed, reloading triggers
+[debug] [2021-04-25T07:38:04.148Z] File F:\react\atcoder-anytime\functions\lib\utils\calculateNewRating.js changed, reloading triggers
+[debug] [2021-04-25T07:38:05.163Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2021-04-25T07:38:05.163Z] [worker-~diagnostic~-3be11431-6878-46fb-bf4e-9e91585fbd9a]: FINISHING
+[debug] [2021-04-25T07:38:05.164Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2021-04-25T07:38:05.164Z] [worker-pool] Cleaned up workers for updateRating: 1 --> 0
+[debug] [2021-04-25T07:38:05.183Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2021-04-25T07:38:05.184Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2021-04-25T07:38:05.184Z] [worker-pool] submitWork(triggerId=)
+[debug] [2021-04-25T07:38:05.184Z] [worker-~diagnostic~-f43a983c-27a5-487a-993f-95a49637e884]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\6492
+[debug] [2021-04-25T07:38:05.184Z] [worker-~diagnostic~-f43a983c-27a5-487a-993f-95a49637e884]: BUSY
+[debug] [2021-04-25T07:38:05.185Z] [worker-~diagnostic~-3be11431-6878-46fb-bf4e-9e91585fbd9a]: exited
+[debug] [2021-04-25T07:38:05.185Z] [worker-~diagnostic~-3be11431-6878-46fb-bf4e-9e91585fbd9a]: FINISHED
+[debug] [2021-04-25T07:38:05.578Z] [runtime-status] [6492] Functions runtime initialized. {"cwd":"F:\\react\\atcoder-anytime\\functions","node_version":"12.17.0"}
+[debug] [2021-04-25T07:38:05.579Z] [runtime-status] [6492] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2021-04-25T07:38:05.581Z] [runtime-status] [6492] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2021-04-25T07:38:05.583Z] [runtime-status] [6492] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-25T07:38:05.584Z] [runtime-status] [6492] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-25T07:38:05.701Z] [worker-~diagnostic~-f43a983c-27a5-487a-993f-95a49637e884]: IDLE
+[debug] [2021-04-25T07:38:08.416Z] File F:\react\atcoder-anytime\functions\src\utils\calculateNewRating.ts changed, reloading triggers
+[debug] [2021-04-25T07:38:08.797Z] File F:\react\atcoder-anytime\functions\lib\utils\calculateNewRating.js.map changed, reloading triggers
+[debug] [2021-04-25T07:38:08.799Z] File F:\react\atcoder-anytime\functions\lib\utils\calculateNewRating.js changed, reloading triggers
+[debug] [2021-04-25T07:38:09.812Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2021-04-25T07:38:09.812Z] [worker-~diagnostic~-f43a983c-27a5-487a-993f-95a49637e884]: FINISHING
+[debug] [2021-04-25T07:38:09.812Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2021-04-25T07:38:09.821Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2021-04-25T07:38:09.821Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2021-04-25T07:38:09.821Z] [worker-pool] submitWork(triggerId=)
+[debug] [2021-04-25T07:38:09.821Z] [worker-~diagnostic~-afa111e1-8aad-4a53-8045-277fa54ed0ba]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\16236
+[debug] [2021-04-25T07:38:09.821Z] [worker-~diagnostic~-afa111e1-8aad-4a53-8045-277fa54ed0ba]: BUSY
+[debug] [2021-04-25T07:38:09.822Z] [worker-~diagnostic~-f43a983c-27a5-487a-993f-95a49637e884]: exited
+[debug] [2021-04-25T07:38:09.822Z] [worker-~diagnostic~-f43a983c-27a5-487a-993f-95a49637e884]: FINISHED
+[debug] [2021-04-25T07:38:10.200Z] [runtime-status] [16236] Functions runtime initialized. {"cwd":"F:\\react\\atcoder-anytime\\functions","node_version":"12.17.0"}
+[debug] [2021-04-25T07:38:10.202Z] [runtime-status] [16236] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2021-04-25T07:38:10.205Z] [runtime-status] [16236] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2021-04-25T07:38:10.207Z] [runtime-status] [16236] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-25T07:38:10.208Z] [runtime-status] [16236] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-25T07:38:10.325Z] [worker-~diagnostic~-afa111e1-8aad-4a53-8045-277fa54ed0ba]: IDLE
+[debug] [2021-04-25T07:38:31.662Z] File F:\react\atcoder-anytime\functions\src\utils\calculateNewRating.ts changed, reloading triggers
+[debug] [2021-04-25T07:38:32.038Z] File F:\react\atcoder-anytime\functions\lib\utils\calculateNewRating.js.map changed, reloading triggers
+[debug] [2021-04-25T07:38:32.040Z] File F:\react\atcoder-anytime\functions\lib\utils\calculateNewRating.js changed, reloading triggers
+[debug] [2021-04-25T07:38:33.045Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2021-04-25T07:38:33.045Z] [worker-~diagnostic~-afa111e1-8aad-4a53-8045-277fa54ed0ba]: FINISHING
+[debug] [2021-04-25T07:38:33.046Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2021-04-25T07:38:33.067Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2021-04-25T07:38:33.067Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2021-04-25T07:38:33.067Z] [worker-pool] submitWork(triggerId=)
+[debug] [2021-04-25T07:38:33.068Z] [worker-~diagnostic~-e66c0518-dc76-4043-973d-cd2dfceb98bd]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\9224
+[debug] [2021-04-25T07:38:33.068Z] [worker-~diagnostic~-e66c0518-dc76-4043-973d-cd2dfceb98bd]: BUSY
+[debug] [2021-04-25T07:38:33.069Z] [worker-~diagnostic~-afa111e1-8aad-4a53-8045-277fa54ed0ba]: exited
+[debug] [2021-04-25T07:38:33.069Z] [worker-~diagnostic~-afa111e1-8aad-4a53-8045-277fa54ed0ba]: FINISHED
+[debug] [2021-04-25T07:38:33.466Z] [runtime-status] [9224] Functions runtime initialized. {"cwd":"F:\\react\\atcoder-anytime\\functions","node_version":"12.17.0"}
+[debug] [2021-04-25T07:38:33.467Z] [runtime-status] [9224] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2021-04-25T07:38:33.469Z] [runtime-status] [9224] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2021-04-25T07:38:33.471Z] [runtime-status] [9224] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-25T07:38:33.472Z] [runtime-status] [9224] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-25T07:38:33.579Z] [worker-~diagnostic~-e66c0518-dc76-4043-973d-cd2dfceb98bd]: IDLE
+[debug] [2021-04-25T07:38:42.340Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2021-04-25T07:38:42.341Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2021-04-25T07:38:42.341Z] Accepted request POST /atcoder-anytime-dev/us-central1/updateRating --> updateRating
+[debug] [2021-04-25T07:38:42.341Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2021-04-25T07:38:42.352Z] [worker-pool] addWorker(updateRating)
+[debug] [2021-04-25T07:38:42.352Z] [worker-pool] Adding worker with key updateRating, total=1
+[debug] [2021-04-25T07:38:42.352Z] [worker-pool] submitWork(triggerId=updateRating)
+[debug] [2021-04-25T07:38:42.353Z] [worker-updateRating-eabecc6d-65ea-492b-a1eb-dbece0c54b66]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\16284
+[debug] [2021-04-25T07:38:42.353Z] [worker-updateRating-eabecc6d-65ea-492b-a1eb-dbece0c54b66]: BUSY
+[debug] [2021-04-25T07:38:42.677Z] [runtime-status] [16284] Functions runtime initialized. {"cwd":"F:\\react\\atcoder-anytime\\functions","node_version":"12.17.0"}
+[debug] [2021-04-25T07:38:42.678Z] [runtime-status] [16284] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2021-04-25T07:38:42.681Z] [runtime-status] [16284] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2021-04-25T07:38:42.683Z] [runtime-status] [16284] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-25T07:38:42.684Z] [runtime-status] [16284] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-25T07:38:42.792Z] [runtime-status] [16284] Trigger "updateRating" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "updateRating"
+[debug] [2021-04-25T07:38:42.793Z] [runtime-status] [16284] triggerDefinition {"httpsTrigger":{},"labels":{"deployment-callable":"true"},"name":"updateRating","entryPoint":"updateRating"}
+[debug] [2021-04-25T07:38:42.793Z] [runtime-status] [16284] Running updateRating in mode HTTPS
+[debug] [2021-04-25T07:38:42.797Z] [runtime-status] [16284] Attempting to listen to socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\16284
+[debug] [2021-04-25T07:38:42.800Z] [functions] Runtime ready! Sending request!
+[debug] [2021-04-25T07:38:42.822Z] [runtime-status] [16284] Ephemeral server handling POST request
+[debug] [2021-04-25T07:38:42.824Z] [runtime-status] [16284] No callable functions auth found
+[debug] [2021-04-25T07:38:43.126Z] [runtime-status] [16284] Ephemeral server survived.
+[info] >  2292 1006
+[info] >  {
+[info] >    newRating: 1704,
+[info] >    contestID: 'registration',
+[info] >    startTime: 1619335841,
+[info] >    contestName: 'Registration',
+[info] >    rank: 1,
+[info] >    roundedPerformance: 1704,
+[info] >    oldRating: 0
+[info] >  }
+[info] >  1389.0137618754902
+[info] >  1389
+[info] >  {
+[info] >    handle: 'tada',
+[info] >    contestName: 'AtCoder Beginner Contest 198',
+[info] >    rank: 2292,
+[info] >    newRating: 1389,
+[info] >    roundedPerformance: 1006
+[info] >  }
+[info] >  1641 1233
+[info] >  {
+[info] >    newRating: 1704,
+[info] >    contestID: 'registration',
+[info] >    startTime: 1619335841,
+[info] >    contestName: 'Registration',
+[info] >    rank: 1,
+[info] >    roundedPerformance: 1704,
+[info] >    oldRating: 0
+[info] >  }
+[info] >  1480.0706807005777
+[info] >  1480
+[info] >  {
+[info] >    handle: 'tada',
+[info] >    contestName: 'AtCoder Beginner Contest 196',
+[info] >    rank: 1641,
+[info] >    newRating: 1480,
+[info] >    roundedPerformance: 1233
+[info] >  }
+[info] i  functions: Finished "updateRating" in ~26s
+[debug] [2021-04-25T07:39:09.528Z] [worker-updateRating-eabecc6d-65ea-492b-a1eb-dbece0c54b66]: IDLE
+[debug] [2021-04-25T07:39:09.528Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2021-04-25T07:39:53.622Z] File F:\react\atcoder-anytime\functions\src\utils\calculateNewRating.ts changed, reloading triggers
+[debug] [2021-04-25T07:39:54.217Z] File F:\react\atcoder-anytime\functions\lib\utils\calculateNewRating.js.map changed, reloading triggers
+[debug] [2021-04-25T07:39:54.219Z] File F:\react\atcoder-anytime\functions\lib\utils\calculateNewRating.js changed, reloading triggers
+[debug] [2021-04-25T07:39:55.233Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2021-04-25T07:39:55.233Z] [worker-~diagnostic~-e66c0518-dc76-4043-973d-cd2dfceb98bd]: FINISHING
+[debug] [2021-04-25T07:39:55.233Z] [worker-pool] Shutting down IDLE worker (updateRating)
+[debug] [2021-04-25T07:39:55.233Z] [worker-updateRating-eabecc6d-65ea-492b-a1eb-dbece0c54b66]: FINISHING
+[debug] [2021-04-25T07:39:55.243Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2021-04-25T07:39:55.244Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2021-04-25T07:39:55.244Z] [worker-pool] submitWork(triggerId=)
+[debug] [2021-04-25T07:39:55.244Z] [worker-~diagnostic~-1df7d27f-811a-4ca4-a680-b3625aa78335]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\6648
+[debug] [2021-04-25T07:39:55.244Z] [worker-~diagnostic~-1df7d27f-811a-4ca4-a680-b3625aa78335]: BUSY
+[debug] [2021-04-25T07:39:55.245Z] [worker-~diagnostic~-e66c0518-dc76-4043-973d-cd2dfceb98bd]: exited
+[debug] [2021-04-25T07:39:55.245Z] [worker-~diagnostic~-e66c0518-dc76-4043-973d-cd2dfceb98bd]: FINISHED
+[debug] [2021-04-25T07:39:55.245Z] [worker-updateRating-eabecc6d-65ea-492b-a1eb-dbece0c54b66]: exited
+[debug] [2021-04-25T07:39:55.245Z] [worker-updateRating-eabecc6d-65ea-492b-a1eb-dbece0c54b66]: FINISHED
+[debug] [2021-04-25T07:39:55.653Z] [runtime-status] [6648] Functions runtime initialized. {"cwd":"F:\\react\\atcoder-anytime\\functions","node_version":"12.17.0"}
+[debug] [2021-04-25T07:39:55.656Z] [runtime-status] [6648] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2021-04-25T07:39:55.660Z] [runtime-status] [6648] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2021-04-25T07:39:55.662Z] [runtime-status] [6648] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-25T07:39:55.663Z] [runtime-status] [6648] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-25T07:39:55.775Z] [worker-~diagnostic~-1df7d27f-811a-4ca4-a680-b3625aa78335]: IDLE
+[info] Shutting down...
+[debug] [2021-04-25T07:43:14.270Z] [worker-~diagnostic~-1df7d27f-811a-4ca4-a680-b3625aa78335]: exited
+[debug] [2021-04-25T07:43:14.270Z] [worker-~diagnostic~-1df7d27f-811a-4ca4-a680-b3625aa78335]: FINISHED

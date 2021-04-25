@@ -1,9 +1,8 @@
-import axios from 'axios';
-
 import Contestant from '../types/contestant';
 import ContestRecord from '../types/contestRecord';
 import ParticipationInfo from '../types/participationInfo';
 import UserProfile from '../types/userProfile';
+import accessToAtCoder from './accessToAtCoder';
 
 interface ContestStandings {
   StandingsData: [
@@ -20,7 +19,7 @@ interface ContestStandings {
   ];
 }
 
-export const calculateNewRating = async (
+const calculateNewRating = async (
   participationInfo: ParticipationInfo,
   profile: UserProfile
 ): Promise<Contestant> => {
@@ -43,14 +42,9 @@ export const calculateNewRating = async (
 const calculateRank = async (participationInfo: ParticipationInfo) => {
   const { contestID, score, elapsedTime } = participationInfo;
   const url = `https://atcoder.jp/contests/${contestID}/standings/json`;
-  const response = await axios.get(url);
-  /*
-  const response = await firebase.functions().httpsCallable('getExternal')({
-    url,
-  });
-  */
+  const response = await accessToAtCoder(url);
 
-  const result = response.data.result as ContestStandings;
+  const result = response.result as ContestStandings;
   const standingData = result.StandingsData;
   const divisor = 1000000000;
   for (let i = 0; i < standingData.length; i++) {
@@ -78,45 +72,36 @@ const calculateRoundedPerformance = async (
 ) => {
   const { contestID } = participationInfo;
   const url = `https://atcoder.jp/contests/${contestID}/results/json`;
-  try {
-    const response = await axios.get(url);
-    /*
-    const response = await firebase.functions().httpsCallable('getExternal')({
-      url,
-    });
-    */
+  const response = await accessToAtCoder(url);
 
-    const result = response.data.result;
-    const contestName = result[0].ContestName;
-    let upperPerformance = 0;
-    for (let i = upperIdx; i >= 0; i--) {
-      if (result[i].IsRated) {
-        upperPerformance = result[i].Performance;
-        break;
-      }
+  const result = response.result;
+  const contestName = result[0].ContestName;
+  let upperPerformance = 0;
+  for (let i = upperIdx; i >= 0; i--) {
+    if (result[i].IsRated) {
+      upperPerformance = result[i].Performance;
+      break;
     }
-
-    let lowerPerformance = 0;
-    for (let i = upperIdx + 1; i < result.length; i++) {
-      if (result[i].IsRated) {
-        lowerPerformance = result[i].Performance;
-        break;
-      }
-    }
-
-    if (upperPerformance === 0 && lowerPerformance === 0) {
-      throw Error('No rated participants');
-    }
-    if (upperPerformance === 0) {
-      return [lowerPerformance, contestName];
-    }
-    if (lowerPerformance === 0) {
-      return [upperPerformance, contestName];
-    }
-    return [Math.round((lowerPerformance + lowerPerformance) / 2), contestName];
-  } catch (e) {
-    throw e;
   }
+
+  let lowerPerformance = 0;
+  for (let i = upperIdx + 1; i < result.length; i++) {
+    if (result[i].IsRated) {
+      lowerPerformance = result[i].Performance;
+      break;
+    }
+  }
+
+  if (upperPerformance === 0 && lowerPerformance === 0) {
+    throw Error('No rated participants');
+  }
+  if (upperPerformance === 0) {
+    return [lowerPerformance, contestName];
+  }
+  if (lowerPerformance === 0) {
+    return [upperPerformance, contestName];
+  }
+  return [Math.round((lowerPerformance + lowerPerformance) / 2), contestName];
 };
 
 const calculateRating = (profile: UserProfile, roundedPerformance: number) => {
@@ -178,3 +163,5 @@ const getLowerCorrectedRating = (beginnerCorrectedRating: number) => {
 
   return 400 / Math.exp((400 - beginnerCorrectedRating) / 400);
 };
+
+export default calculateNewRating;

@@ -24,19 +24,15 @@ const login = async () => {
   params.append('password', UserData.password);
 
   // Configパラメータは必須
-  const res2 = await axios
-    .post('https://atcoder.jp/login', params, {
-      headers: {
-        Cookie: cookieStr,
-        Accept: 'text/html',
-      },
-      maxRedirects: 0,
-      validateStatus: (status) =>
-        (status >= 200 && status < 300) || status === 302,
-    })
-    .catch((e) => {
-      throw e;
-    });
+  const res2 = await axios.post('https://atcoder.jp/login', params, {
+    headers: {
+      Cookie: cookieStr,
+      Accept: 'text/html',
+    },
+    maxRedirects: 0,
+    validateStatus: (status) =>
+      (status >= 200 && status < 300) || status === 302,
+  });
 
   const cookies2 = res2.headers['set-cookie'].map(
     (cookie: string) =>
