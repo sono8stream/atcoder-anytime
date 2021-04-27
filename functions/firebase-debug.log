@@ -622,3 +622,868 @@
 [info] Shutting down...
 [debug] [2021-04-25T07:43:14.270Z] [worker-~diagnostic~-1df7d27f-811a-4ca4-a680-b3625aa78335]: exited
 [debug] [2021-04-25T07:43:14.270Z] [worker-~diagnostic~-1df7d27f-811a-4ca4-a680-b3625aa78335]: FINISHED
+[debug] [2021-04-26T13:45:14.972Z] ----------------------------------------------------------------------
+[debug] [2021-04-26T13:45:14.976Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\sono8\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve --only functions
+[debug] [2021-04-26T13:45:14.976Z] CLI Version:   7.16.2
+[debug] [2021-04-26T13:45:14.976Z] Platform:      win32
+[debug] [2021-04-26T13:45:14.976Z] Node Version:  v12.17.0
+[debug] [2021-04-26T13:45:14.980Z] Time:          Mon Apr 26 2021 22:45:14 GMT+0900 (GMT+09:00)
+[debug] [2021-04-26T13:45:14.980Z] ----------------------------------------------------------------------
+[debug] [2021-04-26T13:45:14.980Z] 
+[debug] [2021-04-26T13:45:15.034Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-04-26T13:45:15.035Z] > authorizing via signed-in user
+[debug] [2021-04-26T13:45:15.035Z] [iam] checking project atcoder-anytime-dev for permissions ["firebase.projects.get"]
+[debug] [2021-04-26T13:45:15.036Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-04-26T13:45:15.037Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-04-26T13:45:15.274Z] <<< HTTP RESPONSE 200
+[debug] [2021-04-26T13:45:15.298Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/atcoder-anytime-dev:testIamPermissions  
+
+[debug] [2021-04-26T13:45:16.089Z] <<< HTTP RESPONSE 200
+[debug] [2021-04-26T13:45:16.091Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/atcoder-anytime-dev  
+ 
+[debug] [2021-04-26T13:45:16.564Z] <<< HTTP RESPONSE 200
+[warn] !  Your requested "node" version "10" doesn't match your global version "12"
+[info] +  functions: functions emulator started at http://localhost:5000
+[info] i  functions: Watching "F:\react\atcoder-anytime\functions" for Cloud Functions...
+[debug] [2021-04-26T13:45:18.632Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2021-04-26T13:45:18.632Z] [worker-pool] Adding worker with key ~diagnostic~, total=1
+[debug] [2021-04-26T13:45:18.632Z] [worker-pool] submitWork(triggerId=)
+[debug] [2021-04-26T13:45:18.633Z] [worker-~diagnostic~-f442f2d8-7972-410f-841b-973080757418]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\8256
+[debug] [2021-04-26T13:45:18.633Z] [worker-~diagnostic~-f442f2d8-7972-410f-841b-973080757418]: BUSY
+[debug] [2021-04-26T13:45:19.027Z] [runtime-status] [8256] Functions runtime initialized. {"cwd":"F:\\react\\atcoder-anytime\\functions","node_version":"12.17.0"}
+[debug] [2021-04-26T13:45:19.028Z] [runtime-status] [8256] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2021-04-26T13:45:19.031Z] [runtime-status] [8256] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2021-04-26T13:45:19.033Z] [runtime-status] [8256] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:45:19.034Z] [runtime-status] [8256] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[info] +  functions[getExternal]: http function initialized (http://localhost:5000/atcoder-anytime-dev/us-central1/getExternal).
+[info] +  functions[updateRating]: http function initialized (http://localhost:5000/atcoder-anytime-dev/us-central1/updateRating).
+[debug] [2021-04-26T13:45:20.378Z] [worker-~diagnostic~-f442f2d8-7972-410f-841b-973080757418]: IDLE
+[debug] [2021-04-26T13:47:27.224Z] File F:\react\atcoder-anytime\functions\src\updateRating.ts changed, reloading triggers
+[debug] [2021-04-26T13:47:28.233Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2021-04-26T13:47:28.233Z] [worker-~diagnostic~-f442f2d8-7972-410f-841b-973080757418]: FINISHING
+[debug] [2021-04-26T13:47:28.244Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2021-04-26T13:47:28.244Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2021-04-26T13:47:28.244Z] [worker-pool] submitWork(triggerId=)
+[debug] [2021-04-26T13:47:28.244Z] [worker-~diagnostic~-d47c9ad3-8521-4120-afcc-68d85ddec0f2]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\9612
+[debug] [2021-04-26T13:47:28.244Z] [worker-~diagnostic~-d47c9ad3-8521-4120-afcc-68d85ddec0f2]: BUSY
+[debug] [2021-04-26T13:47:28.245Z] [worker-~diagnostic~-f442f2d8-7972-410f-841b-973080757418]: exited
+[debug] [2021-04-26T13:47:28.245Z] [worker-~diagnostic~-f442f2d8-7972-410f-841b-973080757418]: FINISHED
+[debug] [2021-04-26T13:47:28.716Z] [runtime-status] [9612] Functions runtime initialized. {"cwd":"F:\\react\\atcoder-anytime\\functions","node_version":"12.17.0"}
+[debug] [2021-04-26T13:47:28.718Z] [runtime-status] [9612] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2021-04-26T13:47:28.722Z] [runtime-status] [9612] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2021-04-26T13:47:28.724Z] [runtime-status] [9612] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:47:28.725Z] [runtime-status] [9612] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:47:28.871Z] [worker-~diagnostic~-d47c9ad3-8521-4120-afcc-68d85ddec0f2]: IDLE
+[debug] [2021-04-26T13:48:15.189Z] File F:\react\atcoder-anytime\functions\src\index.ts changed, reloading triggers
+[debug] [2021-04-26T13:48:16.202Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2021-04-26T13:48:16.202Z] [worker-~diagnostic~-d47c9ad3-8521-4120-afcc-68d85ddec0f2]: FINISHING
+[debug] [2021-04-26T13:48:16.202Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2021-04-26T13:48:16.211Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2021-04-26T13:48:16.211Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2021-04-26T13:48:16.211Z] [worker-pool] submitWork(triggerId=)
+[debug] [2021-04-26T13:48:16.211Z] [worker-~diagnostic~-7807913b-54e5-48a4-8713-30157e7b7de8]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\2776
+[debug] [2021-04-26T13:48:16.211Z] [worker-~diagnostic~-7807913b-54e5-48a4-8713-30157e7b7de8]: BUSY
+[debug] [2021-04-26T13:48:16.212Z] [worker-~diagnostic~-d47c9ad3-8521-4120-afcc-68d85ddec0f2]: exited
+[debug] [2021-04-26T13:48:16.212Z] [worker-~diagnostic~-d47c9ad3-8521-4120-afcc-68d85ddec0f2]: FINISHED
+[debug] [2021-04-26T13:48:16.671Z] [runtime-status] [2776] Functions runtime initialized. {"cwd":"F:\\react\\atcoder-anytime\\functions","node_version":"12.17.0"}
+[debug] [2021-04-26T13:48:16.673Z] [runtime-status] [2776] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2021-04-26T13:48:16.677Z] [runtime-status] [2776] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2021-04-26T13:48:16.679Z] [runtime-status] [2776] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:48:16.681Z] [runtime-status] [2776] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:48:16.803Z] [worker-~diagnostic~-7807913b-54e5-48a4-8713-30157e7b7de8]: IDLE
+[debug] [2021-04-26T13:48:20.749Z] File F:\react\atcoder-anytime\functions\lib\config\index.js.map changed, reloading triggers
+[debug] [2021-04-26T13:48:20.749Z] File F:\react\atcoder-anytime\functions\lib\utils\login.js.map changed, reloading triggers
+[debug] [2021-04-26T13:48:20.756Z] File F:\react\atcoder-anytime\functions\lib\getExternal.js.map changed, reloading triggers
+[debug] [2021-04-26T13:48:20.756Z] File F:\react\atcoder-anytime\functions\lib\config\index.js changed, reloading triggers
+[debug] [2021-04-26T13:48:20.756Z] File F:\react\atcoder-anytime\functions\lib\utils\login.js changed, reloading triggers
+[debug] [2021-04-26T13:48:20.766Z] File F:\react\atcoder-anytime\functions\lib\types\participationInfo.js.map changed, reloading triggers
+[debug] [2021-04-26T13:48:20.766Z] File F:\react\atcoder-anytime\functions\lib\getExternal.js changed, reloading triggers
+[debug] [2021-04-26T13:48:20.766Z] File F:\react\atcoder-anytime\functions\lib\index.js.map changed, reloading triggers
+[debug] [2021-04-26T13:48:20.766Z] File F:\react\atcoder-anytime\functions\lib\index.js changed, reloading triggers
+[debug] [2021-04-26T13:48:20.766Z] File F:\react\atcoder-anytime\functions\lib\utils\accessToAtCoder.js.map changed, reloading triggers
+[debug] [2021-04-26T13:48:20.767Z] File F:\react\atcoder-anytime\functions\lib\utils\accessToAtCoder.js changed, reloading triggers
+[debug] [2021-04-26T13:48:20.767Z] File F:\react\atcoder-anytime\functions\lib\utils\calculateNewRating.js.map changed, reloading triggers
+[debug] [2021-04-26T13:48:20.767Z] File F:\react\atcoder-anytime\functions\lib\utils\calculateNewRating.js changed, reloading triggers
+[debug] [2021-04-26T13:48:20.787Z] File F:\react\atcoder-anytime\functions\lib\types\participationInfo.js changed, reloading triggers
+[debug] [2021-04-26T13:48:20.787Z] File F:\react\atcoder-anytime\functions\lib\types\submission.js.map changed, reloading triggers
+[debug] [2021-04-26T13:48:20.787Z] File F:\react\atcoder-anytime\functions\lib\types\submission.js changed, reloading triggers
+[debug] [2021-04-26T13:48:20.787Z] File F:\react\atcoder-anytime\functions\lib\types\contestRecord.js.map changed, reloading triggers
+[debug] [2021-04-26T13:48:20.787Z] File F:\react\atcoder-anytime\functions\lib\types\contestRecord.js changed, reloading triggers
+[debug] [2021-04-26T13:48:20.787Z] File F:\react\atcoder-anytime\functions\lib\types\userProfile.js.map changed, reloading triggers
+[debug] [2021-04-26T13:48:20.787Z] File F:\react\atcoder-anytime\functions\lib\types\userProfile.js changed, reloading triggers
+[debug] [2021-04-26T13:48:20.788Z] File F:\react\atcoder-anytime\functions\lib\types\contestant.js.map changed, reloading triggers
+[debug] [2021-04-26T13:48:20.788Z] File F:\react\atcoder-anytime\functions\lib\types\contestant.js changed, reloading triggers
+[debug] [2021-04-26T13:48:20.788Z] File F:\react\atcoder-anytime\functions\lib\types\userProfile copy.js.map changed, reloading triggers
+[debug] [2021-04-26T13:48:20.788Z] File F:\react\atcoder-anytime\functions\lib\types\userProfile copy.js changed, reloading triggers
+[debug] [2021-04-26T13:48:20.788Z] File F:\react\atcoder-anytime\functions\lib\updateRating.js.map changed, reloading triggers
+[debug] [2021-04-26T13:48:20.788Z] File F:\react\atcoder-anytime\functions\lib\updateRating.js changed, reloading triggers
+[debug] [2021-04-26T13:48:20.788Z] File F:\react\atcoder-anytime\functions\lib\utils\getParticipateVirtuals.js.map changed, reloading triggers
+[debug] [2021-04-26T13:48:20.789Z] File F:\react\atcoder-anytime\functions\lib\utils\getParticipateVirtuals.js changed, reloading triggers
+[debug] [2021-04-26T13:48:21.793Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2021-04-26T13:48:21.794Z] [worker-~diagnostic~-7807913b-54e5-48a4-8713-30157e7b7de8]: FINISHING
+[debug] [2021-04-26T13:48:21.794Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2021-04-26T13:48:21.805Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2021-04-26T13:48:21.805Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2021-04-26T13:48:21.806Z] [worker-pool] submitWork(triggerId=)
+[debug] [2021-04-26T13:48:21.806Z] [worker-~diagnostic~-cf867025-c41b-4a1e-8c80-e3dcc230374d]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\928
+[debug] [2021-04-26T13:48:21.806Z] [worker-~diagnostic~-cf867025-c41b-4a1e-8c80-e3dcc230374d]: BUSY
+[debug] [2021-04-26T13:48:21.806Z] [worker-~diagnostic~-7807913b-54e5-48a4-8713-30157e7b7de8]: exited
+[debug] [2021-04-26T13:48:21.806Z] [worker-~diagnostic~-7807913b-54e5-48a4-8713-30157e7b7de8]: FINISHED
+[debug] [2021-04-26T13:48:22.161Z] [runtime-status] [928] Functions runtime initialized. {"cwd":"F:\\react\\atcoder-anytime\\functions","node_version":"12.17.0"}
+[debug] [2021-04-26T13:48:22.162Z] [runtime-status] [928] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2021-04-26T13:48:22.165Z] [runtime-status] [928] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2021-04-26T13:48:22.166Z] [runtime-status] [928] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:48:22.167Z] [runtime-status] [928] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:48:22.282Z] [worker-~diagnostic~-cf867025-c41b-4a1e-8c80-e3dcc230374d]: IDLE
+[debug] [2021-04-26T13:48:30.707Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2021-04-26T13:48:30.708Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2021-04-26T13:48:30.710Z] Accepted request POST /atcoder-anytime-dev/us-central1/updateRating --> updateRating
+[debug] [2021-04-26T13:48:30.711Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2021-04-26T13:48:30.725Z] [worker-pool] addWorker(updateRating)
+[debug] [2021-04-26T13:48:30.726Z] [worker-pool] Adding worker with key updateRating, total=1
+[debug] [2021-04-26T13:48:30.726Z] [worker-pool] submitWork(triggerId=updateRating)
+[debug] [2021-04-26T13:48:30.726Z] [worker-updateRating-36a73fb9-6fac-4c11-a59a-2910a5d1d819]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\13024
+[debug] [2021-04-26T13:48:30.726Z] [worker-updateRating-36a73fb9-6fac-4c11-a59a-2910a5d1d819]: BUSY
+[debug] [2021-04-26T13:48:31.047Z] [runtime-status] [13024] Functions runtime initialized. {"cwd":"F:\\react\\atcoder-anytime\\functions","node_version":"12.17.0"}
+[debug] [2021-04-26T13:48:31.048Z] [runtime-status] [13024] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2021-04-26T13:48:31.051Z] [runtime-status] [13024] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2021-04-26T13:48:31.052Z] [runtime-status] [13024] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:48:31.053Z] [runtime-status] [13024] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:48:31.161Z] [runtime-status] [13024] Trigger "updateRating" has been found, beginning invocation!
+[info] i  functions: Beginning execution of "updateRating"
+[debug] [2021-04-26T13:48:31.162Z] [runtime-status] [13024] triggerDefinition {"httpsTrigger":{},"labels":{"deployment-callable":"true"},"name":"updateRating","entryPoint":"updateRating"}
+[debug] [2021-04-26T13:48:31.162Z] [runtime-status] [13024] Running updateRating in mode HTTPS
+[debug] [2021-04-26T13:48:31.167Z] [runtime-status] [13024] Attempting to listen to socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\13024
+[debug] [2021-04-26T13:48:31.175Z] [functions] Runtime ready! Sending request!
+[debug] [2021-04-26T13:48:31.211Z] [runtime-status] [13024] Ephemeral server handling POST request
+[debug] [2021-04-26T13:48:31.213Z] [runtime-status] [13024] No callable functions auth found
+[debug] [2021-04-26T13:48:34.711Z] [runtime-status] [13024] Ephemeral server survived.
+[info] >  2292 1006
+[info] >  {
+[info] >    newRating: 1704,
+[info] >    oldRating: 0,
+[info] >    contestID: 'registration',
+[info] >    startTime: 1619335841,
+[info] >    rank: 1,
+[info] >    contestName: 'Registration',
+[info] >    roundedPerformance: 1704
+[info] >  }
+[info] >  1389.0137618754902
+[info] >  1389
+[info] >  {
+[info] >    handle: 'tada',
+[info] >    contestName: 'AtCoder Beginner Contest 198',
+[info] >    rank: 2292,
+[info] >    newRating: 1389,
+[info] >    roundedPerformance: 1006
+[info] >  }
+[info] >  1641 1233
+[info] >  {
+[info] >    newRating: 1704,
+[info] >    oldRating: 0,
+[info] >    contestID: 'registration',
+[info] >    startTime: 1619335841,
+[info] >    rank: 1,
+[info] >    contestName: 'Registration',
+[info] >    roundedPerformance: 1704
+[info] >  }
+[info] >  {
+[info] >    contestID: 'abc198',
+[info] >    startTime: 1618649160,
+[info] >    contestName: 'AtCoder Beginner Contest 198',
+[info] >    rank: 2292,
+[info] >    newRating: 1389,
+[info] >    oldRating: 1480,
+[info] >    roundedPerformance: 1006
+[info] >  }
+[info] >  1357.5939430430476
+[info] >  1358
+[info] >  {
+[info] >    handle: 'tada',
+[info] >    contestName: 'AtCoder Beginner Contest 196',
+[info] >    rank: 1641,
+[info] >    newRating: 1358,
+[info] >    roundedPerformance: 1233
+[info] >  }
+[info] i  functions: Finished "updateRating" in ~30s
+[debug] [2021-04-26T13:49:04.880Z] [worker-updateRating-36a73fb9-6fac-4c11-a59a-2910a5d1d819]: IDLE
+[debug] [2021-04-26T13:49:04.881Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2021-04-26T13:51:40.081Z] File F:\react\atcoder-anytime\functions\lib\utils\calculateNewRating.js.map changed, reloading triggers
+[debug] [2021-04-26T13:51:40.083Z] File F:\react\atcoder-anytime\functions\lib\utils\calculateNewRating.js changed, reloading triggers
+[debug] [2021-04-26T13:51:40.086Z] File F:\react\atcoder-anytime\functions\lib\getExternal.js changed, reloading triggers
+[debug] [2021-04-26T13:51:40.086Z] File F:\react\atcoder-anytime\functions\lib\config\index.js changed, reloading triggers
+[debug] [2021-04-26T13:51:40.087Z] File F:\react\atcoder-anytime\functions\lib\types\contestRecord.js changed, reloading triggers
+[debug] [2021-04-26T13:51:40.093Z] File F:\react\atcoder-anytime\functions\lib\utils\accessToAtCoder.js changed, reloading triggers
+[debug] [2021-04-26T13:51:40.093Z] File F:\react\atcoder-anytime\functions\lib\getExternal.js.map changed, reloading triggers
+[debug] [2021-04-26T13:51:40.094Z] File F:\react\atcoder-anytime\functions\lib\index.js changed, reloading triggers
+[debug] [2021-04-26T13:51:40.094Z] File F:\react\atcoder-anytime\functions\lib\index.js.map changed, reloading triggers
+[debug] [2021-04-26T13:51:40.094Z] File F:\react\atcoder-anytime\functions\lib\updateRating.js changed, reloading triggers
+[debug] [2021-04-26T13:51:40.094Z] File F:\react\atcoder-anytime\functions\lib\updateRating.js.map changed, reloading triggers
+[debug] [2021-04-26T13:51:40.094Z] File F:\react\atcoder-anytime\functions\lib\config\index.js.map changed, reloading triggers
+[debug] [2021-04-26T13:51:40.094Z] File F:\react\atcoder-anytime\functions\lib\types\contestRecord.js.map changed, reloading triggers
+[debug] [2021-04-26T13:51:40.094Z] File F:\react\atcoder-anytime\functions\lib\types\contestant.js changed, reloading triggers
+[debug] [2021-04-26T13:51:40.094Z] File F:\react\atcoder-anytime\functions\lib\types\contestant.js.map changed, reloading triggers
+[debug] [2021-04-26T13:51:40.094Z] File F:\react\atcoder-anytime\functions\lib\types\participationInfo.js changed, reloading triggers
+[debug] [2021-04-26T13:51:40.094Z] File F:\react\atcoder-anytime\functions\lib\types\participationInfo.js.map changed, reloading triggers
+[debug] [2021-04-26T13:51:40.094Z] File F:\react\atcoder-anytime\functions\lib\types\submission.js changed, reloading triggers
+[debug] [2021-04-26T13:51:40.094Z] File F:\react\atcoder-anytime\functions\lib\types\submission.js.map changed, reloading triggers
+[debug] [2021-04-26T13:51:40.094Z] File F:\react\atcoder-anytime\functions\lib\types\userProfile copy.js changed, reloading triggers
+[debug] [2021-04-26T13:51:40.095Z] File F:\react\atcoder-anytime\functions\lib\types\userProfile copy.js.map changed, reloading triggers
+[debug] [2021-04-26T13:51:40.095Z] File F:\react\atcoder-anytime\functions\lib\types\userProfile.js changed, reloading triggers
+[debug] [2021-04-26T13:51:40.095Z] File F:\react\atcoder-anytime\functions\lib\types\userProfile.js.map changed, reloading triggers
+[debug] [2021-04-26T13:51:40.098Z] File F:\react\atcoder-anytime\functions\lib\utils\accessToAtCoder.js.map changed, reloading triggers
+[debug] [2021-04-26T13:51:40.098Z] File F:\react\atcoder-anytime\functions\lib\utils\getParticipateVirtuals.js changed, reloading triggers
+[debug] [2021-04-26T13:51:40.098Z] File F:\react\atcoder-anytime\functions\lib\utils\getParticipateVirtuals.js.map changed, reloading triggers
+[debug] [2021-04-26T13:51:40.098Z] File F:\react\atcoder-anytime\functions\lib\utils\login.js changed, reloading triggers
+[debug] [2021-04-26T13:51:40.098Z] File F:\react\atcoder-anytime\functions\lib\utils\login.js.map changed, reloading triggers
+[debug] [2021-04-26T13:51:41.109Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2021-04-26T13:51:41.109Z] [worker-~diagnostic~-cf867025-c41b-4a1e-8c80-e3dcc230374d]: FINISHING
+[debug] [2021-04-26T13:51:41.109Z] [worker-pool] Shutting down IDLE worker (updateRating)
+[debug] [2021-04-26T13:51:41.109Z] [worker-updateRating-36a73fb9-6fac-4c11-a59a-2910a5d1d819]: FINISHING
+[debug] [2021-04-26T13:51:41.115Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2021-04-26T13:51:41.115Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2021-04-26T13:51:41.116Z] [worker-pool] submitWork(triggerId=)
+[debug] [2021-04-26T13:51:41.116Z] [worker-~diagnostic~-44e4629c-9839-4fbd-8ea1-82bed8c73003]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\1964
+[debug] [2021-04-26T13:51:41.116Z] [worker-~diagnostic~-44e4629c-9839-4fbd-8ea1-82bed8c73003]: BUSY
+[debug] [2021-04-26T13:51:41.117Z] [worker-~diagnostic~-cf867025-c41b-4a1e-8c80-e3dcc230374d]: exited
+[debug] [2021-04-26T13:51:41.117Z] [worker-~diagnostic~-cf867025-c41b-4a1e-8c80-e3dcc230374d]: FINISHED
+[debug] [2021-04-26T13:51:41.117Z] [worker-updateRating-36a73fb9-6fac-4c11-a59a-2910a5d1d819]: exited
+[debug] [2021-04-26T13:51:41.117Z] [worker-updateRating-36a73fb9-6fac-4c11-a59a-2910a5d1d819]: FINISHED
+[debug] [2021-04-26T13:51:41.441Z] [runtime-status] [1964] Functions runtime initialized. {"cwd":"F:\\react\\atcoder-anytime\\functions","node_version":"12.17.0"}
+[debug] [2021-04-26T13:51:41.442Z] [runtime-status] [1964] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2021-04-26T13:51:41.445Z] [runtime-status] [1964] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2021-04-26T13:51:41.446Z] [runtime-status] [1964] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:51:41.447Z] [runtime-status] [1964] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:51:41.555Z] [worker-~diagnostic~-44e4629c-9839-4fbd-8ea1-82bed8c73003]: IDLE
+[debug] [2021-04-26T13:52:06.409Z] File F:\react\atcoder-anytime\functions\tsconfig.json changed, reloading triggers
+[debug] [2021-04-26T13:52:07.415Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2021-04-26T13:52:07.416Z] [worker-~diagnostic~-44e4629c-9839-4fbd-8ea1-82bed8c73003]: FINISHING
+[debug] [2021-04-26T13:52:07.416Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2021-04-26T13:52:07.416Z] [worker-pool] Cleaned up workers for updateRating: 1 --> 0
+[debug] [2021-04-26T13:52:07.424Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2021-04-26T13:52:07.425Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2021-04-26T13:52:07.425Z] [worker-pool] submitWork(triggerId=)
+[debug] [2021-04-26T13:52:07.425Z] [worker-~diagnostic~-c28e9aa7-c064-4d2f-8da5-a32c864aa928]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\9804
+[debug] [2021-04-26T13:52:07.425Z] [worker-~diagnostic~-c28e9aa7-c064-4d2f-8da5-a32c864aa928]: BUSY
+[debug] [2021-04-26T13:52:07.426Z] [worker-~diagnostic~-44e4629c-9839-4fbd-8ea1-82bed8c73003]: exited
+[debug] [2021-04-26T13:52:07.426Z] [worker-~diagnostic~-44e4629c-9839-4fbd-8ea1-82bed8c73003]: FINISHED
+[debug] [2021-04-26T13:52:07.893Z] [runtime-status] [9804] Functions runtime initialized. {"cwd":"F:\\react\\atcoder-anytime\\functions","node_version":"12.17.0"}
+[debug] [2021-04-26T13:52:07.894Z] [runtime-status] [9804] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2021-04-26T13:52:07.898Z] [runtime-status] [9804] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2021-04-26T13:52:07.900Z] [runtime-status] [9804] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:52:07.902Z] [runtime-status] [9804] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:52:08.034Z] [worker-~diagnostic~-c28e9aa7-c064-4d2f-8da5-a32c864aa928]: IDLE
+[debug] [2021-04-26T13:52:08.699Z] File F:\react\atcoder-anytime\functions\lib\getExternal.js changed, reloading triggers
+[debug] [2021-04-26T13:52:08.704Z] File F:\react\atcoder-anytime\functions\lib\getExternal.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:08.704Z] File F:\react\atcoder-anytime\functions\lib\index.js changed, reloading triggers
+[debug] [2021-04-26T13:52:08.704Z] File F:\react\atcoder-anytime\functions\lib\index.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:08.704Z] File F:\react\atcoder-anytime\functions\lib\updateRating.js changed, reloading triggers
+[debug] [2021-04-26T13:52:08.704Z] File F:\react\atcoder-anytime\functions\lib\updateRating.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:08.705Z] File F:\react\atcoder-anytime\functions\lib\config\index.js changed, reloading triggers
+[debug] [2021-04-26T13:52:08.708Z] File F:\react\atcoder-anytime\functions\lib\types\contestRecord.js changed, reloading triggers
+[debug] [2021-04-26T13:52:08.708Z] File F:\react\atcoder-anytime\functions\lib\utils\accessToAtCoder.js changed, reloading triggers
+[debug] [2021-04-26T13:52:08.713Z] File F:\react\atcoder-anytime\functions\lib\config\index.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:08.717Z] File F:\react\atcoder-anytime\functions\lib\types\contestRecord.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:08.717Z] File F:\react\atcoder-anytime\functions\lib\types\contestant.js changed, reloading triggers
+[debug] [2021-04-26T13:52:08.718Z] File F:\react\atcoder-anytime\functions\lib\types\contestant.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:08.718Z] File F:\react\atcoder-anytime\functions\lib\types\participationInfo.js changed, reloading triggers
+[debug] [2021-04-26T13:52:08.718Z] File F:\react\atcoder-anytime\functions\lib\types\participationInfo.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:08.718Z] File F:\react\atcoder-anytime\functions\lib\types\submission.js changed, reloading triggers
+[debug] [2021-04-26T13:52:08.718Z] File F:\react\atcoder-anytime\functions\lib\types\submission.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:08.718Z] File F:\react\atcoder-anytime\functions\lib\types\userProfile copy.js changed, reloading triggers
+[debug] [2021-04-26T13:52:08.718Z] File F:\react\atcoder-anytime\functions\lib\types\userProfile copy.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:08.718Z] File F:\react\atcoder-anytime\functions\lib\types\userProfile.js changed, reloading triggers
+[debug] [2021-04-26T13:52:08.719Z] File F:\react\atcoder-anytime\functions\lib\types\userProfile.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:08.719Z] File F:\react\atcoder-anytime\functions\lib\utils\accessToAtCoder.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:08.719Z] File F:\react\atcoder-anytime\functions\lib\utils\calculateNewRating.js changed, reloading triggers
+[debug] [2021-04-26T13:52:08.719Z] File F:\react\atcoder-anytime\functions\lib\utils\calculateNewRating.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:08.719Z] File F:\react\atcoder-anytime\functions\lib\utils\getParticipateVirtuals.js changed, reloading triggers
+[debug] [2021-04-26T13:52:08.719Z] File F:\react\atcoder-anytime\functions\lib\utils\getParticipateVirtuals.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:08.719Z] File F:\react\atcoder-anytime\functions\lib\utils\login.js changed, reloading triggers
+[debug] [2021-04-26T13:52:08.720Z] File F:\react\atcoder-anytime\functions\lib\utils\login.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:09.727Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2021-04-26T13:52:09.727Z] [worker-~diagnostic~-c28e9aa7-c064-4d2f-8da5-a32c864aa928]: FINISHING
+[debug] [2021-04-26T13:52:09.728Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2021-04-26T13:52:09.739Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2021-04-26T13:52:09.739Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2021-04-26T13:52:09.739Z] [worker-pool] submitWork(triggerId=)
+[debug] [2021-04-26T13:52:09.739Z] [worker-~diagnostic~-dbb1e320-0df8-4a94-83c5-19bdabebe24a]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\6084
+[debug] [2021-04-26T13:52:09.739Z] [worker-~diagnostic~-dbb1e320-0df8-4a94-83c5-19bdabebe24a]: BUSY
+[debug] [2021-04-26T13:52:09.740Z] [worker-~diagnostic~-c28e9aa7-c064-4d2f-8da5-a32c864aa928]: exited
+[debug] [2021-04-26T13:52:09.740Z] [worker-~diagnostic~-c28e9aa7-c064-4d2f-8da5-a32c864aa928]: FINISHED
+[debug] [2021-04-26T13:52:10.075Z] [runtime-status] [6084] Functions runtime initialized. {"cwd":"F:\\react\\atcoder-anytime\\functions","node_version":"12.17.0"}
+[debug] [2021-04-26T13:52:10.076Z] [runtime-status] [6084] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2021-04-26T13:52:10.078Z] [runtime-status] [6084] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2021-04-26T13:52:10.079Z] [runtime-status] [6084] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:52:10.080Z] [runtime-status] [6084] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:52:10.189Z] [worker-~diagnostic~-dbb1e320-0df8-4a94-83c5-19bdabebe24a]: IDLE
+[debug] [2021-04-26T13:52:18.028Z] File F:\react\atcoder-anytime\functions\src\updateRating.ts changed, reloading triggers
+[debug] [2021-04-26T13:52:19.036Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2021-04-26T13:52:19.036Z] [worker-~diagnostic~-dbb1e320-0df8-4a94-83c5-19bdabebe24a]: FINISHING
+[debug] [2021-04-26T13:52:19.036Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2021-04-26T13:52:19.044Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2021-04-26T13:52:19.044Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2021-04-26T13:52:19.044Z] [worker-pool] submitWork(triggerId=)
+[debug] [2021-04-26T13:52:19.044Z] [worker-~diagnostic~-fe7a4054-b446-4704-b2ae-1459adf789e9]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\6868
+[debug] [2021-04-26T13:52:19.044Z] [worker-~diagnostic~-fe7a4054-b446-4704-b2ae-1459adf789e9]: BUSY
+[debug] [2021-04-26T13:52:19.045Z] [worker-~diagnostic~-dbb1e320-0df8-4a94-83c5-19bdabebe24a]: exited
+[debug] [2021-04-26T13:52:19.045Z] [worker-~diagnostic~-dbb1e320-0df8-4a94-83c5-19bdabebe24a]: FINISHED
+[debug] [2021-04-26T13:52:19.504Z] [runtime-status] [6868] Functions runtime initialized. {"cwd":"F:\\react\\atcoder-anytime\\functions","node_version":"12.17.0"}
+[debug] [2021-04-26T13:52:19.505Z] [runtime-status] [6868] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2021-04-26T13:52:19.508Z] [runtime-status] [6868] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2021-04-26T13:52:19.511Z] [runtime-status] [6868] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:52:19.513Z] [runtime-status] [6868] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:52:19.657Z] [worker-~diagnostic~-fe7a4054-b446-4704-b2ae-1459adf789e9]: IDLE
+[debug] [2021-04-26T13:52:19.994Z] File F:\react\atcoder-anytime\functions\lib\updateRating.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:19.996Z] File F:\react\atcoder-anytime\functions\lib\updateRating.js changed, reloading triggers
+[debug] [2021-04-26T13:52:19.999Z] File F:\react\atcoder-anytime\functions\lib\getExternal.js changed, reloading triggers
+[debug] [2021-04-26T13:52:19.999Z] File F:\react\atcoder-anytime\functions\lib\getExternal.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:19.999Z] File F:\react\atcoder-anytime\functions\lib\index.js changed, reloading triggers
+[debug] [2021-04-26T13:52:19.999Z] File F:\react\atcoder-anytime\functions\lib\config\index.js changed, reloading triggers
+[debug] [2021-04-26T13:52:20.000Z] File F:\react\atcoder-anytime\functions\lib\types\contestRecord.js changed, reloading triggers
+[debug] [2021-04-26T13:52:20.006Z] File F:\react\atcoder-anytime\functions\lib\utils\accessToAtCoder.js changed, reloading triggers
+[debug] [2021-04-26T13:52:20.006Z] File F:\react\atcoder-anytime\functions\lib\index.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:20.006Z] File F:\react\atcoder-anytime\functions\lib\config\index.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:20.006Z] File F:\react\atcoder-anytime\functions\lib\types\contestRecord.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:20.006Z] File F:\react\atcoder-anytime\functions\lib\types\contestant.js changed, reloading triggers
+[debug] [2021-04-26T13:52:20.006Z] File F:\react\atcoder-anytime\functions\lib\types\contestant.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:20.006Z] File F:\react\atcoder-anytime\functions\lib\types\participationInfo.js changed, reloading triggers
+[debug] [2021-04-26T13:52:20.006Z] File F:\react\atcoder-anytime\functions\lib\types\participationInfo.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:20.006Z] File F:\react\atcoder-anytime\functions\lib\types\submission.js changed, reloading triggers
+[debug] [2021-04-26T13:52:20.006Z] File F:\react\atcoder-anytime\functions\lib\types\submission.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:20.006Z] File F:\react\atcoder-anytime\functions\lib\types\userProfile copy.js changed, reloading triggers
+[debug] [2021-04-26T13:52:20.007Z] File F:\react\atcoder-anytime\functions\lib\types\userProfile copy.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:20.007Z] File F:\react\atcoder-anytime\functions\lib\types\userProfile.js changed, reloading triggers
+[debug] [2021-04-26T13:52:20.007Z] File F:\react\atcoder-anytime\functions\lib\types\userProfile.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:20.010Z] File F:\react\atcoder-anytime\functions\lib\utils\accessToAtCoder.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:20.011Z] File F:\react\atcoder-anytime\functions\lib\utils\calculateNewRating.js changed, reloading triggers
+[debug] [2021-04-26T13:52:20.011Z] File F:\react\atcoder-anytime\functions\lib\utils\calculateNewRating.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:20.011Z] File F:\react\atcoder-anytime\functions\lib\utils\getParticipateVirtuals.js changed, reloading triggers
+[debug] [2021-04-26T13:52:20.011Z] File F:\react\atcoder-anytime\functions\lib\utils\getParticipateVirtuals.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:20.011Z] File F:\react\atcoder-anytime\functions\lib\utils\login.js changed, reloading triggers
+[debug] [2021-04-26T13:52:20.011Z] File F:\react\atcoder-anytime\functions\lib\utils\login.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:21.015Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2021-04-26T13:52:21.015Z] [worker-~diagnostic~-fe7a4054-b446-4704-b2ae-1459adf789e9]: FINISHING
+[debug] [2021-04-26T13:52:21.015Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2021-04-26T13:52:21.023Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2021-04-26T13:52:21.023Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2021-04-26T13:52:21.023Z] [worker-pool] submitWork(triggerId=)
+[debug] [2021-04-26T13:52:21.024Z] [worker-~diagnostic~-e14dc633-3904-4d49-b1d3-f45ad8960f39]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\12936
+[debug] [2021-04-26T13:52:21.024Z] [worker-~diagnostic~-e14dc633-3904-4d49-b1d3-f45ad8960f39]: BUSY
+[debug] [2021-04-26T13:52:21.024Z] [worker-~diagnostic~-fe7a4054-b446-4704-b2ae-1459adf789e9]: exited
+[debug] [2021-04-26T13:52:21.024Z] [worker-~diagnostic~-fe7a4054-b446-4704-b2ae-1459adf789e9]: FINISHED
+[debug] [2021-04-26T13:52:21.400Z] [runtime-status] [12936] Functions runtime initialized. {"cwd":"F:\\react\\atcoder-anytime\\functions","node_version":"12.17.0"}
+[debug] [2021-04-26T13:52:21.401Z] [runtime-status] [12936] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2021-04-26T13:52:21.404Z] [runtime-status] [12936] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2021-04-26T13:52:21.406Z] [runtime-status] [12936] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:52:21.407Z] [runtime-status] [12936] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:52:21.529Z] [worker-~diagnostic~-e14dc633-3904-4d49-b1d3-f45ad8960f39]: IDLE
+[debug] [2021-04-26T13:52:22.205Z] File F:\react\atcoder-anytime\functions\src\updateRating.ts changed, reloading triggers
+[debug] [2021-04-26T13:52:23.209Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2021-04-26T13:52:23.210Z] [worker-~diagnostic~-e14dc633-3904-4d49-b1d3-f45ad8960f39]: FINISHING
+[debug] [2021-04-26T13:52:23.210Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2021-04-26T13:52:23.218Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2021-04-26T13:52:23.218Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2021-04-26T13:52:23.218Z] [worker-pool] submitWork(triggerId=)
+[debug] [2021-04-26T13:52:23.218Z] [worker-~diagnostic~-0482407c-2a5b-4d0d-a307-f701da292ca0]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\14924
+[debug] [2021-04-26T13:52:23.218Z] [worker-~diagnostic~-0482407c-2a5b-4d0d-a307-f701da292ca0]: BUSY
+[debug] [2021-04-26T13:52:23.219Z] [worker-~diagnostic~-e14dc633-3904-4d49-b1d3-f45ad8960f39]: exited
+[debug] [2021-04-26T13:52:23.219Z] [worker-~diagnostic~-e14dc633-3904-4d49-b1d3-f45ad8960f39]: FINISHED
+[debug] [2021-04-26T13:52:23.621Z] [runtime-status] [14924] Functions runtime initialized. {"cwd":"F:\\react\\atcoder-anytime\\functions","node_version":"12.17.0"}
+[debug] [2021-04-26T13:52:23.623Z] [runtime-status] [14924] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2021-04-26T13:52:23.626Z] [runtime-status] [14924] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2021-04-26T13:52:23.627Z] [runtime-status] [14924] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:52:23.628Z] [runtime-status] [14924] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:52:23.758Z] [worker-~diagnostic~-0482407c-2a5b-4d0d-a307-f701da292ca0]: IDLE
+[debug] [2021-04-26T13:52:23.867Z] File F:\react\atcoder-anytime\functions\lib\updateRating.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:23.867Z] File F:\react\atcoder-anytime\functions\lib\updateRating.js changed, reloading triggers
+[debug] [2021-04-26T13:52:23.870Z] File F:\react\atcoder-anytime\functions\lib\getExternal.js changed, reloading triggers
+[debug] [2021-04-26T13:52:23.871Z] File F:\react\atcoder-anytime\functions\lib\config\index.js changed, reloading triggers
+[debug] [2021-04-26T13:52:23.871Z] File F:\react\atcoder-anytime\functions\lib\types\contestRecord.js changed, reloading triggers
+[debug] [2021-04-26T13:52:23.871Z] File F:\react\atcoder-anytime\functions\lib\getExternal.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:23.871Z] File F:\react\atcoder-anytime\functions\lib\index.js changed, reloading triggers
+[debug] [2021-04-26T13:52:23.875Z] File F:\react\atcoder-anytime\functions\lib\index.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:23.877Z] File F:\react\atcoder-anytime\functions\lib\utils\accessToAtCoder.js changed, reloading triggers
+[debug] [2021-04-26T13:52:23.877Z] File F:\react\atcoder-anytime\functions\lib\config\index.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:23.877Z] File F:\react\atcoder-anytime\functions\lib\types\contestRecord.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:23.877Z] File F:\react\atcoder-anytime\functions\lib\types\contestant.js changed, reloading triggers
+[debug] [2021-04-26T13:52:23.877Z] File F:\react\atcoder-anytime\functions\lib\types\contestant.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:23.877Z] File F:\react\atcoder-anytime\functions\lib\types\participationInfo.js changed, reloading triggers
+[debug] [2021-04-26T13:52:23.877Z] File F:\react\atcoder-anytime\functions\lib\types\participationInfo.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:23.877Z] File F:\react\atcoder-anytime\functions\lib\types\submission.js changed, reloading triggers
+[debug] [2021-04-26T13:52:23.877Z] File F:\react\atcoder-anytime\functions\lib\types\submission.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:23.877Z] File F:\react\atcoder-anytime\functions\lib\types\userProfile copy.js changed, reloading triggers
+[debug] [2021-04-26T13:52:23.877Z] File F:\react\atcoder-anytime\functions\lib\types\userProfile copy.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:23.877Z] File F:\react\atcoder-anytime\functions\lib\types\userProfile.js changed, reloading triggers
+[debug] [2021-04-26T13:52:23.877Z] File F:\react\atcoder-anytime\functions\lib\types\userProfile.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:23.881Z] File F:\react\atcoder-anytime\functions\lib\utils\accessToAtCoder.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:23.881Z] File F:\react\atcoder-anytime\functions\lib\utils\calculateNewRating.js changed, reloading triggers
+[debug] [2021-04-26T13:52:23.881Z] File F:\react\atcoder-anytime\functions\lib\utils\calculateNewRating.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:23.881Z] File F:\react\atcoder-anytime\functions\lib\utils\getParticipateVirtuals.js changed, reloading triggers
+[debug] [2021-04-26T13:52:23.881Z] File F:\react\atcoder-anytime\functions\lib\utils\getParticipateVirtuals.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:23.881Z] File F:\react\atcoder-anytime\functions\lib\utils\login.js changed, reloading triggers
+[debug] [2021-04-26T13:52:23.882Z] File F:\react\atcoder-anytime\functions\lib\utils\login.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:24.895Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2021-04-26T13:52:24.895Z] [worker-~diagnostic~-0482407c-2a5b-4d0d-a307-f701da292ca0]: FINISHING
+[debug] [2021-04-26T13:52:24.895Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2021-04-26T13:52:24.905Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2021-04-26T13:52:24.905Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2021-04-26T13:52:24.905Z] [worker-pool] submitWork(triggerId=)
+[debug] [2021-04-26T13:52:24.905Z] [worker-~diagnostic~-70a1ce76-a6f1-44ac-9f24-c1eeb128024c]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\12676
+[debug] [2021-04-26T13:52:24.905Z] [worker-~diagnostic~-70a1ce76-a6f1-44ac-9f24-c1eeb128024c]: BUSY
+[debug] [2021-04-26T13:52:24.906Z] [worker-~diagnostic~-0482407c-2a5b-4d0d-a307-f701da292ca0]: exited
+[debug] [2021-04-26T13:52:24.907Z] [worker-~diagnostic~-0482407c-2a5b-4d0d-a307-f701da292ca0]: FINISHED
+[debug] [2021-04-26T13:52:24.996Z] File F:\react\atcoder-anytime\functions\src\updateRating.ts changed, reloading triggers
+[debug] [2021-04-26T13:52:25.262Z] [runtime-status] [12676] Functions runtime initialized. {"cwd":"F:\\react\\atcoder-anytime\\functions","node_version":"12.17.0"}
+[debug] [2021-04-26T13:52:25.263Z] [runtime-status] [12676] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2021-04-26T13:52:25.265Z] [runtime-status] [12676] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2021-04-26T13:52:25.267Z] [runtime-status] [12676] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:52:25.269Z] [runtime-status] [12676] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:52:25.406Z] [worker-~diagnostic~-70a1ce76-a6f1-44ac-9f24-c1eeb128024c]: IDLE
+[debug] [2021-04-26T13:52:26.008Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2021-04-26T13:52:26.009Z] [worker-~diagnostic~-70a1ce76-a6f1-44ac-9f24-c1eeb128024c]: FINISHING
+[debug] [2021-04-26T13:52:26.009Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2021-04-26T13:52:26.016Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2021-04-26T13:52:26.016Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2021-04-26T13:52:26.016Z] [worker-pool] submitWork(triggerId=)
+[debug] [2021-04-26T13:52:26.017Z] [worker-~diagnostic~-17b6d3b3-e147-4bc5-b34a-70ce1d0a876d]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\6932
+[debug] [2021-04-26T13:52:26.017Z] [worker-~diagnostic~-17b6d3b3-e147-4bc5-b34a-70ce1d0a876d]: BUSY
+[debug] [2021-04-26T13:52:26.017Z] [worker-~diagnostic~-70a1ce76-a6f1-44ac-9f24-c1eeb128024c]: exited
+[debug] [2021-04-26T13:52:26.017Z] [worker-~diagnostic~-70a1ce76-a6f1-44ac-9f24-c1eeb128024c]: FINISHED
+[debug] [2021-04-26T13:52:26.382Z] [runtime-status] [6932] Functions runtime initialized. {"cwd":"F:\\react\\atcoder-anytime\\functions","node_version":"12.17.0"}
+[debug] [2021-04-26T13:52:26.383Z] [runtime-status] [6932] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2021-04-26T13:52:26.386Z] [runtime-status] [6932] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2021-04-26T13:52:26.388Z] [runtime-status] [6932] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:52:26.389Z] [runtime-status] [6932] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:52:26.515Z] [worker-~diagnostic~-17b6d3b3-e147-4bc5-b34a-70ce1d0a876d]: IDLE
+[debug] [2021-04-26T13:52:26.554Z] File F:\react\atcoder-anytime\functions\lib\updateRating.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:26.558Z] File F:\react\atcoder-anytime\functions\lib\updateRating.js changed, reloading triggers
+[debug] [2021-04-26T13:52:26.561Z] File F:\react\atcoder-anytime\functions\lib\config\index.js changed, reloading triggers
+[debug] [2021-04-26T13:52:26.563Z] File F:\react\atcoder-anytime\functions\lib\types\contestRecord.js changed, reloading triggers
+[debug] [2021-04-26T13:52:26.564Z] File F:\react\atcoder-anytime\functions\lib\getExternal.js changed, reloading triggers
+[debug] [2021-04-26T13:52:26.564Z] File F:\react\atcoder-anytime\functions\lib\getExternal.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:26.564Z] File F:\react\atcoder-anytime\functions\lib\index.js changed, reloading triggers
+[debug] [2021-04-26T13:52:26.564Z] File F:\react\atcoder-anytime\functions\lib\index.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:26.565Z] File F:\react\atcoder-anytime\functions\lib\utils\accessToAtCoder.js changed, reloading triggers
+[debug] [2021-04-26T13:52:26.572Z] File F:\react\atcoder-anytime\functions\lib\config\index.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:26.572Z] File F:\react\atcoder-anytime\functions\lib\types\contestRecord.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:26.572Z] File F:\react\atcoder-anytime\functions\lib\types\contestant.js changed, reloading triggers
+[debug] [2021-04-26T13:52:26.572Z] File F:\react\atcoder-anytime\functions\lib\types\contestant.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:26.572Z] File F:\react\atcoder-anytime\functions\lib\types\participationInfo.js changed, reloading triggers
+[debug] [2021-04-26T13:52:26.572Z] File F:\react\atcoder-anytime\functions\lib\types\participationInfo.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:26.572Z] File F:\react\atcoder-anytime\functions\lib\types\submission.js changed, reloading triggers
+[debug] [2021-04-26T13:52:26.572Z] File F:\react\atcoder-anytime\functions\lib\types\submission.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:26.572Z] File F:\react\atcoder-anytime\functions\lib\types\userProfile copy.js changed, reloading triggers
+[debug] [2021-04-26T13:52:26.572Z] File F:\react\atcoder-anytime\functions\lib\types\userProfile copy.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:26.572Z] File F:\react\atcoder-anytime\functions\lib\types\userProfile.js changed, reloading triggers
+[debug] [2021-04-26T13:52:26.572Z] File F:\react\atcoder-anytime\functions\lib\types\userProfile.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:26.572Z] File F:\react\atcoder-anytime\functions\lib\utils\accessToAtCoder.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:26.573Z] File F:\react\atcoder-anytime\functions\lib\utils\calculateNewRating.js changed, reloading triggers
+[debug] [2021-04-26T13:52:26.573Z] File F:\react\atcoder-anytime\functions\lib\utils\calculateNewRating.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:26.573Z] File F:\react\atcoder-anytime\functions\lib\utils\getParticipateVirtuals.js changed, reloading triggers
+[debug] [2021-04-26T13:52:26.573Z] File F:\react\atcoder-anytime\functions\lib\utils\getParticipateVirtuals.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:26.573Z] File F:\react\atcoder-anytime\functions\lib\utils\login.js changed, reloading triggers
+[debug] [2021-04-26T13:52:26.573Z] File F:\react\atcoder-anytime\functions\lib\utils\login.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:27.589Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2021-04-26T13:52:27.589Z] [worker-~diagnostic~-17b6d3b3-e147-4bc5-b34a-70ce1d0a876d]: FINISHING
+[debug] [2021-04-26T13:52:27.589Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2021-04-26T13:52:27.600Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2021-04-26T13:52:27.601Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2021-04-26T13:52:27.601Z] [worker-pool] submitWork(triggerId=)
+[debug] [2021-04-26T13:52:27.601Z] [worker-~diagnostic~-63a3fdea-0a81-4e8d-a714-234e1ace70cb]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\10312
+[debug] [2021-04-26T13:52:27.601Z] [worker-~diagnostic~-63a3fdea-0a81-4e8d-a714-234e1ace70cb]: BUSY
+[debug] [2021-04-26T13:52:27.602Z] [worker-~diagnostic~-17b6d3b3-e147-4bc5-b34a-70ce1d0a876d]: exited
+[debug] [2021-04-26T13:52:27.602Z] [worker-~diagnostic~-17b6d3b3-e147-4bc5-b34a-70ce1d0a876d]: FINISHED
+[debug] [2021-04-26T13:52:27.955Z] [runtime-status] [10312] Functions runtime initialized. {"cwd":"F:\\react\\atcoder-anytime\\functions","node_version":"12.17.0"}
+[debug] [2021-04-26T13:52:27.956Z] [runtime-status] [10312] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2021-04-26T13:52:27.958Z] [runtime-status] [10312] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2021-04-26T13:52:27.960Z] [runtime-status] [10312] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:52:27.961Z] [runtime-status] [10312] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:52:28.092Z] [worker-~diagnostic~-63a3fdea-0a81-4e8d-a714-234e1ace70cb]: IDLE
+[debug] [2021-04-26T13:52:31.484Z] File F:\react\atcoder-anytime\functions\src\updateRating.ts changed, reloading triggers
+[debug] [2021-04-26T13:52:32.487Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2021-04-26T13:52:32.487Z] [worker-~diagnostic~-63a3fdea-0a81-4e8d-a714-234e1ace70cb]: FINISHING
+[debug] [2021-04-26T13:52:32.487Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2021-04-26T13:52:32.494Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2021-04-26T13:52:32.494Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2021-04-26T13:52:32.495Z] [worker-pool] submitWork(triggerId=)
+[debug] [2021-04-26T13:52:32.495Z] [worker-~diagnostic~-17d2e18b-d9dc-41fe-8c8f-237fc794d273]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\8932
+[debug] [2021-04-26T13:52:32.495Z] [worker-~diagnostic~-17d2e18b-d9dc-41fe-8c8f-237fc794d273]: BUSY
+[debug] [2021-04-26T13:52:32.495Z] [worker-~diagnostic~-63a3fdea-0a81-4e8d-a714-234e1ace70cb]: exited
+[debug] [2021-04-26T13:52:32.495Z] [worker-~diagnostic~-63a3fdea-0a81-4e8d-a714-234e1ace70cb]: FINISHED
+[debug] [2021-04-26T13:52:32.873Z] [runtime-status] [8932] Functions runtime initialized. {"cwd":"F:\\react\\atcoder-anytime\\functions","node_version":"12.17.0"}
+[debug] [2021-04-26T13:52:32.874Z] [runtime-status] [8932] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2021-04-26T13:52:32.877Z] [runtime-status] [8932] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2021-04-26T13:52:32.878Z] [runtime-status] [8932] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:52:32.879Z] [runtime-status] [8932] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:52:33.014Z] [worker-~diagnostic~-17d2e18b-d9dc-41fe-8c8f-237fc794d273]: IDLE
+[debug] [2021-04-26T13:52:33.093Z] File F:\react\atcoder-anytime\functions\lib\getExternal.js changed, reloading triggers
+[debug] [2021-04-26T13:52:33.096Z] File F:\react\atcoder-anytime\functions\lib\config\index.js changed, reloading triggers
+[debug] [2021-04-26T13:52:33.096Z] File F:\react\atcoder-anytime\functions\lib\getExternal.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:33.096Z] File F:\react\atcoder-anytime\functions\lib\index.js changed, reloading triggers
+[debug] [2021-04-26T13:52:33.096Z] File F:\react\atcoder-anytime\functions\lib\index.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:33.096Z] File F:\react\atcoder-anytime\functions\lib\updateRating.js changed, reloading triggers
+[debug] [2021-04-26T13:52:33.096Z] File F:\react\atcoder-anytime\functions\lib\updateRating.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:33.096Z] File F:\react\atcoder-anytime\functions\lib\types\contestRecord.js changed, reloading triggers
+[debug] [2021-04-26T13:52:33.101Z] File F:\react\atcoder-anytime\functions\lib\config\index.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:33.101Z] File F:\react\atcoder-anytime\functions\lib\utils\accessToAtCoder.js changed, reloading triggers
+[debug] [2021-04-26T13:52:33.102Z] File F:\react\atcoder-anytime\functions\lib\types\contestRecord.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:33.102Z] File F:\react\atcoder-anytime\functions\lib\types\contestant.js changed, reloading triggers
+[debug] [2021-04-26T13:52:33.103Z] File F:\react\atcoder-anytime\functions\lib\types\contestant.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:33.103Z] File F:\react\atcoder-anytime\functions\lib\types\participationInfo.js changed, reloading triggers
+[debug] [2021-04-26T13:52:33.103Z] File F:\react\atcoder-anytime\functions\lib\types\participationInfo.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:33.103Z] File F:\react\atcoder-anytime\functions\lib\types\submission.js changed, reloading triggers
+[debug] [2021-04-26T13:52:33.103Z] File F:\react\atcoder-anytime\functions\lib\types\submission.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:33.103Z] File F:\react\atcoder-anytime\functions\lib\types\userProfile copy.js changed, reloading triggers
+[debug] [2021-04-26T13:52:33.103Z] File F:\react\atcoder-anytime\functions\lib\types\userProfile copy.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:33.103Z] File F:\react\atcoder-anytime\functions\lib\types\userProfile.js changed, reloading triggers
+[debug] [2021-04-26T13:52:33.103Z] File F:\react\atcoder-anytime\functions\lib\types\userProfile.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:33.107Z] File F:\react\atcoder-anytime\functions\lib\utils\accessToAtCoder.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:33.107Z] File F:\react\atcoder-anytime\functions\lib\utils\calculateNewRating.js changed, reloading triggers
+[debug] [2021-04-26T13:52:33.108Z] File F:\react\atcoder-anytime\functions\lib\utils\calculateNewRating.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:33.108Z] File F:\react\atcoder-anytime\functions\lib\utils\getParticipateVirtuals.js changed, reloading triggers
+[debug] [2021-04-26T13:52:33.108Z] File F:\react\atcoder-anytime\functions\lib\utils\getParticipateVirtuals.js.map changed, reloading triggers
+[debug] [2021-04-26T13:52:33.108Z] File F:\react\atcoder-anytime\functions\lib\utils\login.js changed, reloading triggers
+[debug] [2021-04-26T13:52:33.108Z] File F:\react\atcoder-anytime\functions\lib\utils\login.js.map changed, reloading triggers
+[info] Shutting down...
+[debug] [2021-04-26T13:52:33.206Z] [worker-~diagnostic~-17d2e18b-d9dc-41fe-8c8f-237fc794d273]: exited
+[debug] [2021-04-26T13:52:33.206Z] [worker-~diagnostic~-17d2e18b-d9dc-41fe-8c8f-237fc794d273]: FINISHED
+[debug] [2021-04-26T13:52:36.560Z] ----------------------------------------------------------------------
+[debug] [2021-04-26T13:52:36.563Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\sono8\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve --only functions
+[debug] [2021-04-26T13:52:36.563Z] CLI Version:   7.16.2
+[debug] [2021-04-26T13:52:36.563Z] Platform:      win32
+[debug] [2021-04-26T13:52:36.563Z] Node Version:  v12.17.0
+[debug] [2021-04-26T13:52:36.564Z] Time:          Mon Apr 26 2021 22:52:36 GMT+0900 (GMT+09:00)
+[debug] [2021-04-26T13:52:36.564Z] ----------------------------------------------------------------------
+[debug] [2021-04-26T13:52:36.564Z] 
+[debug] [2021-04-26T13:52:36.572Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-04-26T13:52:36.573Z] > authorizing via signed-in user
+[debug] [2021-04-26T13:52:36.573Z] [iam] checking project atcoder-anytime-dev for permissions ["firebase.projects.get"]
+[debug] [2021-04-26T13:52:36.575Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/atcoder-anytime-dev:testIamPermissions  
+
+[debug] [2021-04-26T13:52:37.423Z] <<< HTTP RESPONSE 200
+[debug] [2021-04-26T13:52:37.426Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/atcoder-anytime-dev  
+ 
+[debug] [2021-04-26T13:52:38.112Z] <<< HTTP RESPONSE 200
+[warn] !  Your requested "node" version "10" doesn't match your global version "12"
+[info] +  functions: functions emulator started at http://localhost:5000
+[info] i  functions: Watching "F:\react\atcoder-anytime\functions" for Cloud Functions...
+[debug] [2021-04-26T13:52:40.179Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2021-04-26T13:52:40.179Z] [worker-pool] Adding worker with key ~diagnostic~, total=1
+[debug] [2021-04-26T13:52:40.180Z] [worker-pool] submitWork(triggerId=)
+[debug] [2021-04-26T13:52:40.180Z] [worker-~diagnostic~-324bb406-aad5-4d4f-bb3e-97bcc75dfb47]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\14708
+[debug] [2021-04-26T13:52:40.180Z] [worker-~diagnostic~-324bb406-aad5-4d4f-bb3e-97bcc75dfb47]: BUSY
+[debug] [2021-04-26T13:52:40.499Z] [runtime-status] [14708] Functions runtime initialized. {"cwd":"F:\\react\\atcoder-anytime\\functions","node_version":"12.17.0"}
+[debug] [2021-04-26T13:52:40.500Z] [runtime-status] [14708] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2021-04-26T13:52:40.502Z] [runtime-status] [14708] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2021-04-26T13:52:40.504Z] [runtime-status] [14708] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:52:40.505Z] [runtime-status] [14708] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[info] +  functions[getExternal]: http function initialized (http://localhost:5000/atcoder-anytime-dev/us-central1/getExternal).
+[info] +  functions[updateRating]: http function initialized (http://localhost:5000/atcoder-anytime-dev/us-central1/updateRating).
+[debug] [2021-04-26T13:52:40.612Z] [worker-~diagnostic~-324bb406-aad5-4d4f-bb3e-97bcc75dfb47]: IDLE
+[debug] [2021-04-26T13:53:25.961Z] File F:\react\atcoder-anytime\functions\src\updateRating.ts changed, reloading triggers
+[debug] [2021-04-26T13:53:26.968Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2021-04-26T13:53:26.968Z] [worker-~diagnostic~-324bb406-aad5-4d4f-bb3e-97bcc75dfb47]: FINISHING
+[debug] [2021-04-26T13:53:26.979Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2021-04-26T13:53:26.979Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2021-04-26T13:53:26.979Z] [worker-pool] submitWork(triggerId=)
+[debug] [2021-04-26T13:53:26.979Z] [worker-~diagnostic~-853d55ea-6050-4082-bdba-57b8b84aa7f3]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\14472
+[debug] [2021-04-26T13:53:26.979Z] [worker-~diagnostic~-853d55ea-6050-4082-bdba-57b8b84aa7f3]: BUSY
+[debug] [2021-04-26T13:53:26.980Z] [worker-~diagnostic~-324bb406-aad5-4d4f-bb3e-97bcc75dfb47]: exited
+[debug] [2021-04-26T13:53:26.981Z] [worker-~diagnostic~-324bb406-aad5-4d4f-bb3e-97bcc75dfb47]: FINISHED
+[debug] [2021-04-26T13:53:27.351Z] [runtime-status] [14472] Functions runtime initialized. {"cwd":"F:\\react\\atcoder-anytime\\functions","node_version":"12.17.0"}
+[debug] [2021-04-26T13:53:27.353Z] [runtime-status] [14472] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2021-04-26T13:53:27.355Z] [runtime-status] [14472] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2021-04-26T13:53:27.357Z] [runtime-status] [14472] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:53:27.358Z] [runtime-status] [14472] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:53:27.499Z] [worker-~diagnostic~-853d55ea-6050-4082-bdba-57b8b84aa7f3]: IDLE
+[debug] [2021-04-26T13:53:33.065Z] File F:\react\atcoder-anytime\functions\lib\config\index.js.map changed, reloading triggers
+[debug] [2021-04-26T13:53:33.069Z] File F:\react\atcoder-anytime\functions\lib\utils\login.js.map changed, reloading triggers
+[debug] [2021-04-26T13:53:33.069Z] File F:\react\atcoder-anytime\functions\lib\config\index.js changed, reloading triggers
+[debug] [2021-04-26T13:53:33.074Z] File F:\react\atcoder-anytime\functions\lib\getExternal.js.map changed, reloading triggers
+[debug] [2021-04-26T13:53:33.074Z] File F:\react\atcoder-anytime\functions\lib\utils\login.js changed, reloading triggers
+[debug] [2021-04-26T13:53:33.082Z] File F:\react\atcoder-anytime\functions\lib\types\participationInfo.js.map changed, reloading triggers
+[debug] [2021-04-26T13:53:33.082Z] File F:\react\atcoder-anytime\functions\lib\getExternal.js changed, reloading triggers
+[debug] [2021-04-26T13:53:33.082Z] File F:\react\atcoder-anytime\functions\lib\utils\accessToAtCoder.js.map changed, reloading triggers
+[debug] [2021-04-26T13:53:33.082Z] File F:\react\atcoder-anytime\functions\lib\utils\accessToAtCoder.js changed, reloading triggers
+[debug] [2021-04-26T13:53:33.082Z] File F:\react\atcoder-anytime\functions\lib\utils\calculateNewRating.js.map changed, reloading triggers
+[debug] [2021-04-26T13:53:33.082Z] File F:\react\atcoder-anytime\functions\lib\utils\calculateNewRating.js changed, reloading triggers
+[debug] [2021-04-26T13:53:33.089Z] File F:\react\atcoder-anytime\functions\lib\types\participationInfo.js changed, reloading triggers
+[debug] [2021-04-26T13:53:33.089Z] File F:\react\atcoder-anytime\functions\lib\types\contestRecord.js.map changed, reloading triggers
+[debug] [2021-04-26T13:53:33.089Z] File F:\react\atcoder-anytime\functions\lib\types\contestRecord.js changed, reloading triggers
+[debug] [2021-04-26T13:53:33.089Z] File F:\react\atcoder-anytime\functions\lib\types\userProfile.js.map changed, reloading triggers
+[debug] [2021-04-26T13:53:33.089Z] File F:\react\atcoder-anytime\functions\lib\types\userProfile.js changed, reloading triggers
+[debug] [2021-04-26T13:53:33.089Z] File F:\react\atcoder-anytime\functions\lib\updateRating.js.map changed, reloading triggers
+[debug] [2021-04-26T13:53:33.089Z] File F:\react\atcoder-anytime\functions\lib\updateRating.js changed, reloading triggers
+[debug] [2021-04-26T13:53:33.089Z] File F:\react\atcoder-anytime\functions\lib\index.js.map changed, reloading triggers
+[debug] [2021-04-26T13:53:33.089Z] File F:\react\atcoder-anytime\functions\lib\index.js changed, reloading triggers
+[debug] [2021-04-26T13:53:33.089Z] File F:\react\atcoder-anytime\functions\lib\utils\getParticipateVirtuals.js.map changed, reloading triggers
+[debug] [2021-04-26T13:53:33.090Z] File F:\react\atcoder-anytime\functions\lib\utils\getParticipateVirtuals.js changed, reloading triggers
+[debug] [2021-04-26T13:53:33.096Z] File F:\react\atcoder-anytime\functions\lib\types\contestant.js.map changed, reloading triggers
+[debug] [2021-04-26T13:53:33.096Z] File F:\react\atcoder-anytime\functions\lib\types\contestant.js changed, reloading triggers
+[debug] [2021-04-26T13:53:33.096Z] File F:\react\atcoder-anytime\functions\lib\types\submission.js.map changed, reloading triggers
+[debug] [2021-04-26T13:53:33.096Z] File F:\react\atcoder-anytime\functions\lib\types\submission.js changed, reloading triggers
+[debug] [2021-04-26T13:53:33.096Z] File F:\react\atcoder-anytime\functions\lib\types\userProfile copy.js.map changed, reloading triggers
+[debug] [2021-04-26T13:53:33.096Z] File F:\react\atcoder-anytime\functions\lib\types\userProfile copy.js changed, reloading triggers
+[debug] [2021-04-26T13:53:34.108Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2021-04-26T13:53:34.108Z] [worker-~diagnostic~-853d55ea-6050-4082-bdba-57b8b84aa7f3]: FINISHING
+[debug] [2021-04-26T13:53:34.109Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2021-04-26T13:53:34.115Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2021-04-26T13:53:34.115Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2021-04-26T13:53:34.115Z] [worker-pool] submitWork(triggerId=)
+[debug] [2021-04-26T13:53:34.116Z] [worker-~diagnostic~-03d413fd-a39c-4dbd-85e5-74ab27da85e0]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\4368
+[debug] [2021-04-26T13:53:34.116Z] [worker-~diagnostic~-03d413fd-a39c-4dbd-85e5-74ab27da85e0]: BUSY
+[debug] [2021-04-26T13:53:34.116Z] [worker-~diagnostic~-853d55ea-6050-4082-bdba-57b8b84aa7f3]: exited
+[debug] [2021-04-26T13:53:34.116Z] [worker-~diagnostic~-853d55ea-6050-4082-bdba-57b8b84aa7f3]: FINISHED
+[debug] [2021-04-26T13:53:34.450Z] [runtime-status] [4368] Functions runtime initialized. {"cwd":"F:\\react\\atcoder-anytime\\functions","node_version":"12.17.0"}
+[debug] [2021-04-26T13:53:34.451Z] [runtime-status] [4368] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2021-04-26T13:53:34.454Z] [runtime-status] [4368] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2021-04-26T13:53:34.455Z] [runtime-status] [4368] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:53:34.456Z] [runtime-status] [4368] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:53:34.582Z] [worker-~diagnostic~-03d413fd-a39c-4dbd-85e5-74ab27da85e0]: IDLE
+[debug] [2021-04-26T13:53:39.570Z] File F:\react\atcoder-anytime\functions\src\utils\getParticipateVirtuals.ts changed, reloading triggers
+[debug] [2021-04-26T13:53:40.574Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2021-04-26T13:53:40.574Z] [worker-~diagnostic~-03d413fd-a39c-4dbd-85e5-74ab27da85e0]: FINISHING
+[debug] [2021-04-26T13:53:40.574Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2021-04-26T13:53:40.580Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2021-04-26T13:53:40.580Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2021-04-26T13:53:40.580Z] [worker-pool] submitWork(triggerId=)
+[debug] [2021-04-26T13:53:40.580Z] [worker-~diagnostic~-d681c054-3b35-4d2f-8d5c-5c43f294307b]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\14144
+[debug] [2021-04-26T13:53:40.580Z] [worker-~diagnostic~-d681c054-3b35-4d2f-8d5c-5c43f294307b]: BUSY
+[debug] [2021-04-26T13:53:40.583Z] [worker-~diagnostic~-03d413fd-a39c-4dbd-85e5-74ab27da85e0]: exited
+[debug] [2021-04-26T13:53:40.583Z] [worker-~diagnostic~-03d413fd-a39c-4dbd-85e5-74ab27da85e0]: FINISHED
+[debug] [2021-04-26T13:53:40.931Z] [runtime-status] [14144] Functions runtime initialized. {"cwd":"F:\\react\\atcoder-anytime\\functions","node_version":"12.17.0"}
+[debug] [2021-04-26T13:53:40.932Z] [runtime-status] [14144] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2021-04-26T13:53:40.935Z] [runtime-status] [14144] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2021-04-26T13:53:40.936Z] [runtime-status] [14144] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:53:40.937Z] [runtime-status] [14144] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:53:41.069Z] [worker-~diagnostic~-d681c054-3b35-4d2f-8d5c-5c43f294307b]: IDLE
+[debug] [2021-04-26T13:53:41.446Z] File F:\react\atcoder-anytime\functions\lib\utils\getParticipateVirtuals.js.map changed, reloading triggers
+[debug] [2021-04-26T13:53:41.449Z] File F:\react\atcoder-anytime\functions\lib\utils\getParticipateVirtuals.js changed, reloading triggers
+[debug] [2021-04-26T13:53:41.450Z] File F:\react\atcoder-anytime\functions\lib\updateRating.js.map changed, reloading triggers
+[debug] [2021-04-26T13:53:41.455Z] File F:\react\atcoder-anytime\functions\lib\config\index.js changed, reloading triggers
+[debug] [2021-04-26T13:53:41.455Z] File F:\react\atcoder-anytime\functions\lib\updateRating.js changed, reloading triggers
+[debug] [2021-04-26T13:53:41.455Z] File F:\react\atcoder-anytime\functions\lib\getExternal.js changed, reloading triggers
+[debug] [2021-04-26T13:53:41.456Z] File F:\react\atcoder-anytime\functions\lib\getExternal.js.map changed, reloading triggers
+[debug] [2021-04-26T13:53:41.456Z] File F:\react\atcoder-anytime\functions\lib\index.js changed, reloading triggers
+[debug] [2021-04-26T13:53:41.456Z] File F:\react\atcoder-anytime\functions\lib\index.js.map changed, reloading triggers
+[debug] [2021-04-26T13:53:41.457Z] File F:\react\atcoder-anytime\functions\lib\types\contestRecord.js changed, reloading triggers
+[debug] [2021-04-26T13:53:41.465Z] File F:\react\atcoder-anytime\functions\lib\utils\accessToAtCoder.js changed, reloading triggers
+[debug] [2021-04-26T13:53:41.465Z] File F:\react\atcoder-anytime\functions\lib\config\index.js.map changed, reloading triggers
+[debug] [2021-04-26T13:53:41.465Z] File F:\react\atcoder-anytime\functions\lib\types\contestRecord.js.map changed, reloading triggers
+[debug] [2021-04-26T13:53:41.465Z] File F:\react\atcoder-anytime\functions\lib\types\contestant.js changed, reloading triggers
+[debug] [2021-04-26T13:53:41.465Z] File F:\react\atcoder-anytime\functions\lib\types\contestant.js.map changed, reloading triggers
+[debug] [2021-04-26T13:53:41.465Z] File F:\react\atcoder-anytime\functions\lib\types\participationInfo.js changed, reloading triggers
+[debug] [2021-04-26T13:53:41.465Z] File F:\react\atcoder-anytime\functions\lib\types\participationInfo.js.map changed, reloading triggers
+[debug] [2021-04-26T13:53:41.465Z] File F:\react\atcoder-anytime\functions\lib\types\submission.js changed, reloading triggers
+[debug] [2021-04-26T13:53:41.465Z] File F:\react\atcoder-anytime\functions\lib\types\submission.js.map changed, reloading triggers
+[debug] [2021-04-26T13:53:41.465Z] File F:\react\atcoder-anytime\functions\lib\types\userProfile copy.js changed, reloading triggers
+[debug] [2021-04-26T13:53:41.465Z] File F:\react\atcoder-anytime\functions\lib\types\userProfile copy.js.map changed, reloading triggers
+[debug] [2021-04-26T13:53:41.466Z] File F:\react\atcoder-anytime\functions\lib\types\userProfile.js changed, reloading triggers
+[debug] [2021-04-26T13:53:41.466Z] File F:\react\atcoder-anytime\functions\lib\types\userProfile.js.map changed, reloading triggers
+[debug] [2021-04-26T13:53:41.468Z] File F:\react\atcoder-anytime\functions\lib\utils\accessToAtCoder.js.map changed, reloading triggers
+[debug] [2021-04-26T13:53:41.468Z] File F:\react\atcoder-anytime\functions\lib\utils\calculateNewRating.js changed, reloading triggers
+[debug] [2021-04-26T13:53:41.468Z] File F:\react\atcoder-anytime\functions\lib\utils\calculateNewRating.js.map changed, reloading triggers
+[debug] [2021-04-26T13:53:41.469Z] File F:\react\atcoder-anytime\functions\lib\utils\login.js changed, reloading triggers
+[debug] [2021-04-26T13:53:41.469Z] File F:\react\atcoder-anytime\functions\lib\utils\login.js.map changed, reloading triggers
+[debug] [2021-04-26T13:53:42.484Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2021-04-26T13:53:42.484Z] [worker-~diagnostic~-d681c054-3b35-4d2f-8d5c-5c43f294307b]: FINISHING
+[debug] [2021-04-26T13:53:42.485Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2021-04-26T13:53:42.501Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2021-04-26T13:53:42.501Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2021-04-26T13:53:42.501Z] [worker-pool] submitWork(triggerId=)
+[debug] [2021-04-26T13:53:42.501Z] [worker-~diagnostic~-a3118a06-cf74-4875-b827-53e78a31597e]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\1308
+[debug] [2021-04-26T13:53:42.501Z] [worker-~diagnostic~-a3118a06-cf74-4875-b827-53e78a31597e]: BUSY
+[debug] [2021-04-26T13:53:42.502Z] [worker-~diagnostic~-d681c054-3b35-4d2f-8d5c-5c43f294307b]: exited
+[debug] [2021-04-26T13:53:42.502Z] [worker-~diagnostic~-d681c054-3b35-4d2f-8d5c-5c43f294307b]: FINISHED
+[debug] [2021-04-26T13:53:42.861Z] [runtime-status] [1308] Functions runtime initialized. {"cwd":"F:\\react\\atcoder-anytime\\functions","node_version":"12.17.0"}
+[debug] [2021-04-26T13:53:42.862Z] [runtime-status] [1308] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2021-04-26T13:53:42.865Z] [runtime-status] [1308] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2021-04-26T13:53:42.866Z] [runtime-status] [1308] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:53:42.867Z] [runtime-status] [1308] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:53:42.988Z] [worker-~diagnostic~-a3118a06-cf74-4875-b827-53e78a31597e]: IDLE
+[debug] [2021-04-26T13:53:43.305Z] File F:\react\atcoder-anytime\functions\src\utils\getParticipateVirtuals.ts changed, reloading triggers
+[debug] [2021-04-26T13:53:44.309Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2021-04-26T13:53:44.309Z] [worker-~diagnostic~-a3118a06-cf74-4875-b827-53e78a31597e]: FINISHING
+[debug] [2021-04-26T13:53:44.309Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2021-04-26T13:53:44.315Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2021-04-26T13:53:44.315Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2021-04-26T13:53:44.315Z] [worker-pool] submitWork(triggerId=)
+[debug] [2021-04-26T13:53:44.315Z] [worker-~diagnostic~-1667d1ed-1289-447e-a5f9-86ec65e55aaf]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\13660
+[debug] [2021-04-26T13:53:44.316Z] [worker-~diagnostic~-1667d1ed-1289-447e-a5f9-86ec65e55aaf]: BUSY
+[debug] [2021-04-26T13:53:44.316Z] [worker-~diagnostic~-a3118a06-cf74-4875-b827-53e78a31597e]: exited
+[debug] [2021-04-26T13:53:44.316Z] [worker-~diagnostic~-a3118a06-cf74-4875-b827-53e78a31597e]: FINISHED
+[debug] [2021-04-26T13:53:44.666Z] [runtime-status] [13660] Functions runtime initialized. {"cwd":"F:\\react\\atcoder-anytime\\functions","node_version":"12.17.0"}
+[debug] [2021-04-26T13:53:44.668Z] [runtime-status] [13660] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2021-04-26T13:53:44.671Z] [runtime-status] [13660] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2021-04-26T13:53:44.672Z] [runtime-status] [13660] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:53:44.674Z] [runtime-status] [13660] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:53:44.791Z] [worker-~diagnostic~-1667d1ed-1289-447e-a5f9-86ec65e55aaf]: IDLE
+[debug] [2021-04-26T13:53:44.993Z] File F:\react\atcoder-anytime\functions\lib\utils\getParticipateVirtuals.js.map changed, reloading triggers
+[debug] [2021-04-26T13:53:44.994Z] File F:\react\atcoder-anytime\functions\lib\updateRating.js.map changed, reloading triggers
+[debug] [2021-04-26T13:53:44.997Z] File F:\react\atcoder-anytime\functions\lib\utils\getParticipateVirtuals.js changed, reloading triggers
+[debug] [2021-04-26T13:53:44.997Z] File F:\react\atcoder-anytime\functions\lib\updateRating.js changed, reloading triggers
+[debug] [2021-04-26T13:53:45.001Z] File F:\react\atcoder-anytime\functions\lib\config\index.js changed, reloading triggers
+[debug] [2021-04-26T13:53:45.001Z] File F:\react\atcoder-anytime\functions\lib\types\contestRecord.js changed, reloading triggers
+[debug] [2021-04-26T13:53:45.001Z] File F:\react\atcoder-anytime\functions\lib\utils\accessToAtCoder.js changed, reloading triggers
+[debug] [2021-04-26T13:53:45.001Z] File F:\react\atcoder-anytime\functions\lib\utils\accessToAtCoder.js.map changed, reloading triggers
+[debug] [2021-04-26T13:53:45.001Z] File F:\react\atcoder-anytime\functions\lib\utils\calculateNewRating.js changed, reloading triggers
+[debug] [2021-04-26T13:53:45.001Z] File F:\react\atcoder-anytime\functions\lib\utils\calculateNewRating.js.map changed, reloading triggers
+[debug] [2021-04-26T13:53:45.002Z] File F:\react\atcoder-anytime\functions\lib\utils\login.js changed, reloading triggers
+[debug] [2021-04-26T13:53:45.002Z] File F:\react\atcoder-anytime\functions\lib\utils\login.js.map changed, reloading triggers
+[debug] [2021-04-26T13:53:45.002Z] File F:\react\atcoder-anytime\functions\lib\getExternal.js changed, reloading triggers
+[debug] [2021-04-26T13:53:45.002Z] File F:\react\atcoder-anytime\functions\lib\getExternal.js.map changed, reloading triggers
+[debug] [2021-04-26T13:53:45.002Z] File F:\react\atcoder-anytime\functions\lib\index.js changed, reloading triggers
+[debug] [2021-04-26T13:53:45.002Z] File F:\react\atcoder-anytime\functions\lib\index.js.map changed, reloading triggers
+[debug] [2021-04-26T13:53:45.008Z] File F:\react\atcoder-anytime\functions\lib\config\index.js.map changed, reloading triggers
+[debug] [2021-04-26T13:53:45.008Z] File F:\react\atcoder-anytime\functions\lib\types\contestRecord.js.map changed, reloading triggers
+[debug] [2021-04-26T13:53:45.008Z] File F:\react\atcoder-anytime\functions\lib\types\contestant.js changed, reloading triggers
+[debug] [2021-04-26T13:53:45.008Z] File F:\react\atcoder-anytime\functions\lib\types\contestant.js.map changed, reloading triggers
+[debug] [2021-04-26T13:53:45.008Z] File F:\react\atcoder-anytime\functions\lib\types\participationInfo.js changed, reloading triggers
+[debug] [2021-04-26T13:53:45.008Z] File F:\react\atcoder-anytime\functions\lib\types\participationInfo.js.map changed, reloading triggers
+[debug] [2021-04-26T13:53:45.008Z] File F:\react\atcoder-anytime\functions\lib\types\submission.js changed, reloading triggers
+[debug] [2021-04-26T13:53:45.008Z] File F:\react\atcoder-anytime\functions\lib\types\submission.js.map changed, reloading triggers
+[debug] [2021-04-26T13:53:45.008Z] File F:\react\atcoder-anytime\functions\lib\types\userProfile copy.js changed, reloading triggers
+[debug] [2021-04-26T13:53:45.008Z] File F:\react\atcoder-anytime\functions\lib\types\userProfile copy.js.map changed, reloading triggers
+[debug] [2021-04-26T13:53:45.008Z] File F:\react\atcoder-anytime\functions\lib\types\userProfile.js changed, reloading triggers
+[debug] [2021-04-26T13:53:45.008Z] File F:\react\atcoder-anytime\functions\lib\types\userProfile.js.map changed, reloading triggers
+[debug] [2021-04-26T13:53:46.010Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2021-04-26T13:53:46.010Z] [worker-~diagnostic~-1667d1ed-1289-447e-a5f9-86ec65e55aaf]: FINISHING
+[debug] [2021-04-26T13:53:46.011Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2021-04-26T13:53:46.017Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2021-04-26T13:53:46.017Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2021-04-26T13:53:46.017Z] [worker-pool] submitWork(triggerId=)
+[debug] [2021-04-26T13:53:46.017Z] [worker-~diagnostic~-3c6b1f69-ec8c-463f-b1ec-cb1871eede77]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\13760
+[debug] [2021-04-26T13:53:46.018Z] [worker-~diagnostic~-3c6b1f69-ec8c-463f-b1ec-cb1871eede77]: BUSY
+[debug] [2021-04-26T13:53:46.019Z] [worker-~diagnostic~-1667d1ed-1289-447e-a5f9-86ec65e55aaf]: exited
+[debug] [2021-04-26T13:53:46.019Z] [worker-~diagnostic~-1667d1ed-1289-447e-a5f9-86ec65e55aaf]: FINISHED
+[debug] [2021-04-26T13:53:46.359Z] [runtime-status] [13760] Functions runtime initialized. {"cwd":"F:\\react\\atcoder-anytime\\functions","node_version":"12.17.0"}
+[debug] [2021-04-26T13:53:46.360Z] [runtime-status] [13760] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2021-04-26T13:53:46.363Z] [runtime-status] [13760] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2021-04-26T13:53:46.364Z] [runtime-status] [13760] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:53:46.365Z] [runtime-status] [13760] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:53:46.473Z] [worker-~diagnostic~-3c6b1f69-ec8c-463f-b1ec-cb1871eede77]: IDLE
+[info] Shutting down...
+[debug] [2021-04-26T13:53:55.103Z] [worker-~diagnostic~-3c6b1f69-ec8c-463f-b1ec-cb1871eede77]: exited
+[debug] [2021-04-26T13:53:55.103Z] [worker-~diagnostic~-3c6b1f69-ec8c-463f-b1ec-cb1871eede77]: FINISHED
+[debug] [2021-04-26T13:53:58.251Z] ----------------------------------------------------------------------
+[debug] [2021-04-26T13:53:58.253Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\sono8\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve --only functions
+[debug] [2021-04-26T13:53:58.253Z] CLI Version:   7.16.2
+[debug] [2021-04-26T13:53:58.253Z] Platform:      win32
+[debug] [2021-04-26T13:53:58.253Z] Node Version:  v12.17.0
+[debug] [2021-04-26T13:53:58.254Z] Time:          Mon Apr 26 2021 22:53:58 GMT+0900 (GMT+09:00)
+[debug] [2021-04-26T13:53:58.254Z] ----------------------------------------------------------------------
+[debug] [2021-04-26T13:53:58.254Z] 
+[debug] [2021-04-26T13:53:58.263Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-04-26T13:53:58.263Z] > authorizing via signed-in user
+[debug] [2021-04-26T13:53:58.263Z] [iam] checking project atcoder-anytime-dev for permissions ["firebase.projects.get"]
+[debug] [2021-04-26T13:53:58.267Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/atcoder-anytime-dev:testIamPermissions  
+
+[debug] [2021-04-26T13:53:59.026Z] <<< HTTP RESPONSE 200
+[debug] [2021-04-26T13:53:59.029Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/atcoder-anytime-dev  
+ 
+[debug] [2021-04-26T13:53:59.375Z] <<< HTTP RESPONSE 200
+[warn] !  Your requested "node" version "10" doesn't match your global version "12"
+[info] +  functions: functions emulator started at http://localhost:5000
+[info] i  functions: Watching "F:\react\atcoder-anytime\functions" for Cloud Functions...
+[debug] [2021-04-26T13:54:01.472Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2021-04-26T13:54:01.472Z] [worker-pool] Adding worker with key ~diagnostic~, total=1
+[debug] [2021-04-26T13:54:01.472Z] [worker-pool] submitWork(triggerId=)
+[debug] [2021-04-26T13:54:01.472Z] [worker-~diagnostic~-5cdc2d77-ecb2-496f-9de4-be1a3bf71de8]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\14480
+[debug] [2021-04-26T13:54:01.472Z] [worker-~diagnostic~-5cdc2d77-ecb2-496f-9de4-be1a3bf71de8]: BUSY
+[debug] [2021-04-26T13:54:01.790Z] [runtime-status] [14480] Functions runtime initialized. {"cwd":"F:\\react\\atcoder-anytime\\functions","node_version":"12.17.0"}
+[debug] [2021-04-26T13:54:01.791Z] [runtime-status] [14480] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2021-04-26T13:54:01.793Z] [runtime-status] [14480] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2021-04-26T13:54:01.794Z] [runtime-status] [14480] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:54:01.795Z] [runtime-status] [14480] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[info] +  functions[getExternal]: http function initialized (http://localhost:5000/atcoder-anytime-dev/us-central1/getExternal).
+[info] +  functions[updateRating]: http function initialized (http://localhost:5000/atcoder-anytime-dev/us-central1/updateRating).
+[debug] [2021-04-26T13:54:01.903Z] [worker-~diagnostic~-5cdc2d77-ecb2-496f-9de4-be1a3bf71de8]: IDLE
+[debug] [2021-04-26T13:54:34.255Z] File F:\react\atcoder-anytime\functions\tsconfig.json changed, reloading triggers
+[debug] [2021-04-26T13:54:35.259Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2021-04-26T13:54:35.259Z] [worker-~diagnostic~-5cdc2d77-ecb2-496f-9de4-be1a3bf71de8]: FINISHING
+[debug] [2021-04-26T13:54:35.267Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2021-04-26T13:54:35.267Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2021-04-26T13:54:35.267Z] [worker-pool] submitWork(triggerId=)
+[debug] [2021-04-26T13:54:35.268Z] [worker-~diagnostic~-96c1cd03-6e02-4a7c-8c97-106c1b0814b7]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\6600
+[debug] [2021-04-26T13:54:35.268Z] [worker-~diagnostic~-96c1cd03-6e02-4a7c-8c97-106c1b0814b7]: BUSY
+[debug] [2021-04-26T13:54:35.270Z] [worker-~diagnostic~-5cdc2d77-ecb2-496f-9de4-be1a3bf71de8]: exited
+[debug] [2021-04-26T13:54:35.270Z] [worker-~diagnostic~-5cdc2d77-ecb2-496f-9de4-be1a3bf71de8]: FINISHED
+[debug] [2021-04-26T13:54:35.695Z] [runtime-status] [6600] Functions runtime initialized. {"cwd":"F:\\react\\atcoder-anytime\\functions","node_version":"12.17.0"}
+[debug] [2021-04-26T13:54:35.696Z] [runtime-status] [6600] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2021-04-26T13:54:35.699Z] [runtime-status] [6600] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2021-04-26T13:54:35.701Z] [runtime-status] [6600] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:54:35.702Z] [runtime-status] [6600] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:54:35.831Z] [worker-~diagnostic~-96c1cd03-6e02-4a7c-8c97-106c1b0814b7]: IDLE
+[debug] [2021-04-26T13:54:40.996Z] File F:\react\atcoder-anytime\functions\lib\config\index.js.map changed, reloading triggers
+[debug] [2021-04-26T13:54:41.000Z] File F:\react\atcoder-anytime\functions\lib\utils\login.js.map changed, reloading triggers
+[debug] [2021-04-26T13:54:41.000Z] File F:\react\atcoder-anytime\functions\lib\config\index.js changed, reloading triggers
+[debug] [2021-04-26T13:54:41.004Z] File F:\react\atcoder-anytime\functions\lib\getExternal.js.map changed, reloading triggers
+[debug] [2021-04-26T13:54:41.004Z] File F:\react\atcoder-anytime\functions\lib\utils\login.js changed, reloading triggers
+[debug] [2021-04-26T13:54:41.011Z] File F:\react\atcoder-anytime\functions\lib\getExternal.js changed, reloading triggers
+[debug] [2021-04-26T13:54:41.011Z] File F:\react\atcoder-anytime\functions\lib\updateRating.js.map changed, reloading triggers
+[debug] [2021-04-26T13:54:41.012Z] File F:\react\atcoder-anytime\functions\lib\updateRating.js changed, reloading triggers
+[debug] [2021-04-26T13:54:41.012Z] File F:\react\atcoder-anytime\functions\lib\utils\accessToAtCoder.js.map changed, reloading triggers
+[debug] [2021-04-26T13:54:41.012Z] File F:\react\atcoder-anytime\functions\lib\utils\accessToAtCoder.js changed, reloading triggers
+[debug] [2021-04-26T13:54:41.012Z] File F:\react\atcoder-anytime\functions\lib\utils\calculateNewRating.js.map changed, reloading triggers
+[debug] [2021-04-26T13:54:41.012Z] File F:\react\atcoder-anytime\functions\lib\utils\calculateNewRating.js changed, reloading triggers
+[debug] [2021-04-26T13:54:41.012Z] File F:\react\atcoder-anytime\functions\lib\utils\getParticipateVirtuals.js.map changed, reloading triggers
+[debug] [2021-04-26T13:54:41.012Z] File F:\react\atcoder-anytime\functions\lib\utils\getParticipateVirtuals.js changed, reloading triggers
+[debug] [2021-04-26T13:54:41.015Z] File F:\react\atcoder-anytime\functions\lib\index.js.map changed, reloading triggers
+[debug] [2021-04-26T13:54:41.015Z] File F:\react\atcoder-anytime\functions\lib\index.js changed, reloading triggers
+[debug] [2021-04-26T13:54:42.019Z] [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2021-04-26T13:54:42.020Z] [worker-~diagnostic~-96c1cd03-6e02-4a7c-8c97-106c1b0814b7]: FINISHING
+[debug] [2021-04-26T13:54:42.020Z] [worker-pool] Cleaned up workers for ~diagnostic~: 2 --> 1
+[debug] [2021-04-26T13:54:42.030Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2021-04-26T13:54:42.031Z] [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2021-04-26T13:54:42.031Z] [worker-pool] submitWork(triggerId=)
+[debug] [2021-04-26T13:54:42.031Z] [worker-~diagnostic~-54bf02ba-3a49-4bd6-97df-f431435cfb6b]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\2756
+[debug] [2021-04-26T13:54:42.031Z] [worker-~diagnostic~-54bf02ba-3a49-4bd6-97df-f431435cfb6b]: BUSY
+[debug] [2021-04-26T13:54:42.032Z] [worker-~diagnostic~-96c1cd03-6e02-4a7c-8c97-106c1b0814b7]: exited
+[debug] [2021-04-26T13:54:42.032Z] [worker-~diagnostic~-96c1cd03-6e02-4a7c-8c97-106c1b0814b7]: FINISHED
+[debug] [2021-04-26T13:54:42.386Z] [runtime-status] [2756] Functions runtime initialized. {"cwd":"F:\\react\\atcoder-anytime\\functions","node_version":"12.17.0"}
+[debug] [2021-04-26T13:54:42.387Z] [runtime-status] [2756] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2021-04-26T13:54:42.390Z] [runtime-status] [2756] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2021-04-26T13:54:42.391Z] [runtime-status] [2756] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:54:42.392Z] [runtime-status] [2756] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:54:42.504Z] [worker-~diagnostic~-54bf02ba-3a49-4bd6-97df-f431435cfb6b]: IDLE
+[info] Shutting down...
+[debug] [2021-04-26T13:54:43.642Z] [worker-~diagnostic~-54bf02ba-3a49-4bd6-97df-f431435cfb6b]: exited
+[debug] [2021-04-26T13:54:43.642Z] [worker-~diagnostic~-54bf02ba-3a49-4bd6-97df-f431435cfb6b]: FINISHED
+[debug] [2021-04-26T13:54:46.747Z] ----------------------------------------------------------------------
+[debug] [2021-04-26T13:54:46.749Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\sono8\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve --only functions
+[debug] [2021-04-26T13:54:46.749Z] CLI Version:   7.16.2
+[debug] [2021-04-26T13:54:46.749Z] Platform:      win32
+[debug] [2021-04-26T13:54:46.749Z] Node Version:  v12.17.0
+[debug] [2021-04-26T13:54:46.750Z] Time:          Mon Apr 26 2021 22:54:46 GMT+0900 (GMT+09:00)
+[debug] [2021-04-26T13:54:46.750Z] ----------------------------------------------------------------------
+[debug] [2021-04-26T13:54:46.750Z] 
+[debug] [2021-04-26T13:54:46.757Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-04-26T13:54:46.758Z] > authorizing via signed-in user
+[debug] [2021-04-26T13:54:46.758Z] [iam] checking project atcoder-anytime-dev for permissions ["firebase.projects.get"]
+[debug] [2021-04-26T13:54:46.760Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/atcoder-anytime-dev:testIamPermissions  
+
+[debug] [2021-04-26T13:54:47.492Z] <<< HTTP RESPONSE 200
+[debug] [2021-04-26T13:54:47.494Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/atcoder-anytime-dev  
+ 
+[debug] [2021-04-26T13:54:48.128Z] <<< HTTP RESPONSE 200
+[warn] !  Your requested "node" version "10" doesn't match your global version "12"
+[info] +  functions: functions emulator started at http://localhost:5000
+[info] i  functions: Watching "F:\react\atcoder-anytime\functions" for Cloud Functions...
+[debug] [2021-04-26T13:54:50.215Z] [worker-pool] addWorker(~diagnostic~)
+[debug] [2021-04-26T13:54:50.215Z] [worker-pool] Adding worker with key ~diagnostic~, total=1
+[debug] [2021-04-26T13:54:50.215Z] [worker-pool] submitWork(triggerId=)
+[debug] [2021-04-26T13:54:50.215Z] [worker-~diagnostic~-099cf826-f1c2-4d33-9a69-1fb45e443227]: Assigning socketPath: \\?\pipe\F:\react\atcoder-anytime\functions\13532
+[debug] [2021-04-26T13:54:50.215Z] [worker-~diagnostic~-099cf826-f1c2-4d33-9a69-1fb45e443227]: BUSY
+[debug] [2021-04-26T13:54:50.548Z] [runtime-status] [13532] Functions runtime initialized. {"cwd":"F:\\react\\atcoder-anytime\\functions","node_version":"12.17.0"}
+[debug] [2021-04-26T13:54:50.549Z] [runtime-status] [13532] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"admin_stubs":true,"pubsub_emulator":true}
+[debug] [2021-04-26T13:54:50.551Z] [runtime-status] [13532] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.12.1","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-admin\\lib\\index.js"}
+[debug] [2021-04-26T13:54:50.553Z] [runtime-status] [13532] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[debug] [2021-04-26T13:54:50.554Z] [runtime-status] [13532] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"F:\\react\\atcoder-anytime\\functions\\node_modules\\firebase-functions\\lib\\index.js"}
+[info] +  functions[getExternal]: http function initialized (http://localhost:5000/atcoder-anytime-dev/us-central1/getExternal).
+[info] +  functions[updateRating]: http function initialized (http://localhost:5000/atcoder-anytime-dev/us-central1/updateRating).
+[debug] [2021-04-26T13:54:50.662Z] [worker-~diagnostic~-099cf826-f1c2-4d33-9a69-1fb45e443227]: IDLE
+[info] Shutting down...
+[debug] [2021-04-26T13:54:52.579Z] [worker-~diagnostic~-099cf826-f1c2-4d33-9a69-1fb45e443227]: exited
+[debug] [2021-04-26T13:54:52.580Z] [worker-~diagnostic~-099cf826-f1c2-4d33-9a69-1fb45e443227]: FINISHED

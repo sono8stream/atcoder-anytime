@@ -1,4 +1,6 @@
 import { combineReducers } from 'redux';
+import ContestRecord from 'shared/types/contestRecord';
+import UserProfile from 'shared/types/userProfile';
 import { reducerWithInitialState } from 'typescript-fsa-reducers';
 import {
   addContestRecordAction,
@@ -13,9 +15,7 @@ import {
 } from '../actions';
 import AccountInfo from '../types/accountInfo';
 import AvailableContestInfo from '../types/availableContestInfo';
-import ContestRecord from '../types/contestRecord';
 import RootState from '../types/rootState';
-import UserProfile from '../types/userProfile';
 
 const profileReducer = reducerWithInitialState<UserProfile>({
   handle: '',

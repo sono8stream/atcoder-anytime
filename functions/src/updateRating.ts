@@ -2,9 +2,9 @@ import axios from 'axios';
 import * as admin from 'firebase-admin';
 import * as functions from 'firebase-functions';
 
-import ParticipationInfo from './types/participationInfo';
-import Submission from './types/submission';
-import UserProfile from './types/userProfile';
+import ParticipationInfo from 'shared/types/participationInfo';
+import Submission from 'shared/types/submission';
+import UserProfile from 'shared/types/userProfile';
 import accessToAtCoder from './utils/accessToAtCoder';
 import calculateNewRating from './utils/calculateNewRating';
 import getParticipateVirtuals from './utils/getParticipateVirtuals';
@@ -69,6 +69,8 @@ export const updateRating = functions.https.onCall(async (data, context) => {
 
     profile.rating = contestResult.newRating;
   }
+
+  return profile;
 });
 
 const getSubmissions = async (handle: string): Promise<Submission[]> => {

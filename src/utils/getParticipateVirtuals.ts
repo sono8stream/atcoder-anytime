@@ -1,6 +1,6 @@
+import ParticipationInfo from 'shared/types/participationInfo';
+import UserProfile from 'shared/types/userProfile';
 import firebase from '../firebase';
-import ParticipationInfo from '../types/participationInfo';
-import UserProfile from '../types/userProfile';
 
 interface Submission {
   contest_id: string;

@@ -1,8 +1,8 @@
+import Contestant from 'shared/types/contestant';
+import ContestRecord from 'shared/types/contestRecord';
+import ParticipationInfo from 'shared/types/participationInfo';
+import UserProfile from 'shared/types/userProfile';
 import firebase from '../firebase';
-import Contestant from '../types/contestant';
-import ContestRecord from '../types/contestRecord';
-import ParticipationInfo from '../types/participationInfo';
-import UserProfile from '../types/userProfile';
 
 interface ContestStandings {
   StandingsData: [

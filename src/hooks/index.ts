@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
-import RootState from '../types/rootState';
+import ContestRecord from 'shared/types/contestRecord';
+import UserProfile from 'shared/types/userProfile';
 import AccountInfo from '../types/accountInfo';
-import UserProfile from '../types/userProfile';
 import AvailableContestInfo from '../types/availableContestInfo';
-import ContestRecord from '../types/contestRecord';
+import RootState from '../types/rootState';
 
 export const useAccountInfo = (): AccountInfo => {
   return useSelector((state: RootState) => state.account);

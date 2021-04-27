@@ -13,4 +13,4 @@ admin.initializeApp({ credential });
 
 export * from './getExternal';
 
-export * from './updateContestRecords';
+export * from './updateRating';

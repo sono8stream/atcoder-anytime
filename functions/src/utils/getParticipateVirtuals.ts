@@ -1,8 +1,8 @@
 import axios from 'axios';
 
+import ParticipationInfo from 'shared/types/participationInfo';
+import UserProfile from 'shared/types/userProfile';
 import { getExternal } from '../getExternal';
-import ParticipationInfo from '../types/participationInfo';
-import UserProfile from '../types/userProfile';
 import accessToAtCoder from './accessToAtCoder';
 
 interface Submission {

@@ -1,5 +1,5 @@
+import ContestRecord from 'shared/types/contestRecord';
 import firebase from '../firebase';
-import ContestRecord from '../types/contestRecord';
 
 export const fetchOfficialRatingRecordsAPI = async (handle: string) => {
   const url = `https://atcoder.jp/users/${handle}/history/json`;

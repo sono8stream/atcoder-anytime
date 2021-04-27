@@ -1,7 +1,7 @@
+import ContestRecord from 'shared/types/contestRecord';
+import UserProfile from 'shared/types/userProfile';
 import AccountInfo from './accountInfo';
 import AvailableContestInfo from './availableContestInfo';
-import ContestRecord from './contestRecord';
-import UserProfile from './userProfile';
 
 export default interface RootState {
   profile: UserProfile;

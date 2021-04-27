@@ -1,5 +1,5 @@
+import UserProfile from 'shared/types/userProfile';
 import firebase from '../firebase';
-import UserProfile from '../types/userProfile';
 
 export const fetchUsersAPI = async () => {
   try {

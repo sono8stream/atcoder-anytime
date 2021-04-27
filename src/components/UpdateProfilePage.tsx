@@ -2,10 +2,10 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory, useLocation } from 'react-router';
 import { Button, Dimmer, Form, Header, Loader, Modal } from 'semantic-ui-react';
+import UserProfile from 'shared/types/userProfile';
 import { updateProfile } from '../actions';
 import { fetchRealRating } from '../api/fetchRealRating';
 import { useAccountInfo, useProfile } from '../hooks';
-import UserProfile from '../types/userProfile';
 import getRatingColorStyle from '../utils/getRatingColorStyle';
 
 const UpdateProfilePage: React.FC = () => {

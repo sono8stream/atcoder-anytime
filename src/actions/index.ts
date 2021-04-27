@@ -1,4 +1,6 @@
 import { Dispatch } from 'redux';
+import ContestRecord from 'shared/types/contestRecord';
+import UserProfile from 'shared/types/userProfile';
 import actionCreatorFactory from 'typescript-fsa';
 import { fetchAvailableContestInfoAPI } from '../api/availableContestInfo';
 import { fetchOfficialRatingRecordsAPI } from '../api/fetchOfficialRatingRecords';
@@ -7,9 +9,7 @@ import { fetchProfileAPI } from '../api/userProfile';
 import firebase from '../firebase';
 import AccountInfo from '../types/accountInfo';
 import AvailableContestInfo from '../types/availableContestInfo';
-import ContestRecord from '../types/contestRecord';
 import RootState from '../types/rootState';
-import UserProfile from '../types/userProfile';
 import { calculateNewRating } from '../utils/calculateNewRating';
 import { getParticipateVirtuals } from '../utils/getParticipateVirtuals';
 

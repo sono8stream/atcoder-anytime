@@ -21,6 +21,7 @@ import {
   Segment,
   Table,
 } from 'semantic-ui-react';
+import UserProfile from 'shared/types/userProfile';
 import { fetchProfile, fetchUsers, updateContestRecords } from '../actions';
 import {
   useAccountInfo,
@@ -28,7 +29,6 @@ import {
   useProfile,
   useUsers,
 } from '../hooks';
-import UserProfile from '../types/userProfile';
 import { dateStringFromSeconds } from '../utils/dateString';
 import { monthStringFromTime } from '../utils/dateString';
 import { getCertificate } from '../utils/getCertificate';

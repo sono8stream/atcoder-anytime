@@ -1,5 +1,5 @@
+import UserProfile from 'shared/types/userProfile';
 import ContestCertificate from '../types/contestCertificate';
-import UserProfile from '../types/userProfile';
 
 export const getCertificate = (profile: UserProfile, idx: number) => {
   const record = profile.records[idx];
