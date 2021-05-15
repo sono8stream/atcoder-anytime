@@ -31,7 +31,6 @@ const calculateNewRating = async (
   const [rank, upperIdx] = await calculateRank(participationInfo);
 
   const contestResults = await fetchContestResults(participationInfo.contestID);
-  console.log(contestResults);
   if (contestResults === false || !participationInfo.isRated) {
     // unrated
     return {
@@ -94,15 +93,14 @@ const fetchContestResults = async (contestID: string) => {
   const url = `https://atcoder.jp/contests/${contestID}/results/json`;
   const response = await accessToAtCoder(url).catch((e) => e);
 
-  console.log(response.result);
   if (response.result) {
     // レート変動が行われたか検証
-    const zeroPerformances = response.result.reduce(
-      (prev: number, user: any) => {
-        return prev + user.Performance === 0 ? 1 : 0;
-      },
-      0
-    );
+    let zeroPerformances = 0;
+    response.result.forEach((user: any) => {
+      if (user.Performance === 0) {
+        zeroPerformances++;
+      }
+    });
 
     console.log(zeroPerformances, response.result.length);
     if (zeroPerformances === response.result.length) {
@@ -115,8 +113,6 @@ const fetchContestResults = async (contestID: string) => {
   }
 };
 
-// ここでレーティング変動結果にアクセス
-// 初めてコンテスト名とレート変動対象のコンテストかどうかわかる
 const calculateRoundedPerformance = async (
   participationInfo: ParticipationInfo,
   upperIdx: number,
@@ -175,7 +171,6 @@ const getRawRating = (profile: NewUserProfile, roundedPerformance: number) => {
       continue;
     }
 
-    console.log(contest);
     numer += Math.pow(2, contest.roundedPerformance / 800) * ratio;
     denom += ratio;
     ratio *= 0.9;
