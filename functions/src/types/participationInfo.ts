@@ -4,4 +4,6 @@ export default interface ParticipationInfo {
   startTimeSeconds: number;
   score: number;
   elapsedTime: number;
+  isRated: boolean;
+  isFinished: boolean;
 }

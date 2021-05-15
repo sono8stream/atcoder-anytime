@@ -10,8 +10,6 @@ import firebase from '../firebase';
 import AccountInfo from '../types/accountInfo';
 import AvailableContestInfo from '../types/availableContestInfo';
 import RootState from '../types/rootState';
-import { calculateNewRating } from '../utils/calculateNewRating';
-import { getParticipateVirtuals } from '../utils/getParticipateVirtuals';
 
 const actionCreator = actionCreatorFactory();
 
@@ -54,7 +52,7 @@ export const updateProfile = (
 
 export const updateContestRecordsActions = actionCreator.async<
   boolean,
-  { lastUpdateTime: number },
+  UserProfile,
   { value: Error }
 >('UpdateContestRecord');
 
@@ -73,73 +71,25 @@ export const updateContestRecords = (
     onStart();
   }
   const userID = getState().account.id;
-  /*
-  await firebase.functions().httpsCallable('updateContestRecords')({
-    userID,
-  });
-  */
-
-  const { handle, lastUpdateTime } = getState().profile;
-  const storeRef = firebase.firestore().collection('users').doc(userID);
-  let oldRating = getState().profile.rating;
   try {
-    const participationInfoList = await getParticipateVirtuals(
-      getState().profile
-    );
-    const nowTime = Math.floor(new Date().getTime() / 1000);
-    let updateTime = lastUpdateTime;
-    for (const participationInfo of participationInfoList) {
-      try {
-        const contestResult = await calculateNewRating(
-          participationInfo,
-          getState().profile
-        ).catch((e) => null);
-        console.log(contestResult);
-        if (!contestResult) {
-          continue;
-        }
-
-        const newRecord = {
-          contestID: participationInfo.contestID,
-          startTime: participationInfo.startTimeSeconds,
-          contestName: contestResult.contestName,
-          rank: contestResult.rank,
-          newRating: contestResult.newRating,
-          oldRating,
-          roundedPerformance: contestResult.roundedPerformance,
-        };
-
-        updateTime = Math.max(updateTime, participationInfo.startTimeSeconds);
-
-        const doc = await storeRef.get();
-        if (updateTime > doc.data()?.lastUpdateTime) {
-          await storeRef.set(
-            {
-              lastUpdateTime: updateTime,
-              rating: contestResult.newRating,
-              records: [newRecord, ...getState().profile.records],
-            },
-            { merge: true }
-          );
-          dispatch(addContestRecordAction({ id: userID, record: newRecord }));
-          oldRating = contestResult.newRating;
-        }
-      } catch (e) {
-        console.log(e);
-        continue;
+    const response = await firebase.functions().httpsCallable('updateRating')({
+      userID,
+    });
+    console.log(response);
+    if (response.data) {
+      dispatch(
+        updateContestRecordsActions.done({
+          params: true,
+          result: response.data,
+        })
+      );
+      if (onDone) {
+        onDone();
       }
-    }
-    dispatch(
-      updateContestRecordsActions.done({
-        params: true,
-        result: { lastUpdateTime: updateTime },
-      })
-    );
-    if (onDone) {
-      onDone();
+    } else {
+      throw new Error('Invalid response data');
     }
   } catch (e) {
-    console.log(e);
     dispatch(
       updateContestRecordsActions.failed({
         params: true,

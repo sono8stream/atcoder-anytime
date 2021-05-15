@@ -166,7 +166,7 @@ const ProfilePage: React.FC = () => {
         }
       })()}
       <Header as="h4">
-        Last Update:{dateStringFromSeconds(userInfo.lastUpdateTime)}
+        Checked submission : {dateStringFromSeconds(userInfo.lastUpdateTime)}
       </Header>
       <ResponsiveContainer width="95%" height={300}>
         <ScatterChart

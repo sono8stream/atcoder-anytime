@@ -3,4 +3,5 @@ export default interface Submission {
   problem_id: string;
   user_id: string;
   epoch_second: number;
+  result: string;
 }

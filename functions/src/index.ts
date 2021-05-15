@@ -14,3 +14,5 @@ admin.initializeApp({ credential });
 export * from './getExternal';
 
 export * from './updateRating';
+
+export * from './admin_utils/calculateOfficialResults';

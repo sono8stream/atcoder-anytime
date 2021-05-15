@@ -6,4 +6,5 @@ export default interface ContestRecord {
   rank: number;
   startTime: number;
   roundedPerformance: number;
+  isRated: boolean;
 }

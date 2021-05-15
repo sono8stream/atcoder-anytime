@@ -19,6 +19,7 @@ export const fetchOfficialRatingRecordsAPI = async (handle: string) => {
         newRating: record.NewRating,
         oldRating: record.OldRating,
         roundedPerformance: record.Performance,
+        isRated: record.IsRated,
       });
     }
     return records;

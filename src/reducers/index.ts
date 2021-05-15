@@ -31,10 +31,7 @@ const profileReducer = reducerWithInitialState<UserProfile>({
     const rating = payload.record.newRating;
     return { ...prev, rating, records };
   })
-  .case(updateContestRecordsActions.done, (prev, payload) => ({
-    ...prev,
-    lastUpdateTime: payload.result.lastUpdateTime,
-  }))
+  .case(updateContestRecordsActions.done, (prev, payload) => payload.result)
   .case(logoutActions.done, (prev, payload) => ({
     handle: '',
     lastUpdateTime: 0,
