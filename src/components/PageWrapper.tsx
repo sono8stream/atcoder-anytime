@@ -23,6 +23,8 @@ const PageWrapper: React.FC<{ children: any }> = ({ children }) => {
       if (user === null || user.email === null) {
         return;
       }
+      // for debug
+      // user.getIdToken().then((token) => console.log(token));
       dispatch(changeAccountInfo({ email: user.email, id: user.uid }));
     });
     return () => {

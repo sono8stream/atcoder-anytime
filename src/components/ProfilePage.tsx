@@ -116,15 +116,21 @@ const ProfilePage: React.FC = () => {
     );
   }
 
-  const data = userInfo.records
-    .map((record) => {
-      return {
+  const data: { [key: string]: any }[] = [];
+  userInfo.records.forEach((record) => {
+    if (
+      record.contestID === 'registration' ||
+      record.isRated === true ||
+      record.isRated === undefined // 旧バージョン互換
+    ) {
+      data.push({
         name: record.contestName,
         time: record.startTime,
         rating: record.newRating,
-      };
-    })
-    .reverse();
+      });
+    }
+  });
+  data.reverse();
 
   const nameFromTime: { [time: number]: string } = {};
   userInfo.records.forEach((record) => {

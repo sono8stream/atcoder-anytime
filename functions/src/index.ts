@@ -16,3 +16,5 @@ export * from './getExternal';
 export * from './updateRating';
 
 export * from './admin_utils/calculateOfficialResults';
+
+export * from './updateUserProfile';
