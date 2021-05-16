@@ -29,10 +29,7 @@ const ContestsPage: React.FC = () => {
   }
 
   const contestsPerPage = 20;
-  let pages = availableContests.length / contestsPerPage;
-  if (availableContests.length % contestsPerPage > 0) {
-    pages++;
-  }
+  const pages = Math.ceil(availableContests.length / contestsPerPage);
   const [currentPageIdx, setCurrentPageIdx] = useState(1);
 
   useEffect(() => {
