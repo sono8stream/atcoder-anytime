@@ -1,12 +1,11 @@
 import * as admin from 'firebase-admin';
+import * as functions from 'firebase-functions';
 
+let credential = admin.credential.applicationDefault();
 // ローカルデバッグ時などは認証情報を使う
-let credential: admin.credential.Credential;
-try {
+if (functions.config().projectId === 'atcoder-anytime-dev') {
   const account = require('../src/config/atcoder-anytime-dev-firebase-adminsdk.json');
   credential = admin.credential.cert(account);
-} catch (e) {
-  credential = admin.credential.applicationDefault();
 }
 
 admin.initializeApp({ credential });
