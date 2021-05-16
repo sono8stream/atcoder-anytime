@@ -13,11 +13,42 @@ import RootState from '../types/rootState';
 
 const actionCreator = actionCreatorFactory();
 
+export const CreateProfileActions = actionCreator.async<{}, UserProfile, {}>(
+  'CreateProfile'
+);
+
+export const createProfile = (
+  handle: string,
+  extendRating: boolean,
+  onDone?: () => void,
+  onFailed?: () => void
+) => async (dispatch: Dispatch) => {
+  try {
+    const response = await firebase
+      .functions()
+      .httpsCallable('updateUserProfile')({
+      handle,
+      extendRating,
+    });
+
+    if (onDone) {
+      console.log('done');
+      onDone();
+    }
+
+    dispatch(CreateProfileActions.done(response.data));
+  } catch (e) {
+    if (onFailed) {
+      onFailed();
+    }
+  }
+};
+
 export const updateProfileActions = actionCreator.async<
   { id: string },
   UserProfile,
   {}
->('CreateProfile');
+>('UpdateProfile');
 
 export const updateProfile = (
   userID: string,

@@ -5,6 +5,7 @@ import { reducerWithInitialState } from 'typescript-fsa-reducers';
 import {
   addContestRecordAction,
   changeAccountInfo,
+  CreateProfileActions,
   fetchAvailableContestInfoActions,
   fetchOfficialRatingRecordsActions,
   fetchProfileActions,

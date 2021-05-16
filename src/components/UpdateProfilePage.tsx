@@ -2,8 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory, useLocation } from 'react-router';
 import { Button, Dimmer, Form, Header, Loader, Modal } from 'semantic-ui-react';
-import UserProfile from 'shared/types/userProfile';
-import { updateProfile } from '../actions';
+import { createProfile } from '../actions';
 import { fetchRealRating } from '../api/fetchRealRating';
 import { useAccountInfo, useProfile } from '../hooks';
 import getRatingColorStyle from '../utils/getRatingColorStyle';
@@ -17,7 +16,7 @@ const UpdateProfilePage: React.FC = () => {
   const profile = useProfile();
   const [handle, setHandle] = useState('');
   const [extendRating, setExtendRating] = useState(true);
-  const [rating, setRating] = useState(1500);
+  const [rating, setRating] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
   const [handleValidity, setHandleValidity] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
@@ -47,39 +46,22 @@ const UpdateProfilePage: React.FC = () => {
   }, [handle, extendRating]);
 
   const onModalButtonClick = useCallback(() => {
-    const time = Math.floor(new Date().getTime() / 1000);
-    const userProfile: UserProfile = {
-      handle,
-      lastUpdateTime: time,
-      rating,
-      records: [
-        {
-          contestID: 'registration',
-          contestName: 'Registration',
-          oldRating: 0,
-          newRating: rating,
-          rank: 1,
-          startTime: time,
-          roundedPerformance: rating,
-          isRated: false,
-        },
-      ],
-      registrationTime: time,
-    };
+    setIsLoading(true);
+    setModalOpen(false);
+    const success = false;
     dispatch(
-      updateProfile(
-        account.id,
-        userProfile,
-        () => {
-          // setIsLoading(true);
-        },
+      createProfile(
+        handle,
+        extendRating,
         () => {
           history.push(`/users/${account.id}`);
         },
-        () => {} // setIsLoading(false)
+        () => {
+          setIsLoading(false);
+        }
       )
     );
-  }, [account, dispatch, handle, rating, history]);
+  }, [account, dispatch, handle, extendRating]);
 
   if (!account.id) {
     return null;

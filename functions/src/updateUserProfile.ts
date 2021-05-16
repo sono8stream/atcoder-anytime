@@ -64,5 +64,7 @@ export const updateUserProfile = functions.https.onCall(
     };
 
     await profileRef.set(profile);
+
+    return profile;
   }
 );
