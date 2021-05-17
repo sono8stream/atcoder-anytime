@@ -36,7 +36,7 @@ const RankingPage: React.FC = () => {
             let cnt = 0;
             const ranking = [];
             for (const id of Object.keys(users)) {
-              if (users[id].records.length > 1) {
+              if (users[id].rating > 0) {
                 ranking.push({ id, data: users[id] });
               }
             }
