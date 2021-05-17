@@ -6,8 +6,9 @@ import updateUserProfileAPI from '../utils/updateUserProfileAPI';
 
 // How to debug
 // curl --request POST --header "Content-Type: application/json" --data '{\"data\":{}}' "http://localhost:5000/atcoder-anytime-dev/us-central1/calculateOfficialResults"
-export const recalculateProfiles = functions.https.onCall(
-  async (data, context) => {
+export const recalculateProfiles = functions
+  .runWith({ timeoutSeconds: 540, memory: '1GB' })
+  .https.onCall(async (data, context) => {
     const usersRef = admin.firestore().collection('users');
     const snapshot = await usersRef.get();
     const ids: string[] = [];
@@ -36,5 +37,4 @@ export const recalculateProfiles = functions.https.onCall(
 
       await updateRatingAPI(ids[i]);
     }
-  }
-);
+  });
