@@ -9,6 +9,16 @@ import updateUserProfileAPI from '../utils/updateUserProfileAPI';
 export const recalculateProfiles = functions
   .runWith({ timeoutSeconds: 540, memory: '1GB' })
   .https.onCall(async (data, context) => {
+    const migrationLogRef = admin
+      .firestore()
+      .collection('migrationStates')
+      .doc('profile');
+    const migratedSnapshot = await migrationLogRef.get();
+    let migratedIds: { [key: string]: boolean } = {};
+    if (migratedSnapshot.exists && migratedSnapshot.data() !== undefined) {
+      migratedIds = migratedSnapshot.data()?.ids;
+    }
+
     const usersRef = admin.firestore().collection('users');
     const snapshot = await usersRef.get();
     const ids: string[] = [];
@@ -19,6 +29,10 @@ export const recalculateProfiles = functions
     });
 
     for (let i = 0; i < ids.length; i++) {
+      if (migratedIds[ids[i]]) {
+        continue;
+      }
+
       const registration = profiles[i].registrationTime;
       const extendRating =
         profiles[i].records[profiles[i].records.length - 1].newRating > 0;
@@ -36,5 +50,7 @@ export const recalculateProfiles = functions
       await usersRef.doc(ids[i]).update(newProfile);
 
       await updateRatingAPI(ids[i]);
+      migratedIds[ids[i]] = true;
+      await migrationLogRef.set({ ids: migratedIds });
     }
   });
