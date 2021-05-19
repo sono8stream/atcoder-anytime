@@ -31,8 +31,8 @@ const calculateNewRating = async (
   const [rank, upperIdx] = await calculateRank(participationInfo);
 
   const contestResults = await fetchContestResults(participationInfo.contestID);
-  if (contestResults === false || !participationInfo.isRated) {
-    // unrated
+  if (contestResults === false) {
+    // unrated for all users
     return {
       rank,
       newRating: profile.rating,
@@ -47,6 +47,16 @@ const calculateNewRating = async (
     contestResults
   );
   console.log(rank, roundedPerformance);
+
+  if (!participationInfo.isRated) {
+    // unrated for some users. ex) ABC for over 2000
+    return {
+      rank,
+      newRating: profile.rating,
+      roundedPerformance,
+      isRated: false,
+    };
+  }
 
   const newRating = await calculateRating(profile, roundedPerformance);
   return {
