@@ -20,7 +20,11 @@ export const calculateOfficialResults = functions.https.onCall(
         numeratorConvolution,
         denominatorConvolution,
         participations,
-      } = await calculateOfficialConvolutions(handles[i]);
+        rating,
+      } = await calculateOfficialConvolutions(
+        handles[i],
+        Math.floor(new Date().getTime() / 1000)
+      );
 
       const profileRef = admin.firestore().collection('users').doc(ids[i]);
       await profileRef.update({

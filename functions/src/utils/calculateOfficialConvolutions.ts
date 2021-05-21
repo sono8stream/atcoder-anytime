@@ -3,9 +3,11 @@ import accessToAtCoder from './accessToAtCoder';
 interface ResultResponse {
   Performance: number;
   IsRated: boolean;
+  EndTime: string;
+  NewRating: number;
 }
 
-const calculateOfficialConvolutions = async (handle: string) => {
+const calculateOfficialConvolutions = async (handle: string, time: number) => {
   const resultsUrl = `https://atcoder.jp/users/${handle}/history/json`;
   const resultsResponse = await accessToAtCoder(resultsUrl);
 
@@ -14,19 +16,29 @@ const calculateOfficialConvolutions = async (handle: string) => {
     numeratorConvolution,
     denominatorConvolution,
     participations,
-  ] = calculateRatingConvolutions(results);
+    rating,
+  ] = calculateRatingConvolutions(results, time);
 
-  return { numeratorConvolution, denominatorConvolution, participations };
+  return {
+    numeratorConvolution,
+    denominatorConvolution,
+    participations,
+    rating,
+  };
 };
 
-const calculateRatingConvolutions = (results: ResultResponse[]) => {
+const calculateRatingConvolutions = (
+  results: ResultResponse[],
+  checkTime: number
+) => {
   let numerator = 0;
   let denominator = 0;
   let rate = 1;
   let officialCnt = 0;
+  let rating = 0;
 
   for (const result of results.reverse()) {
-    if (!result.IsRated) {
+    if (Date.parse(result.EndTime) / 1000 > checkTime || !result.IsRated) {
       continue;
     }
 
@@ -34,9 +46,12 @@ const calculateRatingConvolutions = (results: ResultResponse[]) => {
     denominator += rate;
     rate *= 0.9;
     officialCnt++;
+    if (rating === 0) {
+      rating = result.NewRating;
+    }
   }
 
-  return [numerator, denominator, officialCnt];
+  return [numerator, denominator, officialCnt, rating];
 };
 
 export default calculateOfficialConvolutions;

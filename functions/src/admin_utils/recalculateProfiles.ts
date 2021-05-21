@@ -41,29 +41,11 @@ export const reinitializeProfiles = functions
       const newProfile = await updateUserProfileAPI(
         ids[i],
         profiles[i].handle,
-        extendRating
+        extendRating,
+        registration
       );
       if (newProfile === null) {
         continue;
-      }
-      newProfile.lastUpdateTime = registration;
-      newProfile.registrationTime = registration;
-      newProfile.records[0].startTime = registration;
-      if (extendRating) {
-        const contestRecords = await accessToAtCoder(
-          `https://atcoder.jp/users/${profiles[i].handle}/history/json`
-        );
-        let firstRating = 0;
-        for (const record of contestRecords.result) {
-          if (Date.parse(record.EndTime) / 1000 > registration) {
-            break;
-          }
-          firstRating = record.NewRating;
-        }
-        console.log(firstRating);
-        newProfile.records[0].newRating = firstRating;
-        newProfile.records[0].roundedPerformance = firstRating;
-        newProfile.rating = firstRating;
       }
 
       await usersRef.doc(ids[i]).update(newProfile);

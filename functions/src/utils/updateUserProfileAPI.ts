@@ -6,7 +6,8 @@ import calculateOfficialConvolutions from './calculateOfficialConvolutions';
 const updateUserProfileAPI = async (
   userID: string,
   handle: string,
-  extendRating: boolean
+  extendRating: boolean,
+  time: number = Math.floor(new Date().getTime() / 1000)
 ) => {
   const profileRef = admin.firestore().collection('users').doc(userID);
 
@@ -17,21 +18,17 @@ const updateUserProfileAPI = async (
     return null;
   }
 
-  if (extendRating && response.data.length > 0) {
-    rating = response.data[response.data.length - 1].NewRating;
-  }
-
   let officialParticipations = 0;
   let officialNumeratorConvolution = 0;
   let officialDenominatorConvolution = 0;
   if (extendRating) {
-    const convolutions = await calculateOfficialConvolutions(handle);
+    const convolutions = await calculateOfficialConvolutions(handle, time);
     officialParticipations = convolutions.participations;
     officialNumeratorConvolution = convolutions.numeratorConvolution;
     officialDenominatorConvolution = convolutions.denominatorConvolution;
+    rating = convolutions.rating;
   }
 
-  const time = Math.floor(new Date().getTime() / 1000);
   const profile: NewUserProfile = {
     handle,
     lastUpdateTime: time,
