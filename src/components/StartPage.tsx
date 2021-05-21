@@ -219,33 +219,7 @@ const StartPage: React.FC = () => {
               </>
             ) : (
               <>
-                このサービスでユーザー登録するよりも前に参加したVirtual
-                Contestの結果は無効です
-              </>
-            )}
-          </List.Item>
-          <List.Item>
-            {isEnglish ? (
-              <>
-                To be ranked, you have to join at least one virtual contest and
-                update your rating
-              </>
-            ) : (
-              <>
-                ランキングに掲載されるには，Virtual
-                Contestの結果を1つ以上反映させる必要があります
-              </>
-            )}
-          </List.Item>
-          <List.Item>
-            {isEnglish ? (
-              <>
-                The rating correction that is applied to fewer contest
-                participations is not be applied (Unlike original AtCoder)
-              </>
-            ) : (
-              <>
-                コンテスト参加回数が少ない場合に適用されるレート補正は，本サービスでは適用されません
+                このサービスでユーザー登録するよりも前のバーチャル参加の結果は無効です
               </>
             )}
           </List.Item>
