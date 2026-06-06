@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://atcoder-anytime.sonoapp.page",
   "dependencies": {
+    "@types/styled-components": "^5.1.36",
     "firebase": "^7.15.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -16,17 +17,18 @@
     "redux-thunk": "^2.3.0",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.88.2",
+    "styled-components": "^6.4.2",
     "typescript-fsa": "^3.0.0",
     "typescript-fsa-reducers": "^1.2.1"
   },
   "scripts": {
-    "start:develop": "cross-env REACT_APP_ENV=develop react-scripts start",
-    "start:production": "cross-env REACT_APP_ENV=production react-scripts start",
-    "build:develop": "cross-env REACT_APP_ENV=develop react-scripts build",
-    "build:production": "cross-env REACT_APP_ENV=production react-scripts build",
-    "deploy": "cross-env REACT_APP_ENV=production react-scripts build && firebase deploy",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start:develop": "cross-env NODE_OPTIONS=--openssl-legacy-provider REACT_APP_ENV=develop node node_modules/react-scripts/bin/react-scripts.js start",
+    "start:production": "cross-env NODE_OPTIONS=--openssl-legacy-provider REACT_APP_ENV=production node node_modules/react-scripts/bin/react-scripts.js start",
+    "build:develop": "cross-env NODE_OPTIONS=--openssl-legacy-provider REACT_APP_ENV=develop node node_modules/react-scripts/bin/react-scripts.js build",
+    "build:production": "cross-env NODE_OPTIONS=--openssl-legacy-provider REACT_APP_ENV=production node node_modules/react-scripts/bin/react-scripts.js build",
+    "deploy": "cross-env NODE_OPTIONS=--openssl-legacy-provider REACT_APP_ENV=production node node_modules/react-scripts/bin/react-scripts.js build && firebase deploy",
+    "test": "cross-env NODE_OPTIONS=--openssl-legacy-provider node node_modules/react-scripts/bin/react-scripts.js test",
+    "eject": "node node_modules/react-scripts/bin/react-scripts.js eject"
   },
   "eslintConfig": {
     "extends": "react-app"
