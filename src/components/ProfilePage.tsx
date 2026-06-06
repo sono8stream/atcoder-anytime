@@ -15,10 +15,10 @@ import UserProfile from 'shared/types/userProfile';
 import { fetchProfile, fetchUsers, updateContestRecords } from '../actions';
 import {
   RatingGraph,
-  getRatingColorStyle,
   dateAndTimeStringFromSeconds,
 } from '../anytime-ui';
 import type { RatingBand } from '../anytime-ui';
+import getRatingColorStyle from '../utils/getRatingColorStyle';
 import {
   useAccountInfo,
   useIsUpdatingRating,
@@ -170,6 +170,7 @@ const ProfilePage: React.FC = () => {
         data={data}
         ratingBands={AC_RATING_BANDS}
         yTicks={AC_Y_TICKS}
+        getRatingColorStyle={getRatingColorStyle}
       />
       <Table unstackable={true} celled={true}>
         <Table.Header>
