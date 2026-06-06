@@ -2,15 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useHistory, useLocation, useParams } from 'react-router-dom';
 import {
-  CartesianGrid,
-  ResponsiveContainer,
-  Scatter,
-  ScatterChart,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from 'recharts';
-import {
   Button,
   Container,
   Grid,
@@ -18,25 +9,24 @@ import {
   Icon,
   Loader,
   Modal,
-  Segment,
   Table,
 } from 'semantic-ui-react';
 import UserProfile from 'shared/types/userProfile';
 import { fetchProfile, fetchUsers, updateContestRecords } from '../actions';
+import {
+  RatingGraph,
+  dateAndTimeStringFromSeconds,
+} from '../anytime-ui';
+import type { RatingBand } from '../anytime-ui';
+import getRatingColorStyle from '../utils/getRatingColorStyle';
 import {
   useAccountInfo,
   useIsUpdatingRating,
   useProfile,
   useUsers,
 } from '../hooks';
-import { dateStringFromSeconds } from '../utils/dateString';
-import { monthStringFromTime } from '../utils/dateString';
 import { getCertificate } from '../utils/getCertificate';
-import getRatingColorStyle, {
-  ratingColors,
-} from '../utils/getRatingColorStyle';
 import { getTwitterMessage } from '../utils/getTwitterMessage';
-import { calculateTimeTick } from '../utils/graphUtilities';
 
 const ProfilePage: React.FC = () => {
   const history = useHistory();
@@ -116,7 +106,7 @@ const ProfilePage: React.FC = () => {
     );
   }
 
-  const data: { [key: string]: any }[] = [];
+  const data: { name: string; time: number; rating: number }[] = [];
   userInfo.records.forEach((record) => {
     if (
       record.contestID === 'registration' ||
@@ -132,15 +122,17 @@ const ProfilePage: React.FC = () => {
   });
   data.reverse();
 
-  const nameFromTime: { [time: number]: string } = {};
-  userInfo.records.forEach((record) => {
-    nameFromTime[record.startTime] = record.contestName;
-  });
-
-  const xTick = calculateTimeTick(
-    data[0].time - 1000000,
-    data[data.length - 1].time + 1000000
-  );
+  const AC_RATING_BANDS: RatingBand[] = [
+    { y1: 2800, y2: 9999, color: '#FF0000' },
+    { y1: 2400, y2: 2800, color: '#FF8000' },
+    { y1: 2000, y2: 2400, color: '#C0C000' },
+    { y1: 1600, y2: 2000, color: '#0000FF' },
+    { y1: 1200, y2: 1600, color: '#00C0C0' },
+    { y1: 800,  y2: 1200, color: '#008000' },
+    { y1: 400,  y2: 800,  color: '#804000' },
+    { y1: 0,    y2: 400,  color: '#808080' },
+  ];
+  const AC_Y_TICKS = [400, 800, 1200, 1600, 2000, 2400, 2800];
 
   return (
     <>
@@ -172,63 +164,14 @@ const ProfilePage: React.FC = () => {
         }
       })()}
       <Header as="h4">
-        Checked submission : {dateStringFromSeconds(userInfo.lastUpdateTime)}
+        Checked submission : {dateAndTimeStringFromSeconds(userInfo.lastUpdateTime)}
       </Header>
-      <ResponsiveContainer width="95%" height={300}>
-        <ScatterChart
-          margin={{
-            top: 10,
-            right: 20,
-            bottom: 20,
-            left: 10,
-          }}
-        >
-          <CartesianGrid
-            strokeDasharray="3 3"
-            horizontalFill={ratingColors}
-            fillOpacity={0.5}
-            stroke="black"
-          />
-          <XAxis
-            type="number"
-            dataKey="time"
-            name="date"
-            domain={['dataMin - 1000000', 'dataMax + 1000000']}
-            ticks={xTick}
-            tickFormatter={(time) => monthStringFromTime(time)}
-          />
-          <YAxis
-            type="number"
-            dataKey="rating"
-            domain={['dataMin-400', 'dataMax + 400']}
-            ticks={[400, 800, 1200, 1600, 2000, 2400, 2800]}
-            interval={0}
-          />
-          <Tooltip
-            cursor={{ strokeDasharray: '3 3' }}
-            content={(labels: any) => {
-              if (labels.payload.length === 0) {
-                return null;
-              }
-              const time: number = labels.payload[0].value;
-              const rating: number = labels.payload[1].value;
-              return (
-                <Segment>
-                  <Header as="h4" dividing={true}>
-                    {nameFromTime[time]}
-                  </Header>
-                  <div>{dateStringFromSeconds(time)}</div>
-                  <div>
-                    Rating:
-                    <span style={getRatingColorStyle(rating)}>{rating}</span>
-                  </div>
-                </Segment>
-              );
-            }}
-          />
-          <Scatter name="A school" data={data} line={true} fill="white" />
-        </ScatterChart>
-      </ResponsiveContainer>
+      <RatingGraph
+        data={data}
+        ratingBands={AC_RATING_BANDS}
+        yTicks={AC_Y_TICKS}
+        getRatingColorStyle={getRatingColorStyle}
+      />
       <Table unstackable={true} celled={true}>
         <Table.Header>
           <Table.Row>
@@ -249,7 +192,7 @@ const ProfilePage: React.FC = () => {
             return (
               <Table.Row key={record.startTime}>
                 <Table.Cell>
-                  {dateStringFromSeconds(record.startTime)}
+                  {dateAndTimeStringFromSeconds(record.startTime)}
                 </Table.Cell>
                 <Table.Cell>
                   {record.contestID === 'registration' ? (
