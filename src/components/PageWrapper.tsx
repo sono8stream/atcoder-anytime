@@ -1,30 +1,21 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { useHistory, useLocation } from 'react-router';
-import { Button, Container, Divider, Menu, Segment } from 'semantic-ui-react';
-
+import { useHistory } from 'react-router';
+import { PageWrapper as AnytimePageWrapper } from '../anytime-ui/index';
 import { changeAccountInfo, logout } from '../actions';
 import firebase from '../firebase';
 import { useAccountInfo } from '../hooks';
 
 const PageWrapper: React.FC<{ children: any }> = ({ children }) => {
   const history = useHistory();
-  const location = useLocation();
-
   const dispatch = useDispatch();
   const account = useAccountInfo();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location]);
 
   useEffect(() => {
     const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
       if (user === null || user.email === null) {
         return;
       }
-      // for debug
-      // user.getIdToken().then((token) => console.log(token));
       dispatch(changeAccountInfo({ email: user.email, id: user.uid }));
     });
     return () => {
@@ -33,81 +24,18 @@ const PageWrapper: React.FC<{ children: any }> = ({ children }) => {
   }, [dispatch, history]);
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        minHeight: '100vh',
-        flexDirection: 'column',
-      }}
+    <AnytimePageWrapper
+      appName="AtCoder Anytime"
+      accountId={account.id}
+      onNavigateHome={() => history.push('/')}
+      onNavigateContests={() => history.push('/contests')}
+      onNavigateRanking={() => history.push('/ranking')}
+      onNavigateProfile={() => history.push(`/users/${account.id}`)}
+      onLogout={() => dispatch(logout())}
+      onNavigateContact={() => history.push('/contact')}
     >
-      <Menu fixed="top" style={{ overflow: 'auto' }}>
-        <Menu.Item
-          header={true}
-          onClick={() => {
-            history.push('/');
-          }}
-        >
-          AtCoder Anytime
-        </Menu.Item>
-        <Menu.Item
-          onClick={() => {
-            history.push('/contests');
-          }}
-        >
-          Contests
-        </Menu.Item>
-        <Menu.Item
-          onClick={() => {
-            history.push('/ranking');
-          }}
-        >
-          Ranking
-        </Menu.Item>
-        {(() => {
-          if (account.id) {
-            return (
-              <>
-                <Menu.Item
-                  position="right"
-                  onClick={() => {
-                    history.push(`/users/${account.id}`);
-                  }}
-                >
-                  Profile
-                </Menu.Item>
-                <Menu.Item
-                  onClick={() => {
-                    dispatch(logout());
-                  }}
-                >
-                  Logout
-                </Menu.Item>
-              </>
-            );
-          } else {
-            return null;
-          }
-        })()}
-      </Menu>
-      <Container text={true} style={{ marginTop: '6em', flex: 1 }}>
-        {children}
-      </Container>
-      <div style={{ height: '5em' }} />
-      <Segment vertical={false} style={{ padding: '2em 0em' }}>
-        <Container textAlign="center">
-          <Button
-            basic={true}
-            onClick={() => {
-              history.push('/contact');
-            }}
-          >
-            Contact Me
-          </Button>
-          <Divider inverted={true} />
-          <p>Copyright © 2019 sono. All rights reserved.</p>
-        </Container>
-      </Segment>
-    </div>
+      {children}
+    </AnytimePageWrapper>
   );
 };
 

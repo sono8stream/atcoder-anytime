@@ -4,6 +4,12 @@
         "paths": {
             "shared/*": [
                 "./shared/dist/*"
+            ],
+            "anytime-ui": [
+                "./src/anytime-ui/index.ts"
+            ],
+            "anytime-ui/*": [
+                "./src/anytime-ui/*"
             ]
         }
     }
