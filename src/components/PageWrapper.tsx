@@ -27,6 +27,7 @@ const PageWrapper: React.FC<{ children: any }> = ({ children }) => {
     <AnytimePageWrapper
       appName="AtCoder Anytime"
       accountId={account.id}
+      inverted={false}
       onNavigateHome={() => history.push('/')}
       onNavigateContests={() => history.push('/contests')}
       onNavigateRanking={() => history.push('/ranking')}
