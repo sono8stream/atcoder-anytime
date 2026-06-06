@@ -62,25 +62,23 @@ $ git submodule update --init
 
 1. Create a Firebase project in the [Firebase console](https://console.firebase.google.com/)
 2. Enable **Authentication** (Google sign-in), **Firestore**, **Cloud Functions**, and **Hosting**
-3. Register a web app and copy the Firebase config
+3. Register a web app (and a separate one for develop if needed) and copy each Firebase config
 
-### 3. Create `src/firebase/index.ts`
+### 3. Create `.env`
 
-Create the file with your Firebase config:
+Copy `.env.example` to `.env` and fill in your values:
 
-```TypeScript
-import firebase from 'firebase/app';
-import 'firebase/auth';
-import 'firebase/firestore';
-import 'firebase/functions';
+```
+$ cp .env.example .env
+```
 
-const firebaseConfig = {
-  // Paste your Firebase config here
-};
+Set each Firebase config as a JSON string and your GA tracking IDs:
 
-firebase.initializeApp(firebaseConfig);
-
-export default firebase;
+```
+REACT_APP_FIREBASE_CONFIG_DEVELOP='{ ...firebase config for dev... }'
+REACT_APP_FIREBASE_CONFIG_PRODUCTION='{ ...firebase config for prod... }'
+REACT_APP_GA_TRACKING_ID_DEVELOP=G-XXXXXXXXXX
+REACT_APP_GA_TRACKING_ID_PRODUCTION=G-XXXXXXXXXX
 ```
 
 ### 4. Build shared types
