@@ -12,6 +12,7 @@ import ProfilePage from './components/ProfilePage';
 import RankingPage from './components/RankingPage';
 import StartPage from './components/StartPage';
 import UpdateProfilePage from './components/UpdateProfilePage';
+import AdminImportPage from './components/AdminImportPage';
 import trackID from './ga/config';
 import rootReducer from './reducers';
 
@@ -44,6 +45,9 @@ const App: React.FC = () => {
           />
           <Route exact={true} path="/contact" component={Contact} />
           <Route exact={true} path="/" component={StartPage} />
+          {process.env.REACT_APP_ENV === 'develop' && (
+            <Route exact={true} path="/admin/import" component={AdminImportPage} />
+          )}
         </PageWrapper>
       </Router>
     </Provider>

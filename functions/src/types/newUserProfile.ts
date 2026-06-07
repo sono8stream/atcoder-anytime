@@ -1,4 +1,4 @@
-import UserProfile from 'shared/types/UserProfile';
+import UserProfile from 'shared/types/userProfile';
 
 export default interface NewUserProfile extends UserProfile {
   officialNumeratorConvolution: number;

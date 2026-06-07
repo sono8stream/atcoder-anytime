@@ -7,6 +7,6 @@ typings/
 
 node_modules/
 
-src/config/
+src/config/*.json
 
 **/*.log
