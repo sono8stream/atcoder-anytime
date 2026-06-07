@@ -14,7 +14,6 @@
 
 # misc
 .DS_Store
-.env
 .env.local
 .env.development.local
 .env.test.local
@@ -26,6 +25,10 @@ yarn-error.log*
 
 # firebase
 /.firebase
+/src/firebase
 
 # migration
 /src/migrate
+
+# google analytics (JSONのみ除外、config.tsは追跡する)
+/src/ga/*.json
