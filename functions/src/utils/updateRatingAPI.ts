@@ -62,7 +62,7 @@ const updateRatingAPI = async (userID: string) => {
     profile.lastUpdateTime = submissions[contestID][0].epoch_second;
     profile.records.unshift(newRecord);
     profile.rating = contestResult.newRating;
-    await profileRef.update(profile);
+    await profileRef.update(profile as any);
   }
 
   return profile;
