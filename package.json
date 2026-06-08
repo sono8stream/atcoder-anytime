@@ -28,7 +28,6 @@
     "build:production": "cross-env NODE_OPTIONS=--openssl-legacy-provider REACT_APP_ENV=production node node_modules/react-scripts/bin/react-scripts.js build",
     "deploy:develop": "cross-env NODE_OPTIONS=--openssl-legacy-provider REACT_APP_ENV=develop node node_modules/react-scripts/bin/react-scripts.js build && firebase use develop && firebase deploy --only hosting,functions",
     "deploy:production": "cross-env NODE_OPTIONS=--openssl-legacy-provider REACT_APP_ENV=production node node_modules/react-scripts/bin/react-scripts.js build && firebase use production && firebase deploy --only hosting,functions",
-    "deploy": "cross-env NODE_OPTIONS=--openssl-legacy-provider REACT_APP_ENV=production node node_modules/react-scripts/bin/react-scripts.js build && firebase deploy",
     "test": "cross-env NODE_OPTIONS=--openssl-legacy-provider node node_modules/react-scripts/bin/react-scripts.js test",
     "eject": "node node_modules/react-scripts/bin/react-scripts.js eject"
   },
