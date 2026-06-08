@@ -13,8 +13,10 @@ import {
 } from 'semantic-ui-react';
 import UserProfile from 'shared/types/userProfile';
 import { fetchProfile, fetchUsers, updateContestRecords } from '../actions';
+import firebase from '../firebase';
 import {
   RatingGraph,
+  DebugLastUpdateTime,
   dateAndTimeStringFromSeconds,
 } from '../anytime-ui';
 import type { RatingBand } from '../anytime-ui';
@@ -166,6 +168,14 @@ const ProfilePage: React.FC = () => {
       <Header as="h4">
         Checked submission : {dateAndTimeStringFromSeconds(userInfo.lastUpdateTime)}
       </Header>
+      {process.env.REACT_APP_ENV === 'develop' && account?.id === urlParams.id && (
+        <DebugLastUpdateTime
+          onApply={async (t) => {
+            await firebase.firestore().collection('users').doc(account.id).update({ lastUpdateTime: t });
+            dispatch(fetchProfile(account.id));
+          }}
+        />
+      )}
       <RatingGraph
         data={data}
         ratingBands={AC_RATING_BANDS}
