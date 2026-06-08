@@ -48,7 +48,7 @@ export const reinitializeProfiles = functions
         continue;
       }
 
-      await usersRef.doc(ids[i]).update(newProfile);
+      await usersRef.doc(ids[i]).update(newProfile as any);
 
       migratedIds[ids[i]] = true;
       await migrationLogRef.set({ ids: migratedIds });
