@@ -26,7 +26,7 @@ yarn-error.log*
 
 # firebase
 /.firebase
-/firebase-config.json
+/src/firebase-config.js
 
 # migration
 /src/migrate

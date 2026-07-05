@@ -69,28 +69,28 @@ $ git submodule update --init
 Copy the template and fill in your Firebase project settings (available in Firebase Console → Project settings → Your apps):
 
 ```
-$ cp firebase-config.json.example firebase-config.json
+$ cp src/firebase-config.js.example src/firebase-config.js
 ```
 
-```json
-{
-  "develop": {
-    "apiKey": "...",
-    "authDomain": "...",
-    "projectId": "...",
-    "storageBucket": "...",
-    "messagingSenderId": "...",
-    "appId": "..."
+```js
+export default {
+  develop: {
+    apiKey: '...',
+    authDomain: '...',
+    projectId: '...',
+    storageBucket: '...',
+    messagingSenderId: '...',
+    appId: '...',
   },
-  "production": {
-    "apiKey": "...",
-    "authDomain": "...",
-    "projectId": "...",
-    "storageBucket": "...",
-    "messagingSenderId": "...",
-    "appId": "..."
-  }
-}
+  production: {
+    apiKey: '...',
+    authDomain: '...',
+    projectId: '...',
+    storageBucket: '...',
+    messagingSenderId: '...',
+    appId: '...',
+  },
+};
 ```
 
 This file is gitignored and must not be committed.
