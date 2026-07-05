@@ -2,16 +2,12 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
 import 'firebase/functions';
+import firebaseConfig from './firebase-config';
 
 const isProd = process.env.REACT_APP_ENV === 'production';
-const firebaseConfig = JSON.parse(
-  isProd
-    ? (process.env.REACT_APP_FIREBASE_CONFIG_PRODUCTION ?? '{}')
-    : (process.env.REACT_APP_FIREBASE_CONFIG_DEVELOP ?? '{}')
-);
 
 if (!firebase.apps.length) {
-  firebase.initializeApp(firebaseConfig);
+  firebase.initializeApp(isProd ? firebaseConfig.production : firebaseConfig.develop);
 }
 
 export default firebase;
