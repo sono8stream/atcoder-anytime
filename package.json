@@ -22,15 +22,15 @@
     "typescript-fsa-reducers": "^1.2.1"
   },
   "scripts": {
-    "setup": "git submodule update --init && node node_modules/typescript/bin/tsc -p shared/tsconfig.json",
-    "start:develop": "cross-env NODE_OPTIONS=--openssl-legacy-provider REACT_APP_ENV=develop node node_modules/react-scripts/bin/react-scripts.js start",
-    "start:production": "cross-env NODE_OPTIONS=--openssl-legacy-provider REACT_APP_ENV=production node node_modules/react-scripts/bin/react-scripts.js start",
-    "build:develop": "cross-env NODE_OPTIONS=--openssl-legacy-provider REACT_APP_ENV=develop node node_modules/react-scripts/bin/react-scripts.js build",
-    "build:production": "cross-env NODE_OPTIONS=--openssl-legacy-provider REACT_APP_ENV=production node node_modules/react-scripts/bin/react-scripts.js build",
-    "deploy:develop": "cross-env NODE_OPTIONS=--openssl-legacy-provider REACT_APP_ENV=develop node node_modules/react-scripts/bin/react-scripts.js build && firebase use develop && firebase deploy --only hosting,functions",
-    "deploy:production": "cross-env NODE_OPTIONS=--openssl-legacy-provider REACT_APP_ENV=production node node_modules/react-scripts/bin/react-scripts.js build && firebase use production && firebase deploy --only hosting,functions",
-    "test": "cross-env NODE_OPTIONS=--openssl-legacy-provider node node_modules/react-scripts/bin/react-scripts.js test",
-    "eject": "node node_modules/react-scripts/bin/react-scripts.js eject"
+    "setup": "git submodule update --init && tsc -p shared/tsconfig.json",
+    "start:develop": "cross-env NODE_OPTIONS=--openssl-legacy-provider REACT_APP_ENV=develop react-scripts start",
+    "start:production": "cross-env NODE_OPTIONS=--openssl-legacy-provider REACT_APP_ENV=production react-scripts start",
+    "build:develop": "cross-env NODE_OPTIONS=--openssl-legacy-provider REACT_APP_ENV=develop react-scripts build",
+    "build:production": "cross-env NODE_OPTIONS=--openssl-legacy-provider REACT_APP_ENV=production react-scripts build",
+    "deploy:develop": "cross-env NODE_OPTIONS=--openssl-legacy-provider REACT_APP_ENV=develop react-scripts build && firebase use develop && firebase deploy --only hosting,functions",
+    "deploy:production": "cross-env NODE_OPTIONS=--openssl-legacy-provider REACT_APP_ENV=production react-scripts build && firebase use production && firebase deploy --only hosting,functions",
+    "test": "cross-env NODE_OPTIONS=--openssl-legacy-provider react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
