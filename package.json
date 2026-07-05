@@ -22,6 +22,7 @@
     "typescript-fsa-reducers": "^1.2.1"
   },
   "scripts": {
+    "setup": "git submodule update --init && node node_modules/typescript/bin/tsc -p shared/tsconfig.json",
     "start:develop": "cross-env NODE_OPTIONS=--openssl-legacy-provider REACT_APP_ENV=develop node node_modules/react-scripts/bin/react-scripts.js start",
     "start:production": "cross-env NODE_OPTIONS=--openssl-legacy-provider REACT_APP_ENV=production node node_modules/react-scripts/bin/react-scripts.js start",
     "build:develop": "cross-env NODE_OPTIONS=--openssl-legacy-provider REACT_APP_ENV=develop node node_modules/react-scripts/bin/react-scripts.js build",

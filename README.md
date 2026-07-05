@@ -64,24 +64,51 @@ $ git submodule update --init
 2. Enable **Authentication** (Google sign-in), **Firestore**, **Cloud Functions**, and **Hosting**
 3. Register a web app (and a separate one for develop if needed) and copy each Firebase config
 
-### 3. Create `.env`
+### 3. Create `firebase-config.json`
 
-Copy `.env.example` to `.env` and fill in your values:
-
-```
-$ cp .env.example .env
-```
-
-Set each Firebase config as a JSON string and your GA tracking IDs:
+Copy the template and fill in your Firebase project settings (available in Firebase Console → Project settings → Your apps):
 
 ```
-REACT_APP_FIREBASE_CONFIG_DEVELOP='{ ...firebase config for dev... }'
-REACT_APP_FIREBASE_CONFIG_PRODUCTION='{ ...firebase config for prod... }'
+$ cp firebase-config.json.example firebase-config.json
+```
+
+```json
+{
+  "develop": {
+    "apiKey": "...",
+    "authDomain": "...",
+    "projectId": "...",
+    "storageBucket": "...",
+    "messagingSenderId": "...",
+    "appId": "..."
+  },
+  "production": {
+    "apiKey": "...",
+    "authDomain": "...",
+    "projectId": "...",
+    "storageBucket": "...",
+    "messagingSenderId": "...",
+    "appId": "..."
+  }
+}
+```
+
+This file is gitignored and must not be committed.
+
+### 4. Create `.env`
+
+Create `.env` in the project root with the following variables:
+
+```
 REACT_APP_GA_TRACKING_ID_DEVELOP=G-XXXXXXXXXX
 REACT_APP_GA_TRACKING_ID_PRODUCTION=G-XXXXXXXXXX
+ATCODER_USERNAME=your_atcoder_username
+ATCODER_PASSWORD=your_atcoder_password
 ```
 
-### 4. Build shared types
+`ATCODER_USERNAME` / `ATCODER_PASSWORD` are used by Cloud Functions to log in to AtCoder and fetch contest data.
+
+### 5. Build shared types
 
 The `shared/` package contains types used by both the frontend and Cloud Functions. Build it first:
 
@@ -92,7 +119,7 @@ $ npm run build
 $ cd ..
 ```
 
-### 5. Install frontend dependencies and start
+### 6. Install frontend dependencies and start
 
 ```
 $ npm install
@@ -101,7 +128,7 @@ $ npm run start:develop
 
 Open http://localhost:3000
 
-### 6. (Optional) Firebase Functions setup
+### 7. (Optional) Firebase Functions setup
 
 ```
 $ firebase login
