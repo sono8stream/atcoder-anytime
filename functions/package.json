@@ -2,7 +2,7 @@
   "name": "functions",
   "scripts": {
     "lint": "node node_modules/tslint/bin/tslint --project tsconfig.json",
-    "build": "node node_modules/typescript/bin/tsc --build --force && printf '#!/usr/bin/env node\\nrequire(\"../firebase-functions/lib/bin/firebase-functions.js\");\\n' > node_modules/.bin/firebase-functions",
+    "build": "node node_modules/typescript/bin/tsc --build --force",
     "serve": "tsc-watch --build --onFirstSuccess \"firebase serve --only functions\"",
     "shell": "tsc-watch --build --onFirstSuccess \"firebase functions:shell\"",
     "start": "npm run shell",

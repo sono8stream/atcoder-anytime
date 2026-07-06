@@ -4,6 +4,7 @@ import { Link, useHistory, useLocation, useParams } from 'react-router-dom';
 import {
   Button,
   Container,
+  Dimmer,
   Grid,
   Header,
   Icon,
@@ -17,6 +18,7 @@ import firebase from '../firebase';
 import {
   RatingGraph,
   DebugLastUpdateTime,
+  DebugRegistrationTime,
   dateAndTimeStringFromSeconds,
 } from '../anytime-ui';
 import type { RatingBand } from '../anytime-ui';
@@ -100,16 +102,16 @@ const ProfilePage: React.FC = () => {
     userInfo = profile;
   }
 
+  const sortedRecords = [...userInfo.records].sort((a, b) => b.startTime - a.startTime);
+  const sortedUserInfo = { ...userInfo, records: sortedRecords };
+
   let certificate = null;
-  if (certIdx >= 0 && userInfo.records[userInfo.records.length - certIdx - 1]) {
-    certificate = getCertificate(
-      userInfo,
-      userInfo.records.length - certIdx - 1
-    );
+  if (certIdx >= 0 && sortedRecords[certIdx]) {
+    certificate = getCertificate(sortedUserInfo, certIdx);
   }
 
   const data: { name: string; time: number; rating: number }[] = [];
-  userInfo.records.forEach((record) => {
+  sortedRecords.forEach((record) => {
     if (
       record.contestID === 'registration' ||
       record.isRated === true ||
@@ -138,7 +140,9 @@ const ProfilePage: React.FC = () => {
 
   return (
     <>
-      <Loader inverted={true} active={isUpdatingRating} />
+      <Dimmer active={isUpdatingRating} inverted={true}>
+        <Loader>更新中...</Loader>
+      </Dimmer>
       <Header as="h2" style={getRatingColorStyle(userInfo.rating)}>
         {userInfo.handle}
         &nbsp;
@@ -176,6 +180,20 @@ const ProfilePage: React.FC = () => {
           }}
         />
       )}
+      {process.env.REACT_APP_ENV === 'develop' && account?.id === urlParams.id && (
+        <DebugRegistrationTime
+          onApply={async (t) => {
+            const updatedRecords = userInfo.records.map((r) =>
+              r.contestID === 'registration' ? { ...r, startTime: t } : r
+            );
+            await firebase.firestore().collection('users').doc(account.id).update({
+              registrationTime: t,
+              records: updatedRecords,
+            });
+            dispatch(fetchProfile(account.id));
+          }}
+        />
+      )}
       <RatingGraph
         data={data}
         ratingBands={AC_RATING_BANDS}
@@ -196,8 +214,8 @@ const ProfilePage: React.FC = () => {
         </Table.Header>
 
         <Table.Body>
-          {userInfo.records.map((record, idx) => {
-            const cert = getCertificate(userInfo, idx);
+          {sortedRecords.map((record, idx) => {
+            const cert = getCertificate(sortedUserInfo, idx);
 
             return (
               <Table.Row key={record.startTime}>
@@ -241,7 +259,7 @@ const ProfilePage: React.FC = () => {
                   <div
                     style={{ cursor: 'pointer' }}
                     onClick={() => {
-                      setCertIdx(userInfo.records.length - idx - 1);
+                      setCertIdx(idx);
                     }}
                   >
                     <Icon name="file outline" />
