@@ -11,7 +11,7 @@ export const updateRating = functions.https.onCall(async (data, context) => {
     return;
   }
 
-  const newProfile = updateRatingAPI(userID);
+  const newProfile = await updateRatingAPI(userID);
 
   return newProfile;
 });

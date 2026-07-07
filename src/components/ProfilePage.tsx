@@ -19,6 +19,7 @@ import {
   RatingGraph,
   DebugLastUpdateTime,
   DebugRegistrationTime,
+  DebugResetRecords,
   dateAndTimeStringFromSeconds,
 } from '../anytime-ui';
 import type { RatingBand } from '../anytime-ui';
@@ -189,6 +190,20 @@ const ProfilePage: React.FC = () => {
             await firebase.firestore().collection('users').doc(account.id).update({
               registrationTime: t,
               records: updatedRecords,
+            });
+            dispatch(fetchProfile(account.id));
+          }}
+        />
+      )}
+      {process.env.REACT_APP_ENV === 'develop' && account?.id === urlParams.id && (
+        <DebugResetRecords
+          onReset={async () => {
+            const registrationRecord = userInfo.records.find((r) => r.contestID === 'registration');
+            await firebase.firestore().collection('users').doc(account.id).update({
+              records: registrationRecord ? [registrationRecord] : [],
+              lastUpdateTime: userInfo.registrationTime,
+              rating: 0,
+              isUpdating: false,
             });
             dispatch(fetchProfile(account.id));
           }}

@@ -31,7 +31,7 @@ const updateRatingAPI = async (userID: string) => {
     return;
   }
   if (alreadyUpdating) {
-    return { alreadyUpdating: true };
+    throw new Error('すでに更新処理が実行中です');
   }
 
   try {
@@ -46,10 +46,17 @@ const updateRatingAPI = async (userID: string) => {
     const allContests = await fetchAllContests();
 
     for (const contestID of Object.keys(submissions)) {
-      const participation = await checkParticipation(
-        profile.handle,
-        submissions[contestID]
-      ).catch((e) => e);
+      let participation: ParticipationInfo | null;
+      try {
+        participation = await checkParticipation(
+          profile.handle,
+          submissions[contestID]
+        );
+      } catch (e) {
+        // スタンディング取得失敗はスキップして次のコンテストへ
+        console.error(`checkParticipation failed for ${contestID}:`, e);
+        continue;
+      }
 
       if (participation === null) {
         await profileRef.update({
