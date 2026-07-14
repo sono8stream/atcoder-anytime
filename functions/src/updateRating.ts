@@ -3,7 +3,10 @@ import * as functions from 'firebase-functions';
 
 import updateRatingAPI from './utils/updateRatingAPI';
 
-export const updateRating = functions.runWith({ timeoutSeconds: 540 }).https.onCall(async (data, context) => {
+const TIMEOUT_SECONDS = 540;
+const DEADLINE_BUFFER_SECONDS = 30; // タイムアウト30秒前に打ち切り
+
+export const updateRating = functions.runWith({ timeoutSeconds: TIMEOUT_SECONDS }).https.onCall(async (data, context) => {
   const userID = data.userID;
   if (!userID) return;
 
@@ -27,8 +30,20 @@ export const updateRating = functions.runWith({ timeoutSeconds: 540 }).https.onC
     throw new functions.https.HttpsError('already-exists', 'すでに更新処理が実行中です');
   }
 
+  const deadlineMs = Date.now() + (TIMEOUT_SECONDS - DEADLINE_BUFFER_SECONDS) * 1000;
+
   try {
-    await updateRatingAPI(userID);
+    const result = await updateRatingAPI(userID, deadlineMs);
+
+    if (result.timedOut) {
+      // 打ち切り: job doc を 'requested' に戻してクライアントに再トリガーさせる
+      await jobRef.update({
+        status: 'requested',
+        requestedAt: admin.firestore.FieldValue.serverTimestamp(),
+      });
+      return;
+    }
+
     await jobRef.update({
       status: 'completed',
       completedAt: admin.firestore.FieldValue.serverTimestamp(),

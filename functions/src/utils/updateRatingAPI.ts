@@ -16,12 +16,13 @@ interface TaskResult {
 }
 
 //  提出から参加したコンテストを検出し，レート変動させる
-const updateRatingAPI = async (userID: string) => {
+//  deadlineMs: この時刻を過ぎたら打ち切り（callable タイムアウト対策）
+const updateRatingAPI = async (userID: string, deadlineMs?: number): Promise<{ timedOut: boolean }> => {
   const profileRef = admin.firestore().collection('users').doc(userID);
 
   const profileSnapShot = await profileRef.get();
   if (!profileSnapShot.exists) {
-    return;
+    return { timedOut: false };
   }
   const profile = profileSnapShot.data() as NewUserProfile;
 
@@ -30,6 +31,12 @@ const updateRatingAPI = async (userID: string) => {
   const allContests = await fetchAllContests();
 
   for (const contestID of Object.keys(submissions)) {
+    // タイムアウトが近づいたら打ち切り（lastUpdateTime は各コンテスト後に保存済みなので再開可能）
+    if (deadlineMs && Date.now() >= deadlineMs) {
+      console.log(`Approaching timeout, stopping at ${contestID}`);
+      return { timedOut: true };
+    }
+
     let participation: ParticipationInfo | null;
     try {
       participation = await checkParticipation(
@@ -74,7 +81,7 @@ const updateRatingAPI = async (userID: string) => {
     await profileRef.update(profile as any);
   }
 
-  return profile;
+  return { timedOut: false };
 };
 
 const getSubmissions = async (handle: string): Promise<Submission[]> => {

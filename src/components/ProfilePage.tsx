@@ -89,8 +89,12 @@ const ProfilePage: React.FC = () => {
       .collection('meta').doc('updateJob')
       .onSnapshot((snap) => {
         const status = snap.data()?.status;
-        if (status === 'requested' || status === 'running') {
+        if (status === 'running') {
           dispatch(setIsUpdatingRating(true));
+        } else if (status === 'requested') {
+          // タイムアウトによる打ち切り後のリトライ要求 → 新しい callable を発行
+          dispatch(setIsUpdatingRating(true));
+          dispatch(updateContestRecords());
         } else if (status === 'completed' || status === 'failed') {
           dispatch(setIsUpdatingRating(false));
         }
