@@ -33,7 +33,7 @@ export const updateRating = functions.runWith({ timeoutSeconds: TIMEOUT_SECONDS 
   const deadlineMs = Date.now() + (TIMEOUT_SECONDS - DEADLINE_BUFFER_SECONDS) * 1000;
 
   try {
-    const result = await updateRatingAPI(userID, deadlineMs);
+    const result = await updateRatingAPI(userID, deadlineMs, jobRef);
 
     if (result.timedOut) {
       // 打ち切り: job doc を 'requested' に戻してクライアントに再トリガーさせる
@@ -41,6 +41,11 @@ export const updateRating = functions.runWith({ timeoutSeconds: TIMEOUT_SECONDS 
         status: 'requested',
         requestedAt: admin.firestore.FieldValue.serverTimestamp(),
       });
+      return;
+    }
+
+    if (result.cancelled) {
+      // updateUserProfile によるキャンセル: job doc は updateUserProfileAPI が更新済み
       return;
     }
 

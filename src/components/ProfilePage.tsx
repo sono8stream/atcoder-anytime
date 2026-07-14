@@ -95,7 +95,7 @@ const ProfilePage: React.FC = () => {
           // タイムアウトによる打ち切り後のリトライ要求 → 新しい callable を発行
           dispatch(setIsUpdatingRating(true));
           dispatch(updateContestRecords());
-        } else if (status === 'completed' || status === 'failed') {
+        } else if (status === 'completed' || status === 'failed' || status === 'cancelled') {
           dispatch(setIsUpdatingRating(false));
         }
       });

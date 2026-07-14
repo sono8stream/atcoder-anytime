@@ -15,14 +15,21 @@ interface TaskResult {
   Status: number;
 }
 
+type UpdateResult = { timedOut: boolean; cancelled: boolean };
+
 //  提出から参加したコンテストを検出し，レート変動させる
 //  deadlineMs: この時刻を過ぎたら打ち切り（callable タイムアウト対策）
-const updateRatingAPI = async (userID: string, deadlineMs?: number): Promise<{ timedOut: boolean }> => {
+//  jobRef: キャンセル検知用（updateUserProfile 実行時に 'cancelled' に変わる）
+const updateRatingAPI = async (
+  userID: string,
+  deadlineMs?: number,
+  jobRef?: admin.firestore.DocumentReference
+): Promise<UpdateResult> => {
   const profileRef = admin.firestore().collection('users').doc(userID);
 
   const profileSnapShot = await profileRef.get();
   if (!profileSnapShot.exists) {
-    return { timedOut: false };
+    return { timedOut: false, cancelled: false };
   }
   const profile = profileSnapShot.data() as NewUserProfile;
 
@@ -34,7 +41,16 @@ const updateRatingAPI = async (userID: string, deadlineMs?: number): Promise<{ t
     // タイムアウトが近づいたら打ち切り（lastUpdateTime は各コンテスト後に保存済みなので再開可能）
     if (deadlineMs && Date.now() >= deadlineMs) {
       console.log(`Approaching timeout, stopping at ${contestID}`);
-      return { timedOut: true };
+      return { timedOut: true, cancelled: false };
+    }
+
+    // ハンドル再登録によるキャンセルチェック
+    if (jobRef) {
+      const jobSnap = await jobRef.get();
+      if (jobSnap.data()?.status !== 'running') {
+        console.log(`Job cancelled at ${contestID}`);
+        return { timedOut: false, cancelled: true };
+      }
     }
 
     let participation: ParticipationInfo | null;
@@ -81,7 +97,7 @@ const updateRatingAPI = async (userID: string, deadlineMs?: number): Promise<{ t
     await profileRef.update(profile as any);
   }
 
-  return { timedOut: false };
+  return { timedOut: false, cancelled: false };
 };
 
 const getSubmissions = async (handle: string): Promise<Submission[]> => {
