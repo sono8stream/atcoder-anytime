@@ -224,12 +224,18 @@ const ProfilePage: React.FC = () => {
         <DebugResetRecords
           onReset={async () => {
             const registrationRecord = userInfo.records.find((r) => r.contestID === 'registration');
-            await firebase.firestore().collection('users').doc(account.id).update({
-              records: registrationRecord ? [registrationRecord] : [],
-              lastUpdateTime: userInfo.registrationTime,
-              rating: 0,
-              isUpdating: false,
-            });
+            await Promise.all([
+              firebase.firestore().collection('users').doc(account.id).update({
+                records: registrationRecord ? [registrationRecord] : [],
+                lastUpdateTime: userInfo.registrationTime,
+                rating: 0,
+              }),
+              // job doc のロックもリセット（前の更新が途中で止まった場合の復旧用）
+              firebase.firestore()
+                .collection('users').doc(account.id)
+                .collection('meta').doc('updateJob')
+                .set({ status: 'idle', resetAt: new Date().toISOString() }),
+            ]);
             dispatch(fetchProfile(account.id));
           }}
         />

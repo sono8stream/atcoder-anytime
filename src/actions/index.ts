@@ -94,7 +94,6 @@ export const addContestRecordAction = actionCreator<{
 
 export const setIsUpdatingRating = actionCreator<boolean>('SetIsUpdatingRating');
 
-// job doc に書き込んで即返却。実際の進捗は job doc の onSnapshot で受け取る
 export const updateContestRecords = () => async (
   dispatch: Dispatch,
   getState: () => RootState
@@ -103,8 +102,12 @@ export const updateContestRecords = () => async (
   const userID = getState().account.id;
   try {
     await firebase.functions().httpsCallable('updateRating')({ userID });
-  } catch (e) {
-    // callable 自体が失敗した場合（job doc 書き込み前）はここでローディングを終了
+    // 完了は job doc の onSnapshot で受け取る
+  } catch (e: any) {
+    if (e?.code === 'functions/already-exists') {
+      // 別のリクエストが実行中 - そちらの完了を onSnapshot で待つ
+      return;
+    }
     dispatch(setIsUpdatingRating(false));
   }
 };
