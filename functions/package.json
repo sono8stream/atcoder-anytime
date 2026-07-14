@@ -7,7 +7,15 @@
     "shell": "tsc-watch --build --onFirstSuccess \"firebase functions:shell\"",
     "start": "npm run shell",
     "deploy": "firebase deploy --only functions",
-    "logs": "firebase functions:log"
+    "logs": "firebase functions:log",
+    "test": "jest"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "moduleNameMapper": {
+      "^shared/(.*)$": "<rootDir>/../shared/dist/$1"
+    }
   },
   "main": "lib/index.js",
   "dependencies": {
@@ -16,6 +24,9 @@
     "firebase-functions": "^4.9.0"
   },
   "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "jest": "^30.4.2",
+    "ts-jest": "^29.4.11",
     "tsc-watch": "^4.2.9",
     "tslint": "^6.1.2",
     "typescript": "^5.4.0"
