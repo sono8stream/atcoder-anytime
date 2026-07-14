@@ -92,44 +92,20 @@ export const addContestRecordAction = actionCreator<{
   record: ContestRecord;
 }>('AddContestRecord');
 
-export const updateContestRecords = (
-  onStart?: () => void,
-  onDone?: () => void,
-  onFailed?: () => void
-) => async (dispatch: Dispatch, getState: () => RootState) => {
-  dispatch(updateContestRecordsActions.started(false));
-  if (onStart) {
-    onStart();
-  }
+export const setIsUpdatingRating = actionCreator<boolean>('SetIsUpdatingRating');
+
+// job doc に書き込んで即返却。実際の進捗は job doc の onSnapshot で受け取る
+export const updateContestRecords = () => async (
+  dispatch: Dispatch,
+  getState: () => RootState
+) => {
+  dispatch(setIsUpdatingRating(true));
   const userID = getState().account.id;
   try {
-    const response = await firebase.functions().httpsCallable('updateRating')({
-      userID,
-    });
-    console.log(response);
-    if (response.data) {
-      dispatch(
-        updateContestRecordsActions.done({
-          params: true,
-          result: response.data,
-        })
-      );
-      if (onDone) {
-        onDone();
-      }
-    } else {
-      throw new Error('Invalid response data');
-    }
+    await firebase.functions().httpsCallable('updateRating')({ userID });
   } catch (e) {
-    dispatch(
-      updateContestRecordsActions.failed({
-        params: true,
-        error: { value: e },
-      })
-    );
-    if (onFailed) {
-      onFailed();
-    }
+    // callable 自体が失敗した場合（job doc 書き込み前）はここでローディングを終了
+    dispatch(setIsUpdatingRating(false));
   }
 };
 

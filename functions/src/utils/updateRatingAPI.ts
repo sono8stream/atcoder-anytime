@@ -18,82 +18,62 @@ interface TaskResult {
 const updateRatingAPI = async (userID: string) => {
   const profileRef = admin.firestore().collection('users').doc(userID);
 
-  // 並列実行を防ぐロック: トランザクションで isUpdating を確認・設定
-  const alreadyUpdating = await admin.firestore().runTransaction(async (t) => {
-    const snap = await t.get(profileRef);
-    if (!snap.exists) return null;
-    if ((snap.data() as any).isUpdating) return true;
-    t.update(profileRef, { isUpdating: true });
-    return false;
-  });
-
-  if (alreadyUpdating === null) {
+  const profileSnapShot = await profileRef.get();
+  if (!profileSnapShot.exists) {
     return;
   }
-  if (alreadyUpdating) {
-    throw new Error('すでに更新処理が実行中です');
-  }
+  const profile = profileSnapShot.data() as NewUserProfile;
 
-  try {
-    const profileSnapShot = await profileRef.get();
-    if (!profileSnapShot.exists) {
-      return;
-    }
-    const profile = profileSnapShot.data() as NewUserProfile;
+  const allSubmissions = await getSubmissions(profile.handle);
+  const submissions = clusterSubmissions(allSubmissions, profile);
+  const allContests = await fetchAllContests();
 
-    const allSubmissions = await getSubmissions(profile.handle);
-    const submissions = clusterSubmissions(allSubmissions, profile);
-    const allContests = await fetchAllContests();
-
-    for (const contestID of Object.keys(submissions)) {
-      let participation: ParticipationInfo | null;
-      try {
-        participation = await checkParticipation(
-          profile.handle,
-          submissions[contestID]
-        );
-      } catch (e) {
-        // スタンディング取得失敗はスキップして次のコンテストへ
-        console.error(`checkParticipation failed for ${contestID}:`, e);
-        continue;
-      }
-
-      if (participation === null) {
-        await profileRef.update({
-          // 最初の提出までは進める
-          lastUpdateTime: submissions[contestID][0].epoch_second,
-        });
-        continue;
-      }
-
-      if (!participation.isFinished) {
-        break;
-      }
-
-      // レート計算
-      const contestResult = await calculateNewRating(participation, profile);
-
-      const newRecord = {
-        contestID: participation.contestID,
-        startTime: participation.startTimeSeconds,
-        contestName: allContests[participation.contestID] || '',
-        rank: contestResult.rank,
-        newRating: contestResult.newRating,
-        oldRating: profile.rating,
-        roundedPerformance: contestResult.roundedPerformance,
-        isRated: contestResult.isRated,
-      };
-
-      profile.lastUpdateTime = submissions[contestID][0].epoch_second;
-      profile.records.unshift(newRecord);
-      profile.rating = contestResult.newRating;
-      await profileRef.update(profile as any);
+  for (const contestID of Object.keys(submissions)) {
+    let participation: ParticipationInfo | null;
+    try {
+      participation = await checkParticipation(
+        profile.handle,
+        submissions[contestID]
+      );
+    } catch (e) {
+      // スタンディング取得失敗はスキップして次のコンテストへ
+      console.error(`checkParticipation failed for ${contestID}:`, e);
+      continue;
     }
 
-    return profile;
-  } finally {
-    await profileRef.update({ isUpdating: false });
+    if (participation === null) {
+      await profileRef.update({
+        // 最初の提出までは進める
+        lastUpdateTime: submissions[contestID][0].epoch_second,
+      });
+      continue;
+    }
+
+    if (!participation.isFinished) {
+      break;
+    }
+
+    // レート計算
+    const contestResult = await calculateNewRating(participation, profile);
+
+    const newRecord = {
+      contestID: participation.contestID,
+      startTime: participation.startTimeSeconds,
+      contestName: allContests[participation.contestID] || '',
+      rank: contestResult.rank,
+      newRating: contestResult.newRating,
+      oldRating: profile.rating,
+      roundedPerformance: contestResult.roundedPerformance,
+      isRated: contestResult.isRated,
+    };
+
+    profile.lastUpdateTime = submissions[contestID][0].epoch_second;
+    profile.records.unshift(newRecord);
+    profile.rating = contestResult.newRating;
+    await profileRef.update(profile as any);
   }
+
+  return profile;
 };
 
 const getSubmissions = async (handle: string): Promise<Submission[]> => {

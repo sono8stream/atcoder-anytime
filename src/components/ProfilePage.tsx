@@ -13,7 +13,13 @@ import {
   Table,
 } from 'semantic-ui-react';
 import UserProfile from 'shared/types/userProfile';
-import { fetchProfile, fetchUsers, updateContestRecords } from '../actions';
+import {
+  fetchProfile,
+  fetchProfileActions,
+  fetchUsers,
+  setIsUpdatingRating,
+  updateContestRecords,
+} from '../actions';
 import firebase from '../firebase';
 import {
   RatingGraph,
@@ -58,24 +64,43 @@ const ProfilePage: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    if (!account.id || account.id !== urlParams.id) {
-      return;
-    }
+    if (!account.id || account.id !== urlParams.id) return;
 
-    dispatch(
-      fetchProfile(
-        account.id,
-        () => {
-          if (!isUpdatingRating) {
+    let updateTriggered = false;
+
+    // user doc をリアルタイム購読: コンテストが1件処理されるたびに反映される
+    const unsubscribeProfile = firebase.firestore()
+      .collection('users').doc(account.id)
+      .onSnapshot(
+        (snap) => {
+          if (!snap.exists) { history.push('/profile/update'); return; }
+          dispatch(fetchProfileActions.done({ params: {}, result: snap.data() as UserProfile }));
+          if (!updateTriggered) {
+            updateTriggered = true;
             dispatch(updateContestRecords());
           }
         },
-        () => {
-          history.push('/profile/update');
+        () => history.push('/profile/update')
+      );
+
+    // job doc を購読: ステータス変化でローディングインジケータを制御
+    const unsubscribeJob = firebase.firestore()
+      .collection('users').doc(account.id)
+      .collection('meta').doc('updateJob')
+      .onSnapshot((snap) => {
+        const status = snap.data()?.status;
+        if (status === 'requested' || status === 'running') {
+          dispatch(setIsUpdatingRating(true));
+        } else if (status === 'completed' || status === 'failed') {
+          dispatch(setIsUpdatingRating(false));
         }
-      )
-    );
-  }, [dispatch, account, history, urlParams.id]);
+      });
+
+    return () => {
+      unsubscribeProfile();
+      unsubscribeJob();
+    };
+  }, [dispatch, account.id, history, urlParams.id]);
 
   useEffect(() => {
     if (Object.keys(users).length === 0) {

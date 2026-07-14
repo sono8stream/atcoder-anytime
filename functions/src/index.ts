@@ -21,6 +21,8 @@ export * from './getExternal';
 
 export * from './updateRating';
 
+export * from './updateJob';
+
 export * from './updateUserProfile';
 
 export * from './admin_utils/calculateOfficialResults';

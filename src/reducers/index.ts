@@ -11,6 +11,7 @@ import {
   fetchProfileActions,
   fetchUsersActions,
   logoutActions,
+  setIsUpdatingRating,
   updateContestRecordsActions,
   updateProfileActions,
 } from '../actions';
@@ -56,6 +57,7 @@ const officialRatingRecordsReducer = reducerWithInitialState<ContestRecord[]>(
 );
 
 const isUpdatingRatingReducer = reducerWithInitialState<boolean>(false)
+  .case(setIsUpdatingRating, (_, payload) => payload)
   .case(updateContestRecordsActions.started, () => true)
   .case(updateContestRecordsActions.done, () => false)
   .case(updateContestRecordsActions.failed, () => false);
