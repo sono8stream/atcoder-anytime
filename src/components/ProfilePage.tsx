@@ -4,7 +4,6 @@ import { Link, useHistory, useLocation, useParams } from 'react-router-dom';
 import {
   Button,
   Container,
-  Dimmer,
   Grid,
   Header,
   Icon,
@@ -170,9 +169,7 @@ const ProfilePage: React.FC = () => {
 
   return (
     <>
-      <Dimmer active={isUpdatingRating} inverted={true}>
-        <Loader>更新中...</Loader>
-      </Dimmer>
+      <Loader inverted={true} active={isUpdatingRating} />
       <Header as="h2" style={getRatingColorStyle(userInfo.rating)}>
         {userInfo.handle}
         &nbsp;
