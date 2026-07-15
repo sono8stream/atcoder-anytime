@@ -33,9 +33,14 @@ const updateRatingAPI = async (
   }
   const profile = profileSnapShot.data() as NewUserProfile;
 
+  const t0 = Date.now();
   const allSubmissions = await getSubmissions(profile.handle);
+  console.log(`[perf] getSubmissions: ${Date.now() - t0}ms`);
+
+  const t1 = Date.now();
   const submissions = clusterSubmissions(allSubmissions, profile);
   const allContests = await fetchAllContests();
+  console.log(`[perf] fetchAllContests: ${Date.now() - t1}ms, contests to process: ${Object.keys(submissions).length}`);
 
   for (const contestID of Object.keys(submissions)) {
     // タイムアウトが近づいたら打ち切り（lastUpdateTime は各コンテスト後に保存済みなので再開可能）
@@ -53,6 +58,7 @@ const updateRatingAPI = async (
       }
     }
 
+    const tContest = Date.now();
     let participation: ParticipationInfo | null;
     try {
       participation = await checkParticipation(
@@ -64,6 +70,7 @@ const updateRatingAPI = async (
       console.error(`checkParticipation failed for ${contestID}:`, e);
       continue;
     }
+    console.log(`[perf] ${contestID} checkParticipation: ${Date.now() - tContest}ms`);
 
     if (participation === null) {
       await profileRef.update({
@@ -78,7 +85,9 @@ const updateRatingAPI = async (
     }
 
     // レート計算
+    const tRating = Date.now();
     const contestResult = await calculateNewRating(participation, profile);
+    console.log(`[perf] ${contestID} calculateNewRating: ${Date.now() - tRating}ms`);
 
     const newRecord = {
       contestID: participation.contestID,
@@ -91,10 +100,12 @@ const updateRatingAPI = async (
       isRated: contestResult.isRated,
     };
 
+    const tWrite = Date.now();
     profile.lastUpdateTime = submissions[contestID][0].epoch_second;
     profile.records.unshift(newRecord);
     profile.rating = contestResult.newRating;
     await profileRef.update(profile as any);
+    console.log(`[perf] ${contestID} firestoreWrite: ${Date.now() - tWrite}ms  total: ${Date.now() - tContest}ms`);
   }
 
   return { timedOut: false, cancelled: false };
@@ -154,29 +165,32 @@ const checkParticipation = async (
 };
 
 // コンテスト中に解いた問題と一致する問題があればそこを基準に開始時刻を計算する
-// WAだけしかない場合など，適切な開始時刻が得られない場合は
-// 最も早い提出の時刻を開始時刻とする
+// 1. AC提出でtaskResultsにマッチするものを優先
+// 2. ACがなければ WA含む全提出でマッチを試みる（古いコンテストでIDフォーマットが異なる場合の対策）
+// 3. それでも見つからない場合は最も早い提出の時刻を開始時刻とする
 const checkStartTimeSeconds = (
   taskResults: { [contestID: string]: TaskResult },
   submissions: Submission[]
 ) => {
-  let startTimeSeconds = submissions[0].epoch_second;
   const divisor = 1000000000;
 
+  // Pass 1: AC提出のみ
   for (const submission of submissions) {
-    if (submission.result !== 'AC') {
-      continue;
-    }
-
+    if (submission.result !== 'AC') continue;
     if (taskResults[submission.problem_id]) {
-      startTimeSeconds =
-        submission.epoch_second -
-        taskResults[submission.problem_id].Elapsed / divisor;
-      break;
+      return submission.epoch_second - taskResults[submission.problem_id].Elapsed / divisor;
     }
   }
 
-  return startTimeSeconds;
+  // Pass 2: WA含む全提出（ACでマッチしなかった場合）
+  for (const submission of submissions) {
+    if (taskResults[submission.problem_id]) {
+      return submission.epoch_second - taskResults[submission.problem_id].Elapsed / divisor;
+    }
+  }
+
+  // Fallback: 最初の提出時刻
+  return submissions[0].epoch_second;
 };
 
 const fetchAllContests = async () => {
