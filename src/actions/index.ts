@@ -92,44 +92,23 @@ export const addContestRecordAction = actionCreator<{
   record: ContestRecord;
 }>('AddContestRecord');
 
-export const updateContestRecords = (
-  onStart?: () => void,
-  onDone?: () => void,
-  onFailed?: () => void
-) => async (dispatch: Dispatch, getState: () => RootState) => {
-  dispatch(updateContestRecordsActions.started(false));
-  if (onStart) {
-    onStart();
-  }
+export const setIsUpdatingRating = actionCreator<boolean>('SetIsUpdatingRating');
+
+export const updateContestRecords = () => async (
+  dispatch: Dispatch,
+  getState: () => RootState
+) => {
+  dispatch(setIsUpdatingRating(true));
   const userID = getState().account.id;
   try {
-    const response = await firebase.functions().httpsCallable('updateRating')({
-      userID,
-    });
-    console.log(response);
-    if (response.data) {
-      dispatch(
-        updateContestRecordsActions.done({
-          params: true,
-          result: response.data,
-        })
-      );
-      if (onDone) {
-        onDone();
-      }
-    } else {
-      throw new Error('Invalid response data');
+    await firebase.functions().httpsCallable('updateRating')({ userID });
+    // 完了は job doc の onSnapshot で受け取る
+  } catch (e: any) {
+    if (e?.code === 'functions/already-exists') {
+      // 別のリクエストが実行中 - そちらの完了を onSnapshot で待つ
+      return;
     }
-  } catch (e) {
-    dispatch(
-      updateContestRecordsActions.failed({
-        params: true,
-        error: { value: e },
-      })
-    );
-    if (onFailed) {
-      onFailed();
-    }
+    dispatch(setIsUpdatingRating(false));
   }
 };
 

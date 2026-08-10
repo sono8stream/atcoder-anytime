@@ -7,6 +7,7 @@ import NewUserProfile from '../types/newUserProfile';
 import ParticipationInfo from '../types/participationInfo';
 import accessToAtCoder from './accessToAtCoder';
 import calculateNewRating from './calculateNewRating';
+import { clusterSubmissions } from './clusterSubmissions';
 
 interface TaskResult {
   Penalty: number;
@@ -14,24 +15,62 @@ interface TaskResult {
   Status: number;
 }
 
+type UpdateResult = { timedOut: boolean; cancelled: boolean };
+
 //  提出から参加したコンテストを検出し，レート変動させる
-const updateRatingAPI = async (userID: string) => {
+//  deadlineMs: この時刻を過ぎたら打ち切り（callable タイムアウト対策）
+//  jobRef: キャンセル検知用（updateUserProfile 実行時に 'cancelled' に変わる）
+const updateRatingAPI = async (
+  userID: string,
+  deadlineMs?: number,
+  jobRef?: admin.firestore.DocumentReference
+): Promise<UpdateResult> => {
   const profileRef = admin.firestore().collection('users').doc(userID);
+
   const profileSnapShot = await profileRef.get();
   if (!profileSnapShot.exists) {
-    return;
+    return { timedOut: false, cancelled: false };
   }
   const profile = profileSnapShot.data() as NewUserProfile;
 
+  const t0 = Date.now();
   const allSubmissions = await getSubmissions(profile.handle);
+  console.log(`[perf] getSubmissions: ${Date.now() - t0}ms`);
+
+  const t1 = Date.now();
   const submissions = clusterSubmissions(allSubmissions, profile);
   const allContests = await fetchAllContests();
+  console.log(`[perf] fetchAllContests: ${Date.now() - t1}ms, contests to process: ${Object.keys(submissions).length}`);
 
   for (const contestID of Object.keys(submissions)) {
-    const participation = await checkParticipation(
-      profile.handle,
-      submissions[contestID]
-    ).catch((e) => e);
+    // タイムアウトが近づいたら打ち切り（lastUpdateTime は各コンテスト後に保存済みなので再開可能）
+    if (deadlineMs && Date.now() >= deadlineMs) {
+      console.log(`Approaching timeout, stopping at ${contestID}`);
+      return { timedOut: true, cancelled: false };
+    }
+
+    // ハンドル再登録によるキャンセルチェック
+    if (jobRef) {
+      const jobSnap = await jobRef.get();
+      if (jobSnap.data()?.status !== 'running') {
+        console.log(`Job cancelled at ${contestID}`);
+        return { timedOut: false, cancelled: true };
+      }
+    }
+
+    const tContest = Date.now();
+    let participation: ParticipationInfo | null;
+    try {
+      participation = await checkParticipation(
+        profile.handle,
+        submissions[contestID]
+      );
+    } catch (e) {
+      // スタンディング取得失敗はスキップして次のコンテストへ
+      console.error(`checkParticipation failed for ${contestID}:`, e);
+      continue;
+    }
+    console.log(`[perf] ${contestID} checkParticipation: ${Date.now() - tContest}ms`);
 
     if (participation === null) {
       await profileRef.update({
@@ -46,7 +85,9 @@ const updateRatingAPI = async (userID: string) => {
     }
 
     // レート計算
+    const tRating = Date.now();
     const contestResult = await calculateNewRating(participation, profile);
+    console.log(`[perf] ${contestID} calculateNewRating: ${Date.now() - tRating}ms`);
 
     const newRecord = {
       contestID: participation.contestID,
@@ -59,13 +100,15 @@ const updateRatingAPI = async (userID: string) => {
       isRated: contestResult.isRated,
     };
 
+    const tWrite = Date.now();
     profile.lastUpdateTime = submissions[contestID][0].epoch_second;
     profile.records.unshift(newRecord);
     profile.rating = contestResult.newRating;
     await profileRef.update(profile as any);
+    console.log(`[perf] ${contestID} firestoreWrite: ${Date.now() - tWrite}ms  total: ${Date.now() - tContest}ms`);
   }
 
-  return profile;
+  return { timedOut: false, cancelled: false };
 };
 
 const getSubmissions = async (handle: string): Promise<Submission[]> => {
@@ -85,36 +128,6 @@ const getSubmissions = async (handle: string): Promise<Submission[]> => {
   return [] as Submission[];
 };
 
-const clusterSubmissions = (
-  allSubmissions: Submission[],
-  profile: UserProfile
-): { [key: string]: Submission[] } => {
-  const valids = allSubmissions.filter(
-    (s) => s.epoch_second > profile.lastUpdateTime
-  );
-  valids.sort((a, b) => a.epoch_second - b.epoch_second);
-
-  const participatedContests = new Set<string>();
-  for (const record of profile.records) {
-    participatedContests.add(record.contestID);
-  }
-
-  const filtered: { [key: string]: Submission[] } = {};
-  for (const submission of valids) {
-    // virtualの結果は1つしか存在しない
-    // 過去に参加したコンテストはスキップ
-    if (participatedContests.has(submission.contest_id)) {
-      continue;
-    }
-
-    if (!(submission.contest_id in filtered)) {
-      filtered[submission.contest_id] = [];
-    }
-    filtered[submission.contest_id].push(submission);
-  }
-
-  return filtered;
-};
 
 const checkParticipation = async (
   handle: string,
@@ -152,29 +165,32 @@ const checkParticipation = async (
 };
 
 // コンテスト中に解いた問題と一致する問題があればそこを基準に開始時刻を計算する
-// WAだけしかない場合など，適切な開始時刻が得られない場合は
-// 最も早い提出の時刻を開始時刻とする
+// 1. AC提出でtaskResultsにマッチするものを優先
+// 2. ACがなければ WA含む全提出でマッチを試みる（古いコンテストでIDフォーマットが異なる場合の対策）
+// 3. それでも見つからない場合は最も早い提出の時刻を開始時刻とする
 const checkStartTimeSeconds = (
   taskResults: { [contestID: string]: TaskResult },
   submissions: Submission[]
 ) => {
-  let startTimeSeconds = submissions[0].epoch_second;
   const divisor = 1000000000;
 
+  // Pass 1: AC提出のみ
   for (const submission of submissions) {
-    if (submission.result !== 'AC') {
-      continue;
-    }
-
+    if (submission.result !== 'AC') continue;
     if (taskResults[submission.problem_id]) {
-      startTimeSeconds =
-        submission.epoch_second -
-        taskResults[submission.problem_id].Elapsed / divisor;
-      break;
+      return submission.epoch_second - taskResults[submission.problem_id].Elapsed / divisor;
     }
   }
 
-  return startTimeSeconds;
+  // Pass 2: WA含む全提出（ACでマッチしなかった場合）
+  for (const submission of submissions) {
+    if (taskResults[submission.problem_id]) {
+      return submission.epoch_second - taskResults[submission.problem_id].Elapsed / divisor;
+    }
+  }
+
+  // Fallback: 最初の提出時刻
+  return submissions[0].epoch_second;
 };
 
 const fetchAllContests = async () => {

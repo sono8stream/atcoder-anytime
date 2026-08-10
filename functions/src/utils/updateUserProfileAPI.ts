@@ -10,6 +10,15 @@ const updateUserProfileAPI = async (
   time: number = Math.floor(new Date().getTime() / 1000)
 ) => {
   const profileRef = admin.firestore().collection('users').doc(userID);
+  const jobRef = admin.firestore()
+    .collection('users').doc(userID)
+    .collection('meta').doc('updateJob');
+
+  // 実行中のレート更新をキャンセル（次のコンテスト処理の前に検知される）
+  await jobRef.set({
+    status: 'cancelled',
+    cancelledAt: admin.firestore.FieldValue.serverTimestamp(),
+  });
 
   let rating = 0;
   const url = `https://atcoder.jp/users/${handle}/history/json`;

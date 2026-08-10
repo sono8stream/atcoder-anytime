@@ -9,6 +9,10 @@ service cloud.firestore {
       allow read: if true;
 	    allow write: if request.auth.uid == document;
     }
+
+    match /users/{uid}/meta/{document} {
+      allow read: if true;
+    }
     
     match /availableContests/{document} {
       allow read: if true;

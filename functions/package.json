@@ -2,12 +2,20 @@
   "name": "functions",
   "scripts": {
     "lint": "node node_modules/tslint/bin/tslint --project tsconfig.json",
-    "build": "node node_modules/typescript/bin/tsc --build --force && printf '#!/usr/bin/env node\\nrequire(\"../firebase-functions/lib/bin/firebase-functions.js\");\\n' > node_modules/.bin/firebase-functions",
+    "build": "node node_modules/typescript/bin/tsc --build --force",
     "serve": "tsc-watch --build --onFirstSuccess \"firebase serve --only functions\"",
     "shell": "tsc-watch --build --onFirstSuccess \"firebase functions:shell\"",
     "start": "npm run shell",
     "deploy": "firebase deploy --only functions",
-    "logs": "firebase functions:log"
+    "logs": "firebase functions:log",
+    "test": "jest"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "moduleNameMapper": {
+      "^shared/(.*)$": "<rootDir>/../shared/dist/$1"
+    }
   },
   "main": "lib/index.js",
   "dependencies": {
@@ -16,6 +24,9 @@
     "firebase-functions": "^4.9.0"
   },
   "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "jest": "^30.4.2",
+    "ts-jest": "^29.4.11",
     "tsc-watch": "^4.2.9",
     "tslint": "^6.1.2",
     "typescript": "^5.4.0"

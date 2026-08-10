@@ -12,11 +12,19 @@ import {
   Table,
 } from 'semantic-ui-react';
 import UserProfile from 'shared/types/userProfile';
-import { fetchProfile, fetchUsers, updateContestRecords } from '../actions';
+import {
+  fetchProfile,
+  fetchProfileActions,
+  fetchUsers,
+  setIsUpdatingRating,
+  updateContestRecords,
+} from '../actions';
 import firebase from '../firebase';
 import {
   RatingGraph,
   DebugLastUpdateTime,
+  DebugRegistrationTime,
+  DebugResetRecords,
   dateAndTimeStringFromSeconds,
 } from '../anytime-ui';
 import type { RatingBand } from '../anytime-ui';
@@ -55,24 +63,47 @@ const ProfilePage: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    if (!account.id || account.id !== urlParams.id) {
-      return;
-    }
+    if (!account.id || account.id !== urlParams.id) return;
 
-    dispatch(
-      fetchProfile(
-        account.id,
-        () => {
-          if (!isUpdatingRating) {
+    let updateTriggered = false;
+
+    // user doc をリアルタイム購読: コンテストが1件処理されるたびに反映される
+    const unsubscribeProfile = firebase.firestore()
+      .collection('users').doc(account.id)
+      .onSnapshot(
+        (snap) => {
+          if (!snap.exists) { history.push('/profile/update'); return; }
+          dispatch(fetchProfileActions.done({ params: {}, result: snap.data() as UserProfile }));
+          if (!updateTriggered) {
+            updateTriggered = true;
             dispatch(updateContestRecords());
           }
         },
-        () => {
-          history.push('/profile/update');
+        () => history.push('/profile/update')
+      );
+
+    // job doc を購読: ステータス変化でローディングインジケータを制御
+    const unsubscribeJob = firebase.firestore()
+      .collection('users').doc(account.id)
+      .collection('meta').doc('updateJob')
+      .onSnapshot((snap) => {
+        const status = snap.data()?.status;
+        if (status === 'running') {
+          dispatch(setIsUpdatingRating(true));
+        } else if (status === 'requested') {
+          // タイムアウトによる打ち切り後のリトライ要求 → 新しい callable を発行
+          dispatch(setIsUpdatingRating(true));
+          dispatch(updateContestRecords());
+        } else if (status === 'completed' || status === 'failed' || status === 'cancelled') {
+          dispatch(setIsUpdatingRating(false));
         }
-      )
-    );
-  }, [dispatch, account, history, urlParams.id]);
+      });
+
+    return () => {
+      unsubscribeProfile();
+      unsubscribeJob();
+    };
+  }, [dispatch, account.id, history, urlParams.id]);
 
   useEffect(() => {
     if (Object.keys(users).length === 0) {
@@ -100,16 +131,16 @@ const ProfilePage: React.FC = () => {
     userInfo = profile;
   }
 
+  const sortedRecords = [...userInfo.records].sort((a, b) => b.startTime - a.startTime);
+  const sortedUserInfo = { ...userInfo, records: sortedRecords };
+
   let certificate = null;
-  if (certIdx >= 0 && userInfo.records[userInfo.records.length - certIdx - 1]) {
-    certificate = getCertificate(
-      userInfo,
-      userInfo.records.length - certIdx - 1
-    );
+  if (certIdx >= 0 && sortedRecords[certIdx]) {
+    certificate = getCertificate(sortedUserInfo, certIdx);
   }
 
   const data: { name: string; time: number; rating: number }[] = [];
-  userInfo.records.forEach((record) => {
+  sortedRecords.forEach((record) => {
     if (
       record.contestID === 'registration' ||
       record.isRated === true ||
@@ -176,6 +207,40 @@ const ProfilePage: React.FC = () => {
           }}
         />
       )}
+      {process.env.REACT_APP_ENV === 'develop' && account?.id === urlParams.id && (
+        <DebugRegistrationTime
+          onApply={async (t) => {
+            const updatedRecords = userInfo.records.map((r) =>
+              r.contestID === 'registration' ? { ...r, startTime: t } : r
+            );
+            await firebase.firestore().collection('users').doc(account.id).update({
+              registrationTime: t,
+              records: updatedRecords,
+            });
+            dispatch(fetchProfile(account.id));
+          }}
+        />
+      )}
+      {process.env.REACT_APP_ENV === 'develop' && account?.id === urlParams.id && (
+        <DebugResetRecords
+          onReset={async () => {
+            const registrationRecord = userInfo.records.find((r) => r.contestID === 'registration');
+            await Promise.all([
+              firebase.firestore().collection('users').doc(account.id).update({
+                records: registrationRecord ? [registrationRecord] : [],
+                lastUpdateTime: userInfo.registrationTime,
+                rating: 0,
+              }),
+              // job doc のロックもリセット（前の更新が途中で止まった場合の復旧用）
+              firebase.firestore()
+                .collection('users').doc(account.id)
+                .collection('meta').doc('updateJob')
+                .set({ status: 'idle', resetAt: new Date().toISOString() }),
+            ]);
+            dispatch(fetchProfile(account.id));
+          }}
+        />
+      )}
       <RatingGraph
         data={data}
         ratingBands={AC_RATING_BANDS}
@@ -196,8 +261,8 @@ const ProfilePage: React.FC = () => {
         </Table.Header>
 
         <Table.Body>
-          {userInfo.records.map((record, idx) => {
-            const cert = getCertificate(userInfo, idx);
+          {sortedRecords.map((record, idx) => {
+            const cert = getCertificate(sortedUserInfo, idx);
 
             return (
               <Table.Row key={record.startTime}>
@@ -241,7 +306,7 @@ const ProfilePage: React.FC = () => {
                   <div
                     style={{ cursor: 'pointer' }}
                     onClick={() => {
-                      setCertIdx(userInfo.records.length - idx - 1);
+                      setCertIdx(idx);
                     }}
                   >
                     <Icon name="file outline" />
